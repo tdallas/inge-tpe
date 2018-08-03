@@ -1,4 +1,4 @@
-package com.inge.inge;
+package com.inge.back;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
