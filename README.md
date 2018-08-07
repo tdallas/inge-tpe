@@ -1,7 +1,7 @@
 # Inge Trabajo Práctico Especial
-Arquitectura: (Pasar a un documento) /n
-Backend: Java, Spring Framework para WebServices, Lombok para mejorar la visual del código, PostgreSQL para la base de datos, Spring Security en el caso de ser necesario para Login y API Request con credenciales. /n
-Frontend: Android nativo, Java y Kotlin.
+*Arquitectura: (Pasar a un documento) 
+*Backend: Java, Spring Framework para WebServices, Lombok para mejorar la visual del código, PostgreSQL para la base de datos, Spring Security en el caso de ser necesario para Login y API Request con credenciales.
+*Frontend: Android nativo, Java y Kotlin.
 
 Tareas a realizar:
 1) En issues están las tareas a realizar, estimadas en tiempo para 1 (una) persona, es decir, si una tarea está estimada en 8 hs de una persona, entre 2 personas deberia ocupar 4 hs de tiempo para cada una, y así. (Las estimaciones se deberían de realizar entre todo el grupo). También se encuentran labelizadas según el tipo de tarea y están categorizadas por milestones, además.
