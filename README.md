@@ -1,5 +1,5 @@
 # Inge Trabajo Práctico Especial
->Arquitectura: (Pasar a un documento) 
+Arquitectura: (Pasar a un documento) 
 
 >Backend: Java, Spring Framework para WebServices, Lombok para mejorar la visual del código, PostgreSQL para la base de datos, Spring Security en el caso de ser necesario para Login y API Request con credenciales.
 
