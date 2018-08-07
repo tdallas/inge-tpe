@@ -1,4 +1,7 @@
 # Inge Trabajo Práctico Especial
+Tareas a realizar:
+-En issues están las tareas a realizar, estimadas en tiempo para 1 (una) persona, es decir, si una tarea está estimada en 8 hs de una persona, entre 2 personas deberia ocupar 4 hs de tiempo para cada una, y así. (Las estimaciones se deberían de realizar entre todo el grupo). También se encuentran labelizadas según el tipo de tarea y están categorizadas por milestones, además.
+
 Instrucciones de instalacion:
 1) Instalar maven:
     sudo apt-get install maven
@@ -6,3 +9,6 @@ Instrucciones de instalacion:
    TODO (Armar un script para buildear back y front)
 2) Compilar el backend
 3) Levantar el backend
+..
+..
+6) Instalar el .apk en el celular
