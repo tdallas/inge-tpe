@@ -1,4 +1,4 @@
-package com.example.tomas.ingeapp
+package com.ingeapp
 
 import org.junit.Test
 
