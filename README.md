@@ -5,19 +5,15 @@ Arquitectura: (Pasar a un documento)
 
 >Frontend: Android nativo, Java y Kotlin.
 
-Tareas a realizar:
-1) En issues están las tareas a realizar, estimadas en tiempo para 1 (una) persona, es decir, si una tarea está estimada en 8 hs de una persona, entre 2 personas deberia ocupar 4 hs de tiempo para cada una, y así. (Las estimaciones se deberían de realizar entre todo el grupo). También se encuentran labelizadas según el tipo de tarea y están categorizadas por milestones, además.
-2) Cada tarea (sea feature, bug, documentacion) debe tener su correspondiente branch, luego de finalizar la misma se debe crear el PR (Pull request) correspondiente a DEVELOP, previo a resolver conflictos si los hay. Para su posterior aprobación un integrante debe tener que revisar el codigo, probarlo y ver que ni los tests, ni las funcionalidades anteriores se rompan, y las nuevas funcionen.
-3) Cada branch debe nombrarse idBranch-nombre-tarea para un mejor trackeo de los issues, ya que github asocia el nro de issue con el idBranch.
-4) Tratemos de commitear cosas que funcionen (minimo que compilen)
+Cada issue (sea feature, bug, documentacion) debe tener su correspondiente branch, luego de finalizar la misma se debe crear el PR (Pull request) correspondiente a DEVELOP, previo a resolver conflictos si los hay. Para su posterior aprobación un integrante debe tener que revisar el codigo, probarlo y ver que ni los tests, ni las funcionalidades anteriores se rompan, y las nuevas funcionen.
+Cada branch debe nombrarse idBranch-nombre-tarea para un mejor trackeo de los issues.
 
 Instrucciones de instalacion:
-1) Instalar maven:
-    sudo apt-get install maven
-    
-   TODO (Armar un script para buildear back y front)
-2) Compilar el backend
-3) Levantar el backend
-..
-..
-6) Instalar el .apk en el celular
+1) Instalar Intellij
+2) Instalar postgresql version 9.5
+3) En una terminal hacer sudo -u postgres psql
+4) ALTER USER postgres PASSWORD 'postgres';
+5) Clonarse el repo
+6) Clean y compilar el backend
+7) 'Darle play' al backend, ver que no haya explotado por algo y haya quedado levantado
+8) Instalar el .apk en el celular
