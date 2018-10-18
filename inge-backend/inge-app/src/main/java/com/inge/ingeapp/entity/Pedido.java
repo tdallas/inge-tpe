@@ -30,7 +30,7 @@ public class Pedido {
         if (productos.size() != 0) {
             Double precioFinal = 0d;
             for (Producto p : productos)
-                precioFinal += p.
+                precioFinal += p.getPrecio();
         }
         return null;
     }
