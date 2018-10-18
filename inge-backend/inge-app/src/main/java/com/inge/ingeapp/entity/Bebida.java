@@ -15,9 +15,6 @@ import javax.persistence.GenerationType;
 @Getter
 @Setter
 @Entity
-public class Bebida {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+public class Bebida extends Producto{
     private String marca;
 }

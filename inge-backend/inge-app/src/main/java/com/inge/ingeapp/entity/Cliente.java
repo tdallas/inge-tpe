@@ -16,6 +16,7 @@ import java.util.List;
 @Entity
 public class Cliente extends Usuario {
     private List<Cliente> referidos;
+    private List<Pedido> pedidosRealizados;
     private String idParaReferir;
     private Date fechaDeNacimiento;
 

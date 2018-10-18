@@ -11,5 +11,6 @@ import java.util.List;
 public class Restaurante extends Usuario {
 
     private List<Producto> productosPorRealizar;
+    private List<Calificacion> calificaciones;
 
 }

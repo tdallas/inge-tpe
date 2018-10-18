@@ -15,7 +15,7 @@ import javax.persistence.GenerationType;
 @Getter
 @Setter
 @Entity
-public class Producto {
+public abstract class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

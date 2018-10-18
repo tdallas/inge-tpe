@@ -15,9 +15,6 @@ import javax.persistence.GenerationType;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Pizza {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+public class Pizza extends Producto{
     private String ingredientes;
 }
