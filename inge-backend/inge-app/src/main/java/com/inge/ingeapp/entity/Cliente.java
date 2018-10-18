@@ -1,4 +1,25 @@
 package com.inge.ingeapp.entity;
 
-public class Cliente {
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.Entity;
+import java.util.Date;
+import java.util.List;
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@Entity
+public class Cliente extends Usuario {
+    private List<Cliente> referidos;
+    private String idParaReferir;
+    private Date fechaDeNacimiento;
+
+    public void agregarReferido(Cliente cliente) {
+        referidos.add(cliente);
+    }
 }
