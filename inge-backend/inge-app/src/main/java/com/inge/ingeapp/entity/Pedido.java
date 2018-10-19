@@ -27,18 +27,22 @@ public class Pedido {
     @Embedded
     private Estado estado;
 
-    private Usuario usuario;
+    @ManyToOne
+    private Cliente cliente;
 
-    @OneToMany
+    @ManyToMany
     private List<Producto> productos = new ArrayList<>();
 
     @Embedded
     private Calificacion calificacion;
 
-    @OneToMany
+    @OneToOne
     private Direccion direccionEntrega;
 
     private String comentario;
+
+    @ManyToOne
+    private Restaurante restaurante;
 
     public Double getPrecioTotal() {
         if (productos.size() != 0) {

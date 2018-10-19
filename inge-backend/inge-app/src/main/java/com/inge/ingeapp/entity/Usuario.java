@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -20,9 +22,9 @@ public abstract class Usuario {
     private String nombre;
     private String apellido;
     private String email;
-    @OneToMany
+    @ManyToOne
     private Rol rol;
-    @OneToMany
+    @OneToOne
     private Direccion direccion;
 
 }
