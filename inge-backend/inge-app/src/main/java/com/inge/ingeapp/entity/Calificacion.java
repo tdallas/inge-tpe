@@ -1,8 +1,8 @@
 package com.inge.ingeapp.entity;
 
-import javax.persistence.Entity;
+import javax.persistence.Embeddable;
 
-@Entity
+@Embeddable
 public enum Calificacion {
     MALA, REGULAR, NORMAL, BUENA, MUYBUENA
 }

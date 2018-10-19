@@ -4,11 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -22,13 +19,25 @@ public class Pedido {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     private Date horaRealizado;
+
     private Date horaEntrega;
+
+    @Embedded
     private Estado estado;
+
     private Usuario usuario;
+
+    @OneToMany
     private List<Producto> productos = new ArrayList<>();
+
+    @Embedded
     private Calificacion calificacion;
+
+    @OneToMany
     private Direccion direccionEntrega;
+
     private String comentario;
 
     public Double getPrecioTotal() {

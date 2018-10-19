@@ -4,11 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 
 @Getter
 @Setter
@@ -23,7 +20,9 @@ public abstract class Usuario {
     private String nombre;
     private String apellido;
     private String email;
+    @OneToMany
     private Rol rol;
+    @OneToMany
     private Direccion direccion;
 
 }
