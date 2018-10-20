@@ -1,4 +1,7 @@
 package com.inge.ingeapp.repository;
 
-public interface RestaurantRepository {
+import com.inge.ingeapp.entity.Restaurante;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface RestaurantRepository extends JpaRepository<Restaurante, Long> {
 }
