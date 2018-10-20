@@ -23,6 +23,4 @@ public abstract class Producto {
     private String imagenURL;
     @Embedded
     private List<Tamaño> tamanios = new ArrayList<>();
-    @ManyToMany
-    private List<Pedido> pedidos = new ArrayList<>();
 }

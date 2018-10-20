@@ -14,6 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Usuario {
 
     @Id
@@ -24,7 +25,5 @@ public abstract class Usuario {
     private String email;
     @ManyToOne
     private Rol rol;
-    @OneToOne
-    private Direccion direccion;
 
 }

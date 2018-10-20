@@ -36,7 +36,7 @@ public class Pedido {
     @Embedded
     private Calificacion calificacion;
 
-    @OneToOne
+    @Embedded
     private Direccion direccionEntrega;
 
     private String comentario;

@@ -5,8 +5,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import java.util.Date;
 import java.util.List;
 
@@ -22,6 +24,8 @@ public class Cliente extends Usuario {
     private List<Pedido> pedidosRealizados;
     private String idParaReferir;
     private Date fechaDeNacimiento;
+    @Embedded
+    private Direccion direccion;
 
     public void agregarReferido(Cliente cliente) {
         referidos.add(cliente);

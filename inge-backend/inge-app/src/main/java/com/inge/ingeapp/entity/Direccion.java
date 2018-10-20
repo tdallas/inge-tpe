@@ -11,12 +11,8 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Getter
 @Setter
-@Entity
+@Embeddable
 public class Direccion {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
     private String calle;
     private String numero;
     private String piso;
