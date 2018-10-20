@@ -18,7 +18,14 @@ public abstract class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String descripcion;
+    /**
+     * Nombre sería si es pizza, bebida o lo que sea
+     */
+    private String nombre;
+    /**
+     * En detalles iría marca y tipo si fuese bebida o ingredientes si fuese pizza
+     */
+    private String detalles;
     private Double precio;
     private String imagenURL;
     @Embedded
