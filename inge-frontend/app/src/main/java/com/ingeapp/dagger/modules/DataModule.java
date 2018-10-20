@@ -1,8 +1,9 @@
 package com.ingeapp.dagger.modules;
 
-
 import android.arch.persistence.room.Room;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.ingeapp.core.IngeApplication;
 import com.ingeapp.db.IngeDb;
 
@@ -13,8 +14,8 @@ import dagger.Provides;
 
 @Module
 public class DataModule {
-
     private IngeDb ingeDb;
+    private String backupDBPath;
 
     public DataModule(IngeApplication mApplication) {
         ingeDb = Room.databaseBuilder(mApplication, IngeDb.class, "inge-db").fallbackToDestructiveMigration().build();
@@ -22,22 +23,22 @@ public class DataModule {
 
     @Singleton
     @Provides
-    public IngeDb providesRoomDatabase() {
+    IngeDb providesRoomDatabase() {
         return ingeDb;
     }
-
-    /**
+/*
     @Singleton
     @Provides
-    public AlgoDao algoDao(IngeDb ingeDb) {
-        return ingeDb.algoDao();
+    public MissionDao missionDao(BoostDb boostDb){
+        return boostDb.missionDao();
     }
-
-    @Singleton
+*/
     @Provides
-    public AlgoRepository algoRepository(Daos que usa el repository) {
-        return new AlgoRepository(args);
+    @Singleton
+    public Gson provideGson(){
+        return new GsonBuilder()
+                .setLenient()
+                .create();
     }
-    */
 
 }

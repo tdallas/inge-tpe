@@ -1,43 +1,48 @@
 package com.ingeapp.dagger.components;
 
+import android.app.Application;
+
+import com.ingeapp.core.IngeApplication;
+import com.ingeapp.dagger.modules.ActivityModule;
 import com.ingeapp.dagger.modules.ApplicationModule;
 import com.ingeapp.dagger.modules.DataModule;
+import com.ingeapp.dagger.modules.FragmentModule;
+import com.ingeapp.dagger.modules.ServiceModule;
 import com.ingeapp.dagger.modules.ViewModelModule;
 
 import javax.inject.Singleton;
 
+import dagger.BindsInstance;
 import dagger.Component;
+import dagger.android.AndroidInjectionModule;
 
 @Singleton
 @Component(
         modules = {
-                ApplicationModule.class,
+                AndroidInjectionModule.class,
+                ServiceModule.class,
                 DataModule.class,
-                ViewModelModule.class
+                ApplicationModule.class,
+                ActivityModule.class,
+                FragmentModule.class,
+
         }
 )
 public interface IngeComponents {
-
-    /**
-     * Here goes inject for activities
-     */
-
-
-    /**
-     * Here goes inject for fragments
-     */
+    void inject(IngeApplication ingeApplication);
 
     final class Initializer {
         public static IngeComponents init(ApplicationModule applicationModule,
-                                            DataModule dataModule,
-                                            ViewModelModule viewModelModule) {
+                                           ServiceModule serviceModule,
+                                           DataModule dataModule) {
             return DaggerIngeComponents
                     .builder()
                     .applicationModule(applicationModule)
                     .dataModule(dataModule)
-                    .viewModelModule(viewModelModule)
+                    .serviceModule(serviceModule)
                     .build();
         }
     }
+
 
 }
