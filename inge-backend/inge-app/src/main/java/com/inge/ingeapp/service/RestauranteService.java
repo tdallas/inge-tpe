@@ -5,6 +5,11 @@ import com.inge.ingeapp.repository.RestauranteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.NoSuchElementException;
+import java.util.Optional;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
+
 @Component
 public class RestauranteService {
 
@@ -15,8 +20,9 @@ public class RestauranteService {
         this.restauranteRepository = restauranteRepository;
     }
 
-    public Restaurante getRestaurante(Long id){
-        return restauranteRepository.getOne(id);
+    //FIXME CATCHEAR EXCEPTIPON O DEVOLVER UN OBJETO VACIO
+    public Restaurante getRestaurante(Long id) throws Throwable {
+        return restauranteRepository.findById(id).orElseThrow((Supplier<Throwable>) NoSuchElementException::new);
     }
 
 }
