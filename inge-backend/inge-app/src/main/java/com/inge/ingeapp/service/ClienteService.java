@@ -16,6 +16,6 @@ public class ClienteService {
     }
 
     public Cliente getCliente(Long id){
-        return clienteRepository.getOne(id);
+        return clienteRepository.findById(id).orElse(null);
     }
 }

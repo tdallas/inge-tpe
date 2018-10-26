@@ -20,9 +20,8 @@ public class RestauranteService {
         this.restauranteRepository = restauranteRepository;
     }
 
-    //FIXME CATCHEAR EXCEPTIPON O DEVOLVER UN OBJETO VACIO
-    public Restaurante getRestaurante(Long id) throws Throwable {
-        return restauranteRepository.findById(id).orElseThrow((Supplier<Throwable>) NoSuchElementException::new);
+    public Restaurante getRestaurante(Long id){
+        return restauranteRepository.findById(id).orElse(null);
     }
 
 }
