@@ -14,9 +14,6 @@ import javax.persistence.*;
 @Embeddable
 public class Direccion {
     private String calle;
-    private String numero;
-    private String piso;
-    private String depto;
     @Embedded
     private Coordenadas coordenadas;
 
