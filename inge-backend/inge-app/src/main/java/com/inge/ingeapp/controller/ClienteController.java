@@ -18,9 +18,4 @@ public class ClienteController {
         this.clienteService = clienteService;
     }
 
-    @RequestMapping(value="/cliente")
-    @ResponseBody
-    public Cliente getCliente(@RequestParam("id") Long id){
-        return clienteService.getCliente(id);
-    }
 }

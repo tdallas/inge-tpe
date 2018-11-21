@@ -1,21 +1,46 @@
 package com.inge.ingeapp.service;
 
-import com.inge.ingeapp.entity.Usuario;
+import com.inge.ingeapp.entity.*;
+import com.inge.ingeapp.exception.SignupUserException;
+import com.inge.ingeapp.payload.SignupRequest;
+import com.inge.ingeapp.repository.ClienteRepository;
+import com.inge.ingeapp.repository.RolRepository;
 import com.inge.ingeapp.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.util.Date;
 
 @Component
 public class UsuarioService {
 
     private final UsuarioRepository usuarioRepository;
+    private final ClienteRepository clienteRepository;
+    private final RolRepository rolRepository;
 
     @Autowired
-    public UsuarioService(UsuarioRepository usuarioRepository){
+    public UsuarioService(UsuarioRepository usuarioRepository, ClienteRepository clienteRepository,
+                          RolRepository rolRepository){
         this.usuarioRepository = usuarioRepository;
+        this.clienteRepository = clienteRepository;
+        this.rolRepository = rolRepository;
     }
 
     public Usuario findByEmailAndPass(String email, String pass){
         return usuarioRepository.findByEmailAndPass(email, pass);
+    }
+
+    public void signup(SignupRequest signupRequest) throws SignupUserException {
+        if (usuarioRepository.findByEmail(signupRequest.getEmail()).isPresent()) {
+            throw new SignupUserException("El usuario ya fue registrado");
+        } else {
+            Date fechaNacimiento = new Date(signupRequest.getEmail());
+            Direccion direccion = new Direccion(signupRequest.getDireccion(), new Coordenadas());
+            Rol rol = rolRepository.findByNombre("CLIENTE");
+            Cliente cliente = new Cliente(fechaNacimiento, direccion, signupRequest.getNombre(),
+                    signupRequest.getApellido(), signupRequest.getEmail(), signupRequest.getClave(),
+                    rol);
+            clienteRepository.save(cliente);
+        }
     }
 }

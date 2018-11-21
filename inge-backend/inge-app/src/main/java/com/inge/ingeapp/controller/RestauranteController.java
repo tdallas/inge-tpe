@@ -17,11 +17,4 @@ public class RestauranteController {
     public RestauranteController(RestauranteService restauranteService){
         this.restauranteService = restauranteService;
     }
-
-    @RequestMapping(value="/resto")
-    @ResponseBody
-    public Restaurante getRestaurante(@RequestParam("id") Long id){
-        return restauranteService.getRestaurante(id);
-    }
-
 }

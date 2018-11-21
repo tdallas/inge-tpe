@@ -15,7 +15,4 @@ public class ClienteService {
         this.clienteRepository = clienteRepository;
     }
 
-    public Cliente getCliente(Long id){
-        return clienteRepository.findById(id).orElse(null);
-    }
 }
