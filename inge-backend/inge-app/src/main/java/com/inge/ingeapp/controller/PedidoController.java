@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -24,6 +25,7 @@ public class PedidoController {
 
 
     @RequestMapping(value = "/pedido/crear")
+    @ResponseBody
     public ResponseEntity<?> crearPedido(@RequestBody PedidoRequest pedidoRequest) {
         if (pedidoRequest == null) {
             return ResponseEntity.badRequest().build();
@@ -39,6 +41,7 @@ public class PedidoController {
     }
 
     @RequestMapping(value = "/pedido/estado")
+    @ResponseBody
     public ResponseEntity<?> cambiarEstadoPedido(@RequestBody EstadoPedidoRequest estadoPedidoRequest) {
         if (estadoPedidoRequest == null) {
             return ResponseEntity.badRequest().build();

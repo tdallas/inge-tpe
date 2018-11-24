@@ -3,6 +3,6 @@ package com.inge.ingeapp.entity;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public enum Tamaño {
+public enum Tamanio {
     CHICA, MEDIANA, GRANDE
 }

@@ -1,6 +1,7 @@
 package com.inge.ingeapp.service;
 
 import com.inge.ingeapp.entity.Restaurante;
+import com.inge.ingeapp.entity.Rol;
 import com.inge.ingeapp.repository.RestauranteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -24,4 +25,7 @@ public class RestauranteService {
         return restauranteRepository.findById(id).orElse(null);
     }
 
+    public void saveRestaurant(Restaurante restaurant) {
+        restauranteRepository.save(restaurant);
+    }
 }

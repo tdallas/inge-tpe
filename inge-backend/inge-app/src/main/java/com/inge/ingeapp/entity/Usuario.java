@@ -31,12 +31,15 @@ public class Usuario {
     private Rol rol;
     private boolean verificado = false;
 
-    public Usuario(String nombre, String apellido, String email, String clave, Rol rol) {
+    public Usuario(String nombre, String apellido, String email, String clave, Rol rol,
+                   String dni, String telefono) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
         this.clave = clave;
         this.rol = rol;
+        this.DNI = dni;
+        this.telefono = telefono;
     }
 
 }

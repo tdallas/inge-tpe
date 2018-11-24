@@ -19,7 +19,12 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     /**
-     * Nombre sería si es pizza, bebida o lo que sea
+     * tipo sería si es pizza o bebida
+     */
+    @ManyToOne
+    private TipoProducto tipo;
+    /**
+     * Pizza calabresa por ej
      */
     private String nombre;
     /**
@@ -28,6 +33,17 @@ public class Producto {
     private String detalles;
     private Double precio;
     private String imagenURL;
+    //-1 significa que todavia no fue calificado por nadie
+    private Double calificacion = -1D;
     @Embedded
-    private List<Tamaño> tamanios = new ArrayList<>();
+    private List<Tamanio> tamanios = new ArrayList<>();
+
+    public Producto(String nombre, String detalles, Double precio,
+                    TipoProducto tipoProducto, List<Tamanio> tamanios) {
+        this.nombre = nombre;
+        this.detalles = detalles;
+        this.precio = precio;
+        this.tipo = tipoProducto;
+        this.tamanios = tamanios;
+    }
 }
