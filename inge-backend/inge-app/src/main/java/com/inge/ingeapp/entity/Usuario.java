@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -15,7 +16,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class Usuario {
+public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,8 +25,11 @@ public abstract class Usuario {
     private String apellido;
     private String email;
     private String clave;
+    private String DNI;
+    private String telefono;
     @ManyToOne
     private Rol rol;
+    private boolean verificado = false;
 
     public Usuario(String nombre, String apellido, String email, String clave, Rol rol) {
         this.nombre = nombre;

@@ -13,8 +13,13 @@ import javax.persistence.*;
 @Setter
 @Embeddable
 public class Direccion {
+    private String pais;
+    private String Provincia;
+    private String localidad;
     private String calle;
-    @Embedded
+    private String numero;
+    private String codigoPostal;
+    @Embedded //de baja x ahora
     private Coordenadas coordenadas;
 
 }

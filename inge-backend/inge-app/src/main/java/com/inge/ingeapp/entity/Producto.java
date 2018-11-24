@@ -14,7 +14,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-public abstract class Producto {
+public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

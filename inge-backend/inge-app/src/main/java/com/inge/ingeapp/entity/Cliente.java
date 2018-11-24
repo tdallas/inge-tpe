@@ -23,15 +23,14 @@ public class Cliente extends Usuario {
     private List<Cliente> referidos = new ArrayList<>();
     @OneToMany
     private List<Pedido> pedidosRealizados = new ArrayList<>();
+    //todo autogenerar
     private String idParaReferir;
-    private Date fechaDeNacimiento;
     @Embedded
     private Direccion direccion;
 
-    public Cliente(Date fechaDeNacimiento, Direccion direccion, String nombre, String apellido,
+    public Cliente(Direccion direccion, String nombre, String apellido,
                    String email, String clave, Rol rol) {
         super(nombre, apellido, email, clave, rol);
-        this.fechaDeNacimiento = fechaDeNacimiento;
         this.direccion = direccion;
     }
 
