@@ -20,5 +20,10 @@ public class Combo {
     private Long id;
     @OneToMany
     private List<Producto> productos = new ArrayList<>();
-    private String imagenURL;
+    //todo
+    private String imagenUR = "";
+
+    public Combo(List<Producto> productos) {
+        this.productos = productos;
+    }
 }

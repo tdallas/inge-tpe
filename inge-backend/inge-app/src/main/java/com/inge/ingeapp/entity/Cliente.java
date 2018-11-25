@@ -29,8 +29,8 @@ public class Cliente extends Usuario {
     private Direccion direccion;
 
     public Cliente(Direccion direccion, String nombre, String apellido,
-                   String email, String clave, Rol rol) {
-        super(nombre, apellido, email, clave, rol);
+                   String email, String clave, Rol rol, String dni, String telefono) {
+        super(nombre, apellido, email, clave, rol, dni, telefono);
         this.direccion = direccion;
     }
 

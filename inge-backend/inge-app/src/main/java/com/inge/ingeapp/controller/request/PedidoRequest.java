@@ -1,5 +1,6 @@
 package com.inge.ingeapp.controller.request;
 
+import com.inge.ingeapp.entity.Direccion;
 import com.inge.ingeapp.entity.Producto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,5 +16,5 @@ import java.util.List;
 public class PedidoRequest {
     private List<Producto> productos;
     private Long idCliente;
-    private String direccionEntrega;
+    private Direccion direccion;
 }

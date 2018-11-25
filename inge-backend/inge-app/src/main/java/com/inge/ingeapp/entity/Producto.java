@@ -34,7 +34,7 @@ public class Producto {
     private Double precio;
     private String imagenURL;
     //-1 significa que todavia no fue calificado por nadie
-    private Double calificacion = -1D;
+    private Integer cantidadVendidos = 0;
     @Embedded
     private List<Tamanio> tamanios = new ArrayList<>();
 

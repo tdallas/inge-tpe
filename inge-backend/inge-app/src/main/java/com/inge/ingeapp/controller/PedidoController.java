@@ -32,7 +32,7 @@ public class PedidoController {
         } else {
             try {
                 Pedido pedido = pedidoService.crearPedido(pedidoRequest.getProductos(),
-                        pedidoRequest.getIdCliente(), pedidoRequest.getDireccionEntrega());
+                        pedidoRequest.getIdCliente(), pedidoRequest.getDireccion());
                 return new ResponseEntity<>(pedido, HttpStatus.OK);
             } catch (UserNotFoundException e) {
                 return ResponseEntity.notFound().build();

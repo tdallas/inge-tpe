@@ -45,7 +45,8 @@ public class UsuarioService {
         Direccion direccion = parsearDireccion(signupRequest);
         Rol rol = rolRepository.findByNombre("CLIENTE");
         return new Cliente(direccion, signupRequest.getNombre(), signupRequest.getApellido(),
-                signupRequest.getEmail(), signupRequest.getClave(), rol);
+                signupRequest.getEmail(), signupRequest.getClave(), rol,
+                signupRequest.getDNI(), signupRequest.getTelefono());
     }
 
     private Direccion parsearDireccion(SignupRequest signupRequest) {

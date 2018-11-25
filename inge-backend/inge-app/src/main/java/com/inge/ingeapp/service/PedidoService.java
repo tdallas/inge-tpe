@@ -29,14 +29,14 @@ public class PedidoService {
 
 
     public Pedido crearPedido(List<Producto> productos,
-                                      Long idCliente, String direccionEntrega) throws UserNotFoundException {
+                                      Long idCliente, Direccion direccion) throws UserNotFoundException {
         Cliente cliente = clienteRepository.findById(idCliente).orElseThrow(UserNotFoundException::new);
         Pedido pedido = new Pedido();
         pedido.setCliente(cliente);
         pedido.setRestaurante(restaurante);
         pedido.setProductos(productos);
         //TODO buscar de alguna manera las coordenadas y setearlas aca (si es que hay tiempo)
-        pedido.setDireccionEntrega(new Direccion(direccionEntrega, new Coordenadas()));
+        pedido.setDireccionEntrega(direccion);
         pedido.setEstado(Estado.ENCOLA);
         pedidoRepository.save(pedido);
         return pedido;
