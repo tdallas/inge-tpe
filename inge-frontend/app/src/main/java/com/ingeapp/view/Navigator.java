@@ -5,6 +5,8 @@ import android.support.v4.app.FragmentTransaction;
 
 import com.ingeapp.R;
 import com.ingeapp.view.activity.IngeActivity;
+import com.ingeapp.view.activity.LoginActivity;
+import com.ingeapp.view.fragment.LoginFragment;
 
 /**
  * this class is use to navigate between activities and fragments
@@ -29,6 +31,11 @@ public class Navigator {
      * function declaration(params)
      * openFragment(ActivityFrom, fragment, fragment name, addToBackStack?
      */
+
+
+    public void showLoginFragment(LoginActivity loginActivity) {
+        openFragment(loginActivity, new LoginFragment(), "LoginFragment", false);
+    }
 
     private Fragment openFragment(IngeActivity from, Fragment fragment, String name, boolean addToBackStack) {
         FragmentTransaction transaction = from.getSupportFragmentManager().beginTransaction();

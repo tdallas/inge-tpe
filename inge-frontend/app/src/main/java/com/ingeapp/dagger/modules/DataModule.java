@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.ingeapp.core.IngeApplication;
 import com.ingeapp.db.IngeDb;
+import com.ingeapp.db.LoginRepository;
 
 import javax.inject.Singleton;
 
@@ -15,7 +16,6 @@ import dagger.Provides;
 @Module
 public class DataModule {
     private IngeDb ingeDb;
-    private String backupDBPath;
 
     public DataModule(IngeApplication mApplication) {
         ingeDb = Room.databaseBuilder(mApplication, IngeDb.class, "inge-db").fallbackToDestructiveMigration().build();
@@ -33,6 +33,12 @@ public class DataModule {
         return boostDb.missionDao();
     }
 */
+    @Singleton
+    @Provides
+    public LoginRepository providesLoginRepository() {
+        return new LoginRepository();
+    }
+
     @Provides
     @Singleton
     public Gson provideGson(){

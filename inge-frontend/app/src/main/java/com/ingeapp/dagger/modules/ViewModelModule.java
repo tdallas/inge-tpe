@@ -3,21 +3,34 @@ package com.ingeapp.dagger.modules;
 
 import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
+import android.support.annotation.NonNull;
+
+import java.util.Map;
+
+import javax.inject.Inject;
+import javax.inject.Provider;
 
 import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
 import dagger.multibindings.IntoMap;
 
-@Module
-public abstract class ViewModelModule {
+public class ViewModelModule implements ViewModelProvider.Factory {
 
-    /**
-    @Binds
-    @IntoMap
-    @ViewModelKey(UserProfileViewModel.class)
-    abstract ViewModel bindUserProfileViewModel(UserProfileViewModel repoViewModel);
-**/
-    @Binds
-    abstract ViewModelProvider.Factory bindViewModelFactory(FactoryViewModel factory);
+    private Map<Class<ViewModel>, Provider<ViewModel>> creators;
+
+    @Inject
+    public ViewModelModule(Map<Class<ViewModel>, Provider<ViewModel>> creators) {
+        this.creators = creators;
+    }
+
+    @NonNull
+    @Override
+    public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
+        if (!creators.containsKey(modelClass))
+            throw new IllegalArgumentException("unknown model class $modelClass");
+
+        return (T) creators.get(modelClass);
+    }
+
 }

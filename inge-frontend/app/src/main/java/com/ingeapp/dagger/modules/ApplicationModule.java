@@ -24,7 +24,7 @@ import dagger.Provides;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-@Module(includes = ViewModelModule.class)
+@Module
 public class ApplicationModule {
 
     private final IngeApplication ingeApplication;
@@ -35,7 +35,7 @@ public class ApplicationModule {
 
     @Provides
     @Singleton
-    public IngeApplication provideMobilityApplication() {
+    public IngeApplication providIngeApplication() {
         return this.ingeApplication;
     }
 

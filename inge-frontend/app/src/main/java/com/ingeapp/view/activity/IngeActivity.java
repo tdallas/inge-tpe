@@ -2,6 +2,8 @@ package com.ingeapp.view.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
@@ -11,26 +13,18 @@ import com.ingeapp.util.CommonUtils;
 import com.ingeapp.view.Navigator;
 
 import butterknife.ButterKnife;
+import dagger.android.AndroidInjection;
+import dagger.android.support.DaggerAppCompatActivity;
 
 import static android.widget.Toast.LENGTH_SHORT;
 
-public abstract class IngeActivity extends AppCompatActivity {
-
-    //public Drawer menuDrawer;
+public abstract class IngeActivity extends DaggerAppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
-        setContentView(this.getLayout());
-
-        this.injectDependencies(this.getComponent());
-
         ButterKnife.bind(this);
-
-        Toolbar toolbar = getToolbar();
-        if (toolbar != null) {
-            //createMenuDrawer(toolbar);
-        }
 
         CommonUtils.verificoYPidoPermisos(this);
     }
@@ -57,12 +51,6 @@ public abstract class IngeActivity extends AppCompatActivity {
     public IngeActivity getActivity() {
         return this;
     }
-
-    public abstract int getLayout();
-
-    public abstract Navigator getNavigator();
-
-    public abstract Toolbar getToolbar();
 
     protected abstract void injectDependencies(IngeComponents portalComponents);
 

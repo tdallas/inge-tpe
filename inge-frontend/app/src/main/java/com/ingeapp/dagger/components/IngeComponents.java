@@ -9,6 +9,8 @@ import com.ingeapp.dagger.modules.DataModule;
 import com.ingeapp.dagger.modules.FragmentModule;
 import com.ingeapp.dagger.modules.ServiceModule;
 import com.ingeapp.dagger.modules.ViewModelModule;
+import com.ingeapp.view.activity.LoginActivity;
+import com.ingeapp.view.fragment.LoginFragment;
 
 import javax.inject.Singleton;
 
@@ -30,6 +32,10 @@ import dagger.android.AndroidInjectionModule;
 )
 public interface IngeComponents {
     void inject(IngeApplication ingeApplication);
+
+    void inject(LoginFragment loginFragment);
+
+    void inject(LoginActivity loginActivity);
 
     final class Initializer {
         public static IngeComponents init(ApplicationModule applicationModule,
