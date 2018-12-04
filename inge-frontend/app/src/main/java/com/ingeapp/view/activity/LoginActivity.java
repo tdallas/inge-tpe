@@ -15,7 +15,7 @@ public class LoginActivity extends IngeActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_blank);
         super.onCreate(savedInstanceState);
         navigator.showLoginFragment(this);
     }

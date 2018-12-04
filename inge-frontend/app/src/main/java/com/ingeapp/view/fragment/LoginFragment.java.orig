@@ -65,8 +65,12 @@ public class LoginFragment extends IngeFragment {
             public void onChanged(@Nullable Boolean aBoolean) {
                 //fixme nefasto
                 if (aBoolean != null && aBoolean) {
-                    showToastError("Ingre con exito!");
+<<<<<<< HEAD
+                    showToastError("Ingreso con exito!");
+=======
+                    showToastError("Te loggeaste");
                     navigator.showHomeClienteActivity(LoginFragment.this);
+>>>>>>> a014b6940c180a1c8d8a3098bb4ed49829d3cff9
                 } else if (aBoolean != null && !aBoolean) {
                     showToastError("ERROR EN EL LOGIN");
                 }

@@ -17,13 +17,14 @@ public abstract class ActivityModule {
 
     @ContributesAndroidInjector(modules = FragmentModule.class)
     abstract LoginActivity contributeLoginActivity();
+<<<<<<< HEAD
 
     @ContributesAndroidInjector(modules = FragmentModule.class)
+    abstract SignUpActivity contributeSignUpActivity();
+=======
+    @ContributesAndroidInjector(modules = FragmentModule.class)
     abstract HomeClienteActivity contributeHomeClienteActivity();
-    
     @ContributesAndroidInjector(modules = FragmentModule.class)
     abstract HomeRestaurantActivity contributeHomeRestaurantActivity();
-    
-    @ContributesAndroidInjector(modules = FragmentModule.class)    
-    abstract SignUpActivity contributeSignUpActivity();
+>>>>>>> a014b6940c180a1c8d8a3098bb4ed49829d3cff9
 }

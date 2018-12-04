@@ -19,13 +19,14 @@ public abstract class FragmentModule {
 
     @ContributesAndroidInjector
     abstract LoginFragment contributeLoginFragment();
-
-    @ContributesAndroidInjector
-    abstract HomeClienteFragment contributeHomeClienteFragment();
-
-    @ContributesAndroidInjector
-    abstract HomeRestaurantFragment contributeHomeRestaurantFragment();
+<<<<<<< HEAD
 
     @ContributesAndroidInjector
     abstract SignUpFragment contributeSignUpFragment();
+=======
+    @ContributesAndroidInjector
+    abstract HomeClienteFragment contributeHomeClienteFragment();
+    @ContributesAndroidInjector
+    abstract HomeRestaurantFragment contributeHomeRestaurantFragment();
+>>>>>>> a014b6940c180a1c8d8a3098bb4ed49829d3cff9
 }
