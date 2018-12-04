@@ -1,14 +1,17 @@
 package com.inge.ingeapp.controller;
 
 import com.inge.ingeapp.controller.request.InvalidarUsuarioRequest;
+import com.inge.ingeapp.controller.request.LoginRequest;
 import com.inge.ingeapp.controller.response.ClienteResponse;
 import com.inge.ingeapp.entity.Cliente;
+import com.inge.ingeapp.entity.Direccion;
 import com.inge.ingeapp.entity.Usuario;
 import com.inge.ingeapp.exception.SignupUserException;
 import com.inge.ingeapp.controller.request.SignupRequest;
 import com.inge.ingeapp.exception.UserNotFoundException;
 import com.inge.ingeapp.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-public class UsuarioController {
+public class UsuarioController implements CommandLineRunner {
 
     private final UsuarioService usuarioService;
 
@@ -28,8 +31,9 @@ public class UsuarioController {
 
     @PostMapping(value = "/login")
     @ResponseBody
-    public Usuario login(@RequestParam("email") String email, @RequestParam("pass") String pass) {
-        return usuarioService.findByEmailAndPass(email, pass);
+    public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
+        return usuarioService.findByEmailAndPass(loginRequest.getEmail(), loginRequest.getClave()).isPresent() ?
+                ResponseEntity.ok().build() : ResponseEntity.badRequest().build();
     }
 
     @PostMapping(value = "/signup")
@@ -66,4 +70,8 @@ public class UsuarioController {
         return clientesResponse;
     }
 
+    @Override
+    public void run(String... args) throws Exception {
+
+    }
 }

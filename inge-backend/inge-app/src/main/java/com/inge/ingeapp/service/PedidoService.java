@@ -24,7 +24,7 @@ public class PedidoService {
                          RestauranteRepository restauranteRepository) {
         this.pedidoRepository = pedidoRepository;
         this.clienteRepository = clienteRepository;
-        restaurante = restauranteRepository.findRestaurante();
+        restaurante = restauranteRepository.findRestauranteByNombre("Administrador");
     }
 
 

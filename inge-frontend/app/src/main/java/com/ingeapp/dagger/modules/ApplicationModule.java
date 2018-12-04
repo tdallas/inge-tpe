@@ -53,6 +53,4 @@ public class ApplicationModule {
                 .build();
     }
 
-    @Provides
-    Gson provideGson() { return new GsonBuilder().create(); }
 }

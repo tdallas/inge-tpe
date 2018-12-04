@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class UsuarioService {
@@ -28,8 +29,8 @@ public class UsuarioService {
         this.rolRepository = rolRepository;
     }
 
-    public Usuario findByEmailAndPass(String email, String pass){
-        return usuarioRepository.findByEmailAndPass(email, pass);
+    public Optional<Usuario> findByEmailAndPass(String email, String pass){
+        return Optional.ofNullable(usuarioRepository.findByEmailAndClave(email, pass));
     }
 
     public void signup(SignupRequest signupRequest) throws SignupUserException {

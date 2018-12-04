@@ -7,6 +7,7 @@ import com.google.gson.GsonBuilder;
 import com.ingeapp.core.IngeApplication;
 import com.ingeapp.db.IngeDb;
 import com.ingeapp.db.LoginRepository;
+import com.ingeapp.service.LoginService;
 
 import javax.inject.Singleton;
 
@@ -35,8 +36,8 @@ public class DataModule {
 */
     @Singleton
     @Provides
-    public LoginRepository providesLoginRepository() {
-        return new LoginRepository();
+    public LoginRepository providesLoginRepository(LoginService loginService) {
+        return new LoginRepository(loginService);
     }
 
     @Provides

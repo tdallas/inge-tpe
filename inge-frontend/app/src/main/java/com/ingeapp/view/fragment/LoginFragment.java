@@ -1,14 +1,13 @@
 package com.ingeapp.view.fragment;
 
+import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 
 import com.ingeapp.R;
-import com.ingeapp.dagger.components.IngeComponents;
 import com.ingeapp.model.viewModel.IngeViewModel;
 import com.ingeapp.model.viewModel.LoginViewModel;
 import com.ingeapp.view.Navigator;
@@ -21,7 +20,6 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import butterknife.OnTextChanged;
 
 public class LoginFragment extends IngeFragment {
 
@@ -57,7 +55,18 @@ public class LoginFragment extends IngeFragment {
 
     @OnClick(R.id.button_login)
     public void onLogginAttempt() {
-        showToastError("USUARIO " + usuarioInput.getText() + " CLAVE " + claveInput.getText());
+        loginViewModel.login(usuarioInput.getText().toString(),
+                claveInput.getText().toString()).observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(@Nullable Boolean aBoolean) {
+                //fixme nefasto
+                if (aBoolean != null && aBoolean) {
+                    showToastError("Te loggeaste");
+                } else if (aBoolean != null && !aBoolean) {
+                    showToastError("ERROR EN EL LOGIN");
+                }
+            }
+        });
     }
 
 }

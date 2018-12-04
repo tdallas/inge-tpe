@@ -1,5 +1,7 @@
 package com.inge.ingeapp.controller;
 
+import com.inge.ingeapp.entity.Cliente;
+import com.inge.ingeapp.entity.Direccion;
 import com.inge.ingeapp.entity.Restaurante;
 import com.inge.ingeapp.entity.Rol;
 import com.inge.ingeapp.repository.RolRepository;
@@ -25,11 +27,11 @@ public class RestauranteController implements CommandLineRunner {
         if (rolRepository.findById(1L).isPresent())
             return;
         Rol restaurant = new Rol(1L, "RESTAURANTE");
-        rolRepository.save(restaurant);
+        restaurant = rolRepository.save(restaurant);
         Rol cliente = new Rol(2L, "CLIENTE");
         rolRepository.save(cliente);
         Restaurante restaurante = new Restaurante("Administrador", "", "admin@admin.com",
-                "ad1234", restaurant, "39758804", "123123412");
+                "1234", restaurant, "39758804", "123123412");
         restauranteService.saveRestaurant(restaurante);
     }
 }

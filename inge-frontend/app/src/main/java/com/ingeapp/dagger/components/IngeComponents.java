@@ -9,6 +9,7 @@ import com.ingeapp.dagger.modules.DataModule;
 import com.ingeapp.dagger.modules.FragmentModule;
 import com.ingeapp.dagger.modules.ServiceModule;
 import com.ingeapp.dagger.modules.ViewModelModule;
+import com.ingeapp.model.viewModel.LoginViewModel;
 import com.ingeapp.view.activity.LoginActivity;
 import com.ingeapp.view.fragment.LoginFragment;
 
@@ -36,6 +37,8 @@ public interface IngeComponents {
     void inject(LoginFragment loginFragment);
 
     void inject(LoginActivity loginActivity);
+
+    void inject(LoginViewModel loginViewModel);
 
     final class Initializer {
         public static IngeComponents init(ApplicationModule applicationModule,
