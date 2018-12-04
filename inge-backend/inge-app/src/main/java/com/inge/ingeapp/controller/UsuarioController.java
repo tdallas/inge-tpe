@@ -1,15 +1,11 @@
 package com.inge.ingeapp.controller;
 
-import com.inge.ingeapp.controller.request.InvalidarUsuarioRequest;
 import com.inge.ingeapp.controller.request.LoginRequest;
 import com.inge.ingeapp.controller.response.ClienteResponse;
 import com.inge.ingeapp.controller.response.UserResponse;
 import com.inge.ingeapp.entity.Cliente;
-import com.inge.ingeapp.entity.Direccion;
-import com.inge.ingeapp.entity.Usuario;
 import com.inge.ingeapp.exception.SignupUserException;
-import com.inge.ingeapp.controller.request.SignupRequest;
-import com.inge.ingeapp.exception.UserNotFoundException;
+import com.inge.ingeapp.controller.request.SignUpRequest;
 import com.inge.ingeapp.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -39,7 +35,7 @@ public class UsuarioController implements CommandLineRunner {
 
     @PostMapping(value = "/signup")
     @ResponseBody
-    public ResponseEntity<?> signup(@RequestBody SignupRequest signupRequest) {
+    public ResponseEntity<?> signup(@RequestBody SignUpRequest signupRequest) {
         try {
             usuarioService.signup(signupRequest);
             return ResponseEntity.ok("Usuario regitrado con exito");

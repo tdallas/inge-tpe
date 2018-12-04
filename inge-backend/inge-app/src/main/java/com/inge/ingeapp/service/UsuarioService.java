@@ -2,15 +2,13 @@ package com.inge.ingeapp.service;
 
 import com.inge.ingeapp.entity.*;
 import com.inge.ingeapp.exception.SignupUserException;
-import com.inge.ingeapp.controller.request.SignupRequest;
-import com.inge.ingeapp.exception.UserNotFoundException;
+import com.inge.ingeapp.controller.request.SignUpRequest;
 import com.inge.ingeapp.repository.ClienteRepository;
 import com.inge.ingeapp.repository.RolRepository;
 import com.inge.ingeapp.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,7 +32,7 @@ public class UsuarioService {
         return usuario != null && usuario.getClave().equals(pass);
     }
 
-    public void signup(SignupRequest signupRequest) throws SignupUserException {
+    public void signup(SignUpRequest signupRequest) throws SignupUserException {
         if (usuarioRepository.findByEmail(signupRequest.getEmail()).isPresent()) {
             throw new SignupUserException("El usuario ya fue registrado");
         } else {
@@ -43,23 +41,15 @@ public class UsuarioService {
         }
     }
 
-    private Cliente parsearDatos(SignupRequest signupRequest) {
-        Direccion direccion = parsearDireccion(signupRequest);
+    private Cliente parsearDatos(SignUpRequest signupRequest) {
         Rol rol = rolRepository.findByNombre("CLIENTE");
-        return new Cliente(direccion, signupRequest.getNombre(), signupRequest.getApellido(),
+        return new Cliente(signupRequest.getNombre(), signupRequest.getApellido(),
                 signupRequest.getEmail(), signupRequest.getClave(), rol,
                 signupRequest.getDNI(), signupRequest.getTelefono());
     }
 
-    private Direccion parsearDireccion(SignupRequest signupRequest) {
-        return new Direccion(signupRequest.getPais() ,
-                signupRequest.getProvincia(), signupRequest.getLocalidad(),
-                signupRequest.getCalle(), signupRequest.getNumero(), signupRequest.getCodigoPostal(),
-                new Coordenadas());
-    }
-
     //TODO
-    private void validarDatos(SignupRequest signupRequest) throws SignupUserException {
+    private void validarDatos(SignUpRequest signupRequest) throws SignupUserException {
     }
 
     public void invalidarUsuario(String emailToInvalidar) {

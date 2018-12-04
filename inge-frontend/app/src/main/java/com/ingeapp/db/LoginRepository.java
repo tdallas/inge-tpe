@@ -25,13 +25,17 @@ public class LoginRepository {
     }
 
     public LiveData<Boolean> login(final LoginRequest loginRequest) {
+        isLogged = new MutableLiveData<>();
         Executors.newSingleThreadExecutor().execute(new Runnable() {
             @Override
             public void run() {
                 loginService.login(loginRequest).enqueue(new Callback<UserResponse>() {
                     @Override
                     public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
-                        isLogged.postValue(true);
+                        if (response.body() != null && response.body().getLogget())
+                            isLogged.postValue(true);
+                        else
+                            isLogged.postValue(false);
                     }
 
                     @Override

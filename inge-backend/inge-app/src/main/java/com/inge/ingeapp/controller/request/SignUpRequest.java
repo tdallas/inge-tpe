@@ -6,18 +6,12 @@ import lombok.Setter;
 
 @AllArgsConstructor
 @Getter
-public class SignupRequest {
+public class SignUpRequest {
     private String email;
     private String clave;
     private String nombre;
     private String apellido;
     private String DNI;
-    private String pais;
-    private String provincia;
-    private String Localidad;
-    private String calle;
-    private String numero;
-    private String codigoPostal;
     private String telefono;
 }
 

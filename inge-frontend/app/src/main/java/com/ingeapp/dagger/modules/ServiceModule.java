@@ -2,6 +2,7 @@ package com.ingeapp.dagger.modules;
 
 import com.google.gson.Gson;
 import com.ingeapp.service.LoginService;
+import com.ingeapp.service.SignUpService;
 
 import javax.inject.Singleton;
 
@@ -39,5 +40,10 @@ public class ServiceModule {
         return retrofit.create(LoginService.class);
     }
 
+    @Provides
+    @Singleton
+    public SignUpService providesSignUpService(Retrofit retrofit) {
+        return retrofit.create(SignUpService.class);
+    }
 
 }

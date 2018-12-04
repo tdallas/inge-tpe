@@ -11,7 +11,9 @@ import com.ingeapp.view.activity.IngeActivity;
 import com.ingeapp.view.activity.LoginActivity;
 import com.ingeapp.view.fragment.HomeClienteFragment;
 import com.ingeapp.view.fragment.HomeRestaurantFragment;
+import com.ingeapp.view.activity.SignUpActivity;
 import com.ingeapp.view.fragment.LoginFragment;
+import com.ingeapp.view.fragment.SignUpFragment;
 
 /**
  * this class is use to navigate between activities and fragments
@@ -33,8 +35,14 @@ public class Navigator {
 
     public void showHomeClienteActivity(LoginFragment loginFragment) {
         Intent intent = new Intent(loginFragment.getContext(), HomeClienteActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         loginFragment.startActivity(intent);
+    }
+
+    public void showLoginActivity(HomeClienteActivity homeClienteActivity) {
+        Intent intent = new Intent(homeClienteActivity.getApplicationContext(), LoginActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        homeClienteActivity.startActivity(intent);
     }
 
     /**
@@ -44,13 +52,28 @@ public class Navigator {
      * openFragment(ActivityFrom, fragment, fragment name, addToBackStack?
      */
 
+    public void showSignUpActivity(LoginFragment from) {
+        Intent intent = new Intent(from.getContext(), SignUpActivity.class);
+        from.startActivity(intent);
+    }
 
     public void showLoginFragment(LoginActivity loginActivity) {
         openFragment(loginActivity, new LoginFragment(), "LoginFragment", false);
     }
+
+    public void showSignUpFragment(SignUpActivity signUpActivity) {
+        openFragment(signUpActivity, new SignUpFragment(), "SignUpFragment", false);
+    }
+
     public void showHomeClienteFragment(HomeClienteActivity homeClienteActivity) {
         openFragment(homeClienteActivity, new HomeClienteFragment(),
                 "HomeClienteFragment", false);
+    }
+
+
+    public void showLoginActivity(SignUpFragment from) {
+        Intent intent = new Intent(from.getContext(), LoginActivity.class);
+        from.startActivity(intent);
     }
 
     public void showHomeRestaurantFragment(HomeRestaurantActivity homeRestaurantActivity) {

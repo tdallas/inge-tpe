@@ -35,8 +35,11 @@
             <category android:name="android.intent.category.LAUNCHER"/>
         </intent-filter>
     </activity>
-        <activity android:name=".view.activity.HomeClienteActivity"/>
+<<<<<<< HEAD
         <activity android:name=".view.activity.SignUpActivity"/>
+=======
+        <activity android:name=".view.activity.HomeClienteActivity"/>
+>>>>>>> a014b6940c180a1c8d8a3098bb4ed49829d3cff9
 
     </application>
 </manifest>

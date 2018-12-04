@@ -1,6 +1,8 @@
 package com.ingeapp.model.viewModel;
 
 import android.arch.lifecycle.LiveData;
+import android.arch.lifecycle.MediatorLiveData;
+import android.arch.lifecycle.MutableLiveData;
 
 import com.ingeapp.dagger.components.IngeComponents;
 import com.ingeapp.db.LoginRepository;
@@ -19,6 +21,6 @@ public class LoginViewModel extends IngeViewModel {
     }
 
     public LiveData<Boolean> login(String usuario, String clave) {
-        return loginRepository.login(new LoginRequest(usuario, clave));
+       return loginRepository.login(new LoginRequest(usuario, clave));
     }
 }

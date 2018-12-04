@@ -1,13 +1,11 @@
 package com.ingeapp.model.request;
 
-import com.ingeapp.db.LoginRepository;
-
 public class LoginRequest {
-    private String usuario;
+    private String email;
     private String clave;
 
-    public LoginRequest(String usuario, String clave) {
-        this.usuario = usuario;
+    public LoginRequest(String email, String clave) {
+        this.email = email;
         this.clave = clave;
     }
 }
