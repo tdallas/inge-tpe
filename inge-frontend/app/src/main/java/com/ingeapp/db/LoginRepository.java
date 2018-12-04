@@ -31,7 +31,10 @@ public class LoginRepository {
                 loginService.login(loginRequest).enqueue(new Callback<UserResponse>() {
                     @Override
                     public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
-                        isLogged.postValue(true);
+                        if (response.isSuccessful())
+                            isLogged.postValue(true);
+                        else
+                            isLogged.postValue(false);
                     }
 
                     @Override
