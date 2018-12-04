@@ -3,6 +3,7 @@ package com.inge.ingeapp.controller;
 import com.inge.ingeapp.controller.request.InvalidarUsuarioRequest;
 import com.inge.ingeapp.controller.request.LoginRequest;
 import com.inge.ingeapp.controller.response.ClienteResponse;
+import com.inge.ingeapp.controller.response.UserResponse;
 import com.inge.ingeapp.entity.Cliente;
 import com.inge.ingeapp.entity.Direccion;
 import com.inge.ingeapp.entity.Usuario;
@@ -33,7 +34,7 @@ public class UsuarioController implements CommandLineRunner {
     @ResponseBody
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
         return usuarioService.findByEmailAndPass(loginRequest.getEmail(), loginRequest.getClave()) ?
-                ResponseEntity.ok().build() : ResponseEntity.badRequest().build();
+                new ResponseEntity<>(new UserResponse(true), HttpStatus.OK) : new ResponseEntity<>(new UserResponse(false), HttpStatus.BAD_REQUEST);
     }
 
     @PostMapping(value = "/signup")
