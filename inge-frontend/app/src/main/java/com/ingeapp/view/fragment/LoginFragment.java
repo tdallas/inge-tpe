@@ -62,6 +62,7 @@ public class LoginFragment extends IngeFragment {
                 //fixme nefasto
                 if (aBoolean != null && aBoolean) {
                     showToastError("Te loggeaste");
+                    navigator.showHomeClienteActivity(LoginFragment.this);
                 } else if (aBoolean != null && !aBoolean) {
                     showToastError("ERROR EN EL LOGIN");
                 }
