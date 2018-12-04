@@ -24,4 +24,8 @@ public class HomeClienteActivity extends IngeActivity {
         super.onCreate(savedInstanceState);
         navigator.showHomeClienteFragment(this);
     }
+
+    public void onBackPressed() {
+        navigator.showLoginActivity(this);
+    }
 }

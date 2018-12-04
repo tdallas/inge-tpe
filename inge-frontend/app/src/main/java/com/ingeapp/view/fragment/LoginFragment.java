@@ -1,5 +1,6 @@
 package com.ingeapp.view.fragment;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
@@ -59,13 +60,15 @@ public class LoginFragment extends IngeFragment {
 
     @OnClick(R.id.button_login)
     public void onLogginAttempt() {
-        loginViewModel.login(usuarioInput.getText().toString(),
-                claveInput.getText().toString()).observe(this, new Observer<Boolean>() {
+        final LiveData<Boolean> observer = loginViewModel.login(usuarioInput.getText().toString(),
+                claveInput.getText().toString());
+        observer.observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(@Nullable Boolean aBoolean) {
                 //fixme nefasto
                 if (aBoolean != null && aBoolean) {
                     showToastError("Ingre con exito!");
+                    observer.removeObservers(LoginFragment.this);
                     navigator.showHomeClienteActivity(LoginFragment.this);
                 } else if (aBoolean != null && !aBoolean) {
                     showToastError("ERROR EN EL LOGIN");

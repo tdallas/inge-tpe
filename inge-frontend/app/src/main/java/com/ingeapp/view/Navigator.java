@@ -35,8 +35,14 @@ public class Navigator {
 
     public void showHomeClienteActivity(LoginFragment loginFragment) {
         Intent intent = new Intent(loginFragment.getContext(), HomeClienteActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         loginFragment.startActivity(intent);
+    }
+
+    public void showLoginActivity(HomeClienteActivity homeClienteActivity) {
+        Intent intent = new Intent(homeClienteActivity.getApplicationContext(), LoginActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        homeClienteActivity.startActivity(intent);
     }
 
     /**
@@ -63,6 +69,7 @@ public class Navigator {
         openFragment(homeClienteActivity, new HomeClienteFragment(),
                 "HomeClienteFragment", false);
     }
+
 
     public void showLoginActivity(SignUpFragment from) {
         Intent intent = new Intent(from.getContext(), LoginActivity.class);
