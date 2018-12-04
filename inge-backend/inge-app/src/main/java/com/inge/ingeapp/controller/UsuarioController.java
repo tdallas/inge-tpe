@@ -28,7 +28,7 @@ public class UsuarioController implements CommandLineRunner {
     @PostMapping(value = "/login")
     @ResponseBody
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
-        return usuarioService.findByEmailAndPass(loginRequest.getEmail(), loginRequest.getClave()).isPresent() ?
+        return usuarioService.findByEmailAndPass(loginRequest.getEmail(), loginRequest.getClave()) ?
                 ResponseEntity.ok().build() : ResponseEntity.badRequest().build();
     }
 

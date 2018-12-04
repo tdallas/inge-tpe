@@ -27,8 +27,9 @@ public class UsuarioService {
         this.rolRepository = rolRepository;
     }
 
-    public Optional<Usuario> findByEmailAndPass(String email, String pass){
-        return Optional.ofNullable(usuarioRepository.findByEmailAndClave(email, pass));
+    public boolean findByEmailAndPass(String email, String pass){
+        Usuario usuario = usuarioRepository.findByEmailAndClave(email, pass);
+        return usuario != null && usuario.getClave().equals(pass);
     }
 
     public void signup(SignUpRequest signupRequest) throws SignupUserException {
