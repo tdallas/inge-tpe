@@ -73,7 +73,7 @@
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:id="@+id/button_login"
-        android:layout_marginBottom="30dp">
+        android:layout_marginBottom="100dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -83,5 +83,25 @@
             android:layout_centerInParent="true"
             android:textColor="@color/white"/>
     </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:id="@+id/button_signup"
+        android:layout_marginBottom="30dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CREAR USUARIO"
+            android:textSize="30sp"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"/>
+    </RelativeLayout>
+
 
 </RelativeLayout>

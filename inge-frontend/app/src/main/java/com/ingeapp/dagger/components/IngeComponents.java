@@ -10,8 +10,11 @@ import com.ingeapp.dagger.modules.FragmentModule;
 import com.ingeapp.dagger.modules.ServiceModule;
 import com.ingeapp.dagger.modules.ViewModelModule;
 import com.ingeapp.model.viewModel.LoginViewModel;
+import com.ingeapp.model.viewModel.SignUpViewModel;
 import com.ingeapp.view.activity.LoginActivity;
+import com.ingeapp.view.activity.SignUpActivity;
 import com.ingeapp.view.fragment.LoginFragment;
+import com.ingeapp.view.fragment.SignUpFragment;
 
 import javax.inject.Singleton;
 
@@ -39,6 +42,12 @@ public interface IngeComponents {
     void inject(LoginActivity loginActivity);
 
     void inject(LoginViewModel loginViewModel);
+
+    void inject(SignUpFragment signUpFragment);
+
+    void inject(SignUpActivity signUpActivity);
+
+    void inject(SignUpViewModel signUpViewModel);
 
     final class Initializer {
         public static IngeComponents init(ApplicationModule applicationModule,
