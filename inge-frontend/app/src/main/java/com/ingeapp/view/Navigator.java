@@ -60,6 +60,11 @@ public class Navigator {
         from.startActivity(intent);
     }
 
+    public void showHomeRestaurantActivity(LoginFragment loginFragment) {
+        Intent intent = new Intent(loginFragment.getContext(), HomeRestaurantActivity.class);
+        loginFragment.startActivity(intent);
+    }
+
     public void showLoginFragment(LoginActivity loginActivity) {
         openFragment(loginActivity, new LoginFragment(), "LoginFragment", false);
     }

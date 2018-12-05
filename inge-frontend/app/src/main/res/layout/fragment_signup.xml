@@ -58,7 +58,7 @@
                 android:layout_marginStart="30dp"
                 android:gravity="center"
                 android:hint="CLAVE"
-                android:imeOptions="actionDone"
+                android:imeOptions="actionNext"
                 android:inputType="textPassword" />
 
         </LinearLayout>
@@ -109,7 +109,7 @@
                 android:layout_marginStart="30dp"
                 android:gravity="center"
                 android:inputType="text"
-                android:imeOptions="actionDone"
+                android:imeOptions="actionNext"
                 android:id="@+id/telefono"
                 android:hint="TELEFONO"/>
 
@@ -161,7 +161,7 @@
                 android:layout_marginStart="30dp"
                 android:gravity="center"
                 android:inputType="text"
-                android:imeOptions="actionDone"
+                android:imeOptions="actionNext"
                 android:id="@+id/apellido"
                 android:hint="APELLIDO"/>
 

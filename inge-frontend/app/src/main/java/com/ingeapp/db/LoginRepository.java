@@ -18,13 +18,13 @@ import retrofit2.Response;
 @Singleton
 public class LoginRepository {
     private LoginService loginService;
-    private MutableLiveData<Boolean> isLogged = new MutableLiveData<>();
+    private MutableLiveData<UserResponse> isLogged = new MutableLiveData<>();
 
     public LoginRepository(LoginService loginService) {
         this.loginService = loginService;
     }
 
-    public LiveData<Boolean> login(final LoginRequest loginRequest) {
+    public LiveData<UserResponse> login(final LoginRequest loginRequest) {
         isLogged = new MutableLiveData<>();
         Executors.newSingleThreadExecutor().execute(new Runnable() {
             @Override
@@ -32,15 +32,16 @@ public class LoginRepository {
                 loginService.login(loginRequest).enqueue(new Callback<UserResponse>() {
                     @Override
                     public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
-                        if (response.body() != null && response.body().getLogget())
-                            isLogged.postValue(true);
-                        else
-                            isLogged.postValue(false);
+                        if (response.body() != null) {
+                            isLogged.postValue(response.body());
+                        } else {
+                            isLogged.postValue(new UserResponse(false, ""));
+                        }
                     }
 
                     @Override
                     public void onFailure(Call<UserResponse> call, Throwable t) {
-                        isLogged.postValue(false);
+                        isLogged.postValue(new UserResponse(false, ""));
                     }
                 });
             }

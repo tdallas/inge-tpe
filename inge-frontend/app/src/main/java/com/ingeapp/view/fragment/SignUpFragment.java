@@ -76,13 +76,13 @@ public class SignUpFragment extends IngeFragment {
             @Override
             public void onChanged(@Nullable Boolean aBoolean) {
                 if (aBoolean != null && aBoolean) {
+                    navigator.showLoginActivity(SignUpFragment.this);
                     showToastError("Usuario creado!");
                 } else if (aBoolean != null && !aBoolean) {
                     showToastError("ERROR: Usuario no creado!");
                 }
             }
         });
-        navigator.showLoginActivity(this);
     }
 
 }

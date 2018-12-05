@@ -15,20 +15,25 @@ import retrofit2.Response;
 
 public class SignUpRepository{
     private SignUpService signUpService;
-    private MutableLiveData<Boolean> isSigned = new MutableLiveData<>();
+    private MutableLiveData<Boolean> isSigned;
 
     public SignUpRepository(SignUpService signUpService) {
         this.signUpService = signUpService;
     }
 
     public LiveData<Boolean> signUp(final SignUpRequest signUpRequest) {
+        isSigned = new MutableLiveData<>();
         Executors.newSingleThreadExecutor().execute(new Runnable() {
             @Override
             public void run() {
                 signUpService.signUp(signUpRequest).enqueue(new Callback<UserResponse>() {
                     @Override
                     public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
-                        isSigned.postValue(true);
+                        if (response.body() != null && response.body().getLogged()) {
+                            isSigned.postValue(true);
+                        } else {
+                            isSigned.postValue(false);
+                        }
                     }
 
                     @Override

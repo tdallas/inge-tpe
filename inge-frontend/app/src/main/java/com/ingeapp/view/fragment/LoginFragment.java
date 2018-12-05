@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.ingeapp.R;
 import com.ingeapp.model.viewModel.IngeViewModel;
 import com.ingeapp.model.viewModel.LoginViewModel;
+import com.ingeapp.service.payload.UserResponse;
 import com.ingeapp.view.Navigator;
 
 import java.util.ArrayList;
@@ -60,17 +61,20 @@ public class LoginFragment extends IngeFragment {
 
     @OnClick(R.id.button_login)
     public void onLogginAttempt() {
-        final LiveData<Boolean> observer = loginViewModel.login(usuarioInput.getText().toString(),
+        final LiveData<UserResponse> observer = loginViewModel.login(usuarioInput.getText().toString(),
                 claveInput.getText().toString());
-        observer.observe(this, new Observer<Boolean>() {
+        observer.observe(this, new Observer<UserResponse>() {
             @Override
-            public void onChanged(@Nullable Boolean aBoolean) {
+            public void onChanged(@Nullable UserResponse response) {
                 //fixme nefasto
-                if (aBoolean != null && aBoolean) {
-                    showToastError("Ingre con exito!");
+                if (response != null && response.getLogged()) {
                     observer.removeObservers(LoginFragment.this);
-                    navigator.showHomeClienteActivity(LoginFragment.this);
-                } else if (aBoolean != null && !aBoolean) {
+                    if (response.getRol().equals("CLIENTE")) {
+                        navigator.showHomeClienteActivity(LoginFragment.this);
+                    } else {
+                        navigator.showHomeRestaurantActivity(LoginFragment.this);
+                    }
+                } else {
                     showToastError("ERROR EN EL LOGIN");
                 }
             }
