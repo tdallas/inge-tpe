@@ -10,6 +10,8 @@ import javax.inject.Inject;
 
 public class PerfilActivity extends IngeActivity {
 
+    //fixme aca va a haber un boton para hacer logout, hay que borrar el usuario de la base
+
     @Inject
     Navigator navigator;
 

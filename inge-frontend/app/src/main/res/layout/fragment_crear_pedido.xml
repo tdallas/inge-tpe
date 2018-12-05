@@ -20,13 +20,13 @@
         android:layout_weight="75"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp">
-        <TextView
+        <TextView android:fontFamily="@font/roboto_light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:text="TOTAL: "
             android:textSize="27sp"/>
-        <TextView
+        <TextView android:fontFamily="@font/roboto_light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -40,7 +40,7 @@
             android:layout_marginTop="15dp"
             android:layout_below="@id/total_gastado"
             android:background="@color/colorPrimary">
-            <TextView
+            <TextView android:fontFamily="@font/roboto_light"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="CONFIRMAR COMPRA"

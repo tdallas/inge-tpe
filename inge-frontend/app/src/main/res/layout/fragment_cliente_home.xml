@@ -19,9 +19,10 @@
             android:id="@+id/crear_pedido"
             android:layout_marginEnd="5dp"
             android:clickable="true"
-            android:background="@color/colorPrimaryLight">
+            android:background="@drawable/main_button"
+            android:focusable="true">
 
-            <TextView
+            <TextView android:fontFamily="@font/roboto_light"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Crear pedido"
@@ -32,12 +33,13 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/colorPrimaryLight"
+            android:background="@drawable/main_button"
             android:layout_marginStart="5dp"
             android:clickable="true"
             android:id="@+id/mis_pedidos"
-            android:layout_weight="1">
-            <TextView
+            android:layout_weight="1"
+            android:focusable="true">
+            <TextView android:fontFamily="@font/roboto_light"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Mis pedidos"
@@ -55,8 +57,9 @@
         android:layout_marginEnd="20dp"
         android:id="@+id/mi_perfil"
         android:clickable="true"
-        android:background="@color/colorPrimaryLight">
-        <TextView
+        android:background="@drawable/main_button"
+        android:focusable="true">
+        <TextView android:fontFamily="@font/roboto_light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Mi perfil"

@@ -2,6 +2,7 @@ package com.ingeapp.view.activity;
 
 import android.os.Bundle;
 
+import com.ingeapp.R;
 import com.ingeapp.dagger.components.IngeComponents;
 import com.ingeapp.view.Navigator;
 
@@ -18,6 +19,7 @@ public class CrearPedidoActivity extends IngeActivity {
     }
 
     public void onCreate(Bundle savedInstanceState) {
+        setContentView(R.layout.activity_blank);
         super.onCreate(savedInstanceState);
         navigator.showCrearPedidoFragment(this);
     }

@@ -18,13 +18,13 @@
         android:layout_height="50dp"
         android:layout_marginStart="35dp"
         android:layout_toEndOf="@id/imagen_usuario">
-        <TextView
+        <TextView android:fontFamily="@font/roboto_light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/email_usuario"
             android:text="algo@algo.com"
             android:textSize="16sp" />
-        <TextView
+        <TextView android:fontFamily="@font/roboto_light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/nombre_usuario"
@@ -33,7 +33,7 @@
             android:textSize="11sp"
             android:text="NOMBRE"
             android:layout_below="@id/email_usuario"/>
-        <TextView
+        <TextView android:fontFamily="@font/roboto_light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/apellido_usuario"
@@ -50,7 +50,7 @@
         android:layout_height="50dp"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="5dp">
-        <TextView
+        <TextView android:fontFamily="@font/roboto_light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/activado"

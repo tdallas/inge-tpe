@@ -13,7 +13,7 @@
         android:layout_marginStart="5dp"
         android:id="@+id/preview"/>
 
-    <TextView
+    <TextView android:fontFamily="@font/roboto_light"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="DESCRIPCION DEL PRODUCTO"
@@ -22,7 +22,7 @@
         android:layout_marginStart="10dp"
         android:id="@+id/descripcion_producto"/>
 
-    <TextView
+    <TextView android:fontFamily="@font/roboto_light"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/descripcion_producto"

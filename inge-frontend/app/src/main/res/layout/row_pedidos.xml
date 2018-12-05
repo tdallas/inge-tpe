@@ -14,7 +14,7 @@
         android:layout_height="40dp"
         android:id="@+id/imagen_pedido"/>
 
-    <TextView
+    <TextView android:fontFamily="@font/roboto_light"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="USUARIO"
@@ -23,7 +23,7 @@
         android:layout_centerVertical="true"
         android:layout_toEndOf="@id/imagen_pedido"/>
 
-    <TextView
+    <TextView android:fontFamily="@font/roboto_light"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/fecha"
@@ -32,7 +32,7 @@
         android:layout_marginStart="15dp"
         android:text="28/12/2018"/>
 
-    <TextView
+    <TextView android:fontFamily="@font/roboto_light"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/fecha"
@@ -40,7 +40,7 @@
         android:text="$1250"
         android:layout_marginStart="15dp"
         android:layout_centerVertical="true"/>
-    <TextView
+    <TextView android:fontFamily="@font/roboto_light"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@id/total"

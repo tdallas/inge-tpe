@@ -19,7 +19,7 @@
             android:layout_marginBottom="50dp"
             android:orientation="vertical">
 
-            <TextView
+            <TextView android:fontFamily="@font/roboto_light"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Ingresa tu usuario" />
@@ -45,7 +45,7 @@
             android:layout_marginBottom="50dp"
             android:orientation="vertical">
 
-            <TextView
+            <TextView android:fontFamily="@font/roboto_light"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Ingresa tu clave" />
@@ -69,17 +69,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimary"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
+        android:background="@drawable/button"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
         android:id="@+id/button_login"
-        android:layout_marginBottom="100dp">
+        android:layout_marginBottom="85dp">
 
-        <TextView
+        <TextView android:fontFamily="@font/roboto_light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="LOGIN"
-            android:textSize="30sp"
+            android:text="Login"
+            android:textSize="25sp"
             android:layout_centerInParent="true"
             android:textColor="@color/white"/>
     </RelativeLayout>
@@ -88,17 +88,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimary"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
+        android:background="@drawable/button"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
         android:id="@+id/button_signup"
         android:layout_marginBottom="30dp">
 
-        <TextView
+        <TextView android:fontFamily="@font/roboto_light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CREAR USUARIO"
-            android:textSize="30sp"
+            android:text="Crear usuario"
+            android:textSize="25sp"
             android:layout_centerInParent="true"
             android:textColor="@color/white"/>
     </RelativeLayout>
