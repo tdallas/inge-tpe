@@ -6,7 +6,7 @@ public class SignUpRequest {
     private String clave;
     private String nombre;
     private String apellido;
-    private String DNI;
+    private String dni;
     private String telefono;
 
     public SignUpRequest(String email, String clave, String dni, String telefono, String nombre, String apellido) {
@@ -14,7 +14,7 @@ public class SignUpRequest {
         this.clave = clave;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.DNI = dni;
+        this.dni = dni;
         this.telefono = telefono;
     }
 }

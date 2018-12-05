@@ -45,7 +45,7 @@ public class UsuarioService {
         Rol rol = rolRepository.findByNombre("CLIENTE");
         return new Cliente(signupRequest.getNombre(), signupRequest.getApellido(),
                 signupRequest.getEmail(), signupRequest.getClave(), rol,
-                signupRequest.getDNI(), signupRequest.getTelefono());
+                signupRequest.getDni(), signupRequest.getTelefono());
     }
 
     //TODO

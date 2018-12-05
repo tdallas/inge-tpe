@@ -18,7 +18,7 @@ import retrofit2.Response;
 @Singleton
 public class LoginRepository {
     private LoginService loginService;
-    private MutableLiveData<Boolean> isLogged = new MutableLiveData<>();
+    private MutableLiveData<Boolean> isLogged;
 
     public LoginRepository(LoginService loginService) {
         this.loginService = loginService;
