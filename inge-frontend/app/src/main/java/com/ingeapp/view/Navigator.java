@@ -9,10 +9,12 @@ import com.ingeapp.view.activity.HomeClienteActivity;
 import com.ingeapp.view.activity.HomeRestaurantActivity;
 import com.ingeapp.view.activity.IngeActivity;
 import com.ingeapp.view.activity.LoginActivity;
+import com.ingeapp.view.activity.PedidosClientesActivity;
 import com.ingeapp.view.fragment.HomeClienteFragment;
 import com.ingeapp.view.fragment.HomeRestaurantFragment;
 import com.ingeapp.view.activity.SignUpActivity;
 import com.ingeapp.view.fragment.LoginFragment;
+import com.ingeapp.view.fragment.PedidosClientesFragment;
 import com.ingeapp.view.fragment.SignUpFragment;
 
 /**
@@ -44,6 +46,7 @@ public class Navigator {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         homeClienteActivity.startActivity(intent);
     }
+
 
     /**
      * Fragments
@@ -80,6 +83,12 @@ public class Navigator {
         openFragment(homeRestaurantActivity, new HomeRestaurantFragment(),
                 "HomeRestaurantFragment", false);
     }
+
+    public void showPedidosClienteFragment(PedidosClientesActivity pedidosClientesActivity) {
+        openFragment(pedidosClientesActivity, new PedidosClientesFragment(),
+                "PedidosClientes", false);
+    }
+
 
     private Fragment openFragment(IngeActivity from, Fragment fragment, String name, boolean addToBackStack) {
         FragmentTransaction transaction = from.getSupportFragmentManager().beginTransaction();

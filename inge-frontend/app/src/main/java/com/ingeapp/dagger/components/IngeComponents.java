@@ -12,10 +12,12 @@ import com.ingeapp.dagger.modules.ViewModelModule;
 import com.ingeapp.model.viewModel.HomeClienteViewModel;
 import com.ingeapp.model.viewModel.HomeRestaurantViewModel;
 import com.ingeapp.model.viewModel.LoginViewModel;
+import com.ingeapp.model.viewModel.PedidosClienteViewModel;
 import com.ingeapp.view.activity.HomeClienteActivity;
 import com.ingeapp.view.activity.HomeRestaurantActivity;
 import com.ingeapp.model.viewModel.SignUpViewModel;
 import com.ingeapp.view.activity.LoginActivity;
+import com.ingeapp.view.activity.PedidosClientesActivity;
 import com.ingeapp.view.activity.SignUpActivity;
 import com.ingeapp.view.fragment.LoginFragment;
 import com.ingeapp.view.fragment.SignUpFragment;
@@ -60,6 +62,10 @@ public interface IngeComponents {
     void inject(HomeClienteActivity homeClienteActivity);
 
     void inject(HomeRestaurantViewModel homeRestaurantViewModel);
+
+    void inject(PedidosClienteViewModel pedidosClienteViewModel);
+
+    void inject(PedidosClientesActivity pedidosClientesActivity);
 
     final class Initializer {
         public static IngeComponents init(ApplicationModule applicationModule,

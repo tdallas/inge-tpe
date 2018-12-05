@@ -3,6 +3,7 @@ package com.ingeapp.dagger.modules;
 import com.ingeapp.view.fragment.HomeClienteFragment;
 import com.ingeapp.view.fragment.HomeRestaurantFragment;
 import com.ingeapp.view.fragment.LoginFragment;
+import com.ingeapp.view.fragment.PedidosClientesFragment;
 import com.ingeapp.view.fragment.SignUpFragment;
 
 import dagger.Module;
@@ -28,4 +29,7 @@ public abstract class FragmentModule {
 
     @ContributesAndroidInjector
     abstract SignUpFragment contributeSignUpFragment();
+
+    @ContributesAndroidInjector
+    abstract PedidosClientesFragment contributePedidosClientesFragment();
 }
