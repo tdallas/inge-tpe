@@ -29,8 +29,9 @@ public class UsuarioController implements CommandLineRunner {
     @PostMapping(value = "/login")
     @ResponseBody
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
+        String rol = loginRequest.getEmail().equals("admin@admin.com") ? "RESTAURANTE" : "CLIENTE";
         return usuarioService.findByEmailAndPass(loginRequest.getEmail(), loginRequest.getClave()) ?
-                new ResponseEntity<>(new UserResponse(true), HttpStatus.OK) : new ResponseEntity<>(new UserResponse(false), HttpStatus.BAD_REQUEST);
+                new ResponseEntity<>(new UserResponse(true, rol), HttpStatus.OK) : new ResponseEntity<>(new UserResponse(false, rol), HttpStatus.BAD_REQUEST);
     }
 
     @PostMapping(value = "/signup")
@@ -38,9 +39,9 @@ public class UsuarioController implements CommandLineRunner {
     public ResponseEntity<?> signup(@RequestBody SignUpRequest signupRequest) {
         try {
             usuarioService.signup(signupRequest);
-            return ResponseEntity.ok("Usuario regitrado con exito");
+            return new ResponseEntity<>(new UserResponse(true, ""), HttpStatus.OK);
         } catch (SignupUserException s) {
-            return new ResponseEntity<>(s.getMessage(), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new UserResponse(false, ""), HttpStatus.OK);
         }
     }
 
