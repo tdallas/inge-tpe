@@ -1,5 +1,6 @@
 package com.ingeapp.view.fragment;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
@@ -69,16 +70,20 @@ public class SignUpFragment extends IngeFragment {
 
     @OnClick(R.id.button_signup)
     public void onSignUpAttempt() {
-        signUpViewModel.signUp(emailInput.getText().toString(),
+        final LiveData<Boolean> observer = signUpViewModel.signUp(emailInput.getText().toString(),
                 claveInput.getText().toString(), dniInput.getText().toString(),
                 telefonoInput.getText().toString(), nombreInput.getText().toString(),
-                apellidoInput.getText().toString()).observe(this, new Observer<Boolean>() {
+                apellidoInput.getText().toString());
+
+        observer.observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(@Nullable Boolean aBoolean) {
+                //fixme nefasto
                 if (aBoolean != null && aBoolean) {
-                    showToastError("Usuario creado!");
+                    showToastError("Usuario creado exitosamente!");
+                    observer.removeObservers(SignUpFragment.this);
                 } else if (aBoolean != null && !aBoolean) {
-                    showToastError("ERROR: Usuario no creado!");
+                    showToastError("ERROR EN EL SIGNUP");
                 }
             }
         });
