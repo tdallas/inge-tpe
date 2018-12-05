@@ -9,15 +9,19 @@ import com.ingeapp.dagger.modules.DataModule;
 import com.ingeapp.dagger.modules.FragmentModule;
 import com.ingeapp.dagger.modules.ServiceModule;
 import com.ingeapp.dagger.modules.ViewModelModule;
+import com.ingeapp.model.viewModel.CrearPedidoViewModel;
 import com.ingeapp.model.viewModel.HomeClienteViewModel;
 import com.ingeapp.model.viewModel.HomeRestaurantViewModel;
 import com.ingeapp.model.viewModel.LoginViewModel;
 import com.ingeapp.model.viewModel.PedidosClienteViewModel;
+import com.ingeapp.model.viewModel.PerfilViewModel;
+import com.ingeapp.view.activity.CrearPedidoActivity;
 import com.ingeapp.view.activity.HomeClienteActivity;
 import com.ingeapp.view.activity.HomeRestaurantActivity;
 import com.ingeapp.model.viewModel.SignUpViewModel;
 import com.ingeapp.view.activity.LoginActivity;
 import com.ingeapp.view.activity.PedidosClientesActivity;
+import com.ingeapp.view.activity.PerfilActivity;
 import com.ingeapp.view.activity.SignUpActivity;
 import com.ingeapp.view.fragment.LoginFragment;
 import com.ingeapp.view.fragment.SignUpFragment;
@@ -66,6 +70,14 @@ public interface IngeComponents {
     void inject(PedidosClienteViewModel pedidosClienteViewModel);
 
     void inject(PedidosClientesActivity pedidosClientesActivity);
+
+    void inject(PerfilViewModel perfilViewModel);
+
+    void inject(PerfilActivity perfilActivity);
+
+    void inject(CrearPedidoViewModel crearPedidoViewModel);
+
+    void inject(CrearPedidoActivity crearPedidoActivity);
 
     final class Initializer {
         public static IngeComponents init(ApplicationModule applicationModule,

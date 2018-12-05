@@ -5,16 +5,20 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 
 import com.ingeapp.R;
+import com.ingeapp.view.activity.CrearPedidoActivity;
 import com.ingeapp.view.activity.HomeClienteActivity;
 import com.ingeapp.view.activity.HomeRestaurantActivity;
 import com.ingeapp.view.activity.IngeActivity;
 import com.ingeapp.view.activity.LoginActivity;
 import com.ingeapp.view.activity.PedidosClientesActivity;
+import com.ingeapp.view.activity.PerfilActivity;
+import com.ingeapp.view.fragment.CrearPedidoFragment;
 import com.ingeapp.view.fragment.HomeClienteFragment;
 import com.ingeapp.view.fragment.HomeRestaurantFragment;
 import com.ingeapp.view.activity.SignUpActivity;
 import com.ingeapp.view.fragment.LoginFragment;
 import com.ingeapp.view.fragment.PedidosClientesFragment;
+import com.ingeapp.view.fragment.PerfilFragment;
 import com.ingeapp.view.fragment.SignUpFragment;
 
 /**
@@ -92,6 +96,15 @@ public class Navigator {
     public void showPedidosClienteFragment(PedidosClientesActivity pedidosClientesActivity) {
         openFragment(pedidosClientesActivity, new PedidosClientesFragment(),
                 "PedidosClientes", false);
+    }
+
+    public void showPerfilFragment(PerfilActivity perfilActivity) {
+        openFragment(perfilActivity, new PerfilFragment(), "Perfil", false);
+    }
+
+
+    public void showCrearPedidoFragment(CrearPedidoActivity crearPedidoActivity) {
+        openFragment(crearPedidoActivity,new CrearPedidoFragment(), "Crea tu pedido", false);
     }
 
 

@@ -28,4 +28,13 @@ public class PedidosClientesFragment extends IngeFragment {
     protected int getViewId() {
         return R.layout.fragment_ver_pedidos;
     }
+
+
+   // @Override
+    public void showFoto(String path) {
+        PhotoPreview photoPreview = PhotoPreview.newInstance();
+        photoPreview.setPath(path);
+        photoPreview.show(getChildFragmentManager(), "Dialog");
+    }
+
 }

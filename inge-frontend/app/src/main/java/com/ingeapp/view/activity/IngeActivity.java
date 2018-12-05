@@ -52,7 +52,7 @@ public abstract class IngeActivity extends DaggerAppCompatActivity {
         return this;
     }
 
-    protected abstract void injectDependencies(IngeComponents portalComponents);
+    protected abstract void injectDependencies(IngeComponents ingeComponents);
 
     public void showToastError(String error) {
         if (getApplicationContext() != null) {
