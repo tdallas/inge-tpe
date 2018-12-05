@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
 import com.ingeapp.R;
 
 public class PhotoPreview extends DialogFragment {
@@ -35,9 +34,8 @@ public class PhotoPreview extends DialogFragment {
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorPrimaryDarker)));
 
-        // No Butterknife Needed here
         ImageView photoImage = (ImageView) v.findViewById(R.id.preview);
-        //photoimage.setImage,,,,
+        //photoimage.setImage,,,,asd
 
         return v;
     }

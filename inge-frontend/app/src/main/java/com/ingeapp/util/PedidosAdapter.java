@@ -7,9 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.ingeapp.R;
-import com.ingeapp.model.Pedido;
-import com.ingeapp.model.Producto;
-import com.ingeapp.model.entities.Usuario;
+import com.ingeapp.model.entities.Pedido;
 import com.ingeapp.view.fragmentView.ClickListener;
 
 import java.util.List;
