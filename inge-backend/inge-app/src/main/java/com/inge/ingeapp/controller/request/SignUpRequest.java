@@ -5,13 +5,15 @@ import lombok.Getter;
 import lombok.Setter;
 
 @AllArgsConstructor
+@NoArgsConstructor
+@Setter
 @Getter
 public class SignUpRequest {
     private String email;
     private String clave;
     private String nombre;
     private String apellido;
-    private String DNI;
+    private String dni;
     private String telefono;
 }
 

@@ -77,7 +77,7 @@ public class SignUpFragment extends IngeFragment {
             public void onChanged(@Nullable Boolean aBoolean) {
                 if (aBoolean != null && aBoolean) {
                     navigator.showLoginActivity(SignUpFragment.this);
-                    showToastError("Usuario creado!");
+                    showToastError("Usuario creado exitosamente!");
                 } else if (aBoolean != null && !aBoolean) {
                     showToastError("ERROR: Usuario no creado!");
                 }

@@ -7,8 +7,10 @@ import lombok.Setter;
 @Setter
 public class UserResponse {
     private boolean logged;
+    private String rol;
 
-    public UserResponse(boolean b) {
-        logged = b;
+    public UserResponse(boolean logged, String rol) {
+        this.logged = logged;
+        this.rol = rol;
     }
 }
