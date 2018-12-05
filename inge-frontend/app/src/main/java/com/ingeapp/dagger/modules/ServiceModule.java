@@ -2,6 +2,9 @@ package com.ingeapp.dagger.modules;
 
 import com.google.gson.Gson;
 import com.ingeapp.service.LoginService;
+import com.ingeapp.service.PedidoService;
+import com.ingeapp.service.PerfilService;
+import com.ingeapp.service.ProductoService;
 import com.ingeapp.service.SignUpService;
 
 import javax.inject.Singleton;
@@ -44,6 +47,24 @@ public class ServiceModule {
     @Singleton
     public SignUpService providesSignUpService(Retrofit retrofit) {
         return retrofit.create(SignUpService.class);
+    }
+
+    @Provides
+    @Singleton
+    public PerfilService providesPerfilService(Retrofit retrofit) {
+        return retrofit.create(PerfilService.class);
+    }
+
+    @Provides
+    @Singleton
+    public ProductoService providesProductoService(Retrofit retrofit) {
+        return retrofit.create(ProductoService.class);
+    }
+
+    @Provides
+    @Singleton
+    public PedidoService providesPedidoService(Retrofit retrofit) {
+        return retrofit.create(PedidoService.class);
     }
 
 }
