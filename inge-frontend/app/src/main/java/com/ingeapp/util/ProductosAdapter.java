@@ -10,11 +10,12 @@ import com.ingeapp.R;
 import com.ingeapp.model.entities.Producto;
 import com.ingeapp.view.fragmentView.ClickListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.ViewHolder> {
 
-    private List<Producto> productos;
+    private List<Producto> productos = new ArrayList<>();
     private ClickListener clickListener;
 
     public ProductosAdapter(ClickListener clickListener) {

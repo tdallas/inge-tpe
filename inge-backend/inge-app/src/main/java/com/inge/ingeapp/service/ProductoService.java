@@ -25,9 +25,8 @@ public class ProductoService {
 
     public void cargarProducto(ProductoRequest productoRequest) throws NewProductException {
         validarDatos(productoRequest);
-        TipoProducto tipoProducto = getTipoProducto(productoRequest.getTipoProducto());
         Producto producto = new Producto(productoRequest.getNombre(), productoRequest.getDetalles(),
-                productoRequest.getPrecio(), tipoProducto, productoRequest.getTamanios());
+                productoRequest.getPrecio(), productoRequest.getTamanios());
         productoRepository.save(producto);
     }
 

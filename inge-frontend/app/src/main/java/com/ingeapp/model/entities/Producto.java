@@ -4,23 +4,33 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 public class Producto implements Serializable {
     @PrimaryKey
     private Long id;
-    private String descripcion;
+    /**
+     * Pizza calabresa por ej
+     */
+    private String nombre;
+    /**
+     * En detalles iría marca y tipo si fuese bebida o ingredientes si fuese pizza
+     */
+    private String detalles;
     private Double precio;
+    //-1 significa que todavia no fue calificado por nadie
+    private Integer cantidadVendidos = 0;
+    private List<Tamanio> tamanios;
 
-    public Producto(Long id, String descripcion, Double precio) {
+    public Producto(Long id, String nombre, String detalles, Double precio, Integer cantidadVendidos, List<Tamanio> tamanios) {
         this.id = id;
-        this.descripcion = descripcion;
+        this.nombre = nombre;
+        this.detalles = detalles;
         this.precio = precio;
+        this.cantidadVendidos = cantidadVendidos;
+        this.tamanios = tamanios;
     }
-
-    public Producto() {
-    }
-
 
     public Long getId() {
         return id;
@@ -30,12 +40,20 @@ public class Producto implements Serializable {
         this.id = id;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDetalles() {
+        return detalles;
+    }
+
+    public void setDetalles(String detalles) {
+        this.detalles = detalles;
     }
 
     public Double getPrecio() {
@@ -44,5 +62,21 @@ public class Producto implements Serializable {
 
     public void setPrecio(Double precio) {
         this.precio = precio;
+    }
+
+    public Integer getCantidadVendidos() {
+        return cantidadVendidos;
+    }
+
+    public void setCantidadVendidos(Integer cantidadVendidos) {
+        this.cantidadVendidos = cantidadVendidos;
+    }
+
+    public List<Tamanio> getTamanios() {
+        return tamanios;
+    }
+
+    public void setTamanios(List<Tamanio> tamanios) {
+        this.tamanios = tamanios;
     }
 }
