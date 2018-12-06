@@ -85,6 +85,7 @@ public class CrearPedidoFragment extends IngeFragment implements Calculator {
     public void onConfirmarCompra() {
         if (suma == 0) {
             showToastError("Agrega un producto o mas a tu pedido para poder comprar");
+            return;
         }
         SharedPreferences pref = getContext().getSharedPreferences("Pref", Context.MODE_PRIVATE);
         crearPedidoViewModel.crearPedido(new PedidoRequest(adapter.getProductos(),
