@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.TextView;
 
 import com.ingeapp.R;
 import com.ingeapp.model.entities.Producto;
@@ -17,6 +18,7 @@ import com.ingeapp.util.ProductosAdapter;
 import com.ingeapp.view.fragmentView.Calculator;
 import com.ingeapp.view.fragmentView.ClickListener;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -29,6 +31,8 @@ public class CrearPedidoFragment extends IngeFragment implements Calculator {
 
     @BindView(R.id.recylcer_productos)
     RecyclerView recyclerView;
+    @BindView(R.id.total_gastado)
+    TextView total;
 
     private ProductosAdapter adapter;
 
@@ -68,9 +72,10 @@ public class CrearPedidoFragment extends IngeFragment implements Calculator {
     @Override
     public void calcularTotal() {
         Double suma = 0D;
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
         for (Producto p : adapter.getProductos()) {
-
+            suma += p.getPrecio() * p.getCantidad();
         }
-
+        total.setText("$" + decimalFormat.format(suma).toString());
     }
 }

@@ -42,7 +42,8 @@
             <TextView android:fontFamily="@font/roboto_light"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="CONFIRMAR COMPRA"
+                android:text="Confirmar compra"
+                android:textColor="@color/white"
                 android:layout_centerInParent="true"
                 android:textSize="24sp"/>
         </RelativeLayout>
