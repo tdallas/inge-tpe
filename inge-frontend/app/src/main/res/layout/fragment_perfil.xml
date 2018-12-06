@@ -1,16 +1,194 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
     <RelativeLayout
         android:layout_height="wrap_content"
         android:layout_width="wrap_content">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Ingrese su usuario y clave:"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <TextView android:fontFamily="@font/roboto_light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ingrese email" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:gravity="center"
+            android:inputType="text"
+            android:imeOptions="actionDone"
+            android:id="@+id/emailActual"
+            android:hint="EMAIL ACTUAL"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="0dp"
+        android:orientation="vertical">
+
+        <TextView android:fontFamily="@font/roboto_light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ingrese clave" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:gravity="center"
+            android:inputType="textPassword"
+            android:imeOptions="actionDone"
+            android:id="@+id/claveActual"
+            android:hint="CLAVE ACTUAL"/>
+
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Modifique los campos que desea:"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <TextView android:fontFamily="@font/roboto_light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nuevo email" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:gravity="center"
+            android:inputType="text"
+            android:imeOptions="actionDone"
+            android:id="@+id/emailNuevo"
+            android:hint="EMAIL"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical">
+
+        <TextView android:fontFamily="@font/roboto_light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nueva clave" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:gravity="center"
+            android:inputType="textPassword"
+            android:imeOptions="actionDone"
+            android:id="@+id/claveNueva"
+            android:hint="CLAVE"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical">
+
+        <TextView android:fontFamily="@font/roboto_light"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nuevo telefono" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:gravity="center"
+            android:inputType="text"
+            android:imeOptions="actionDone"
+            android:id="@+id/telefono"
+            android:hint="TELEFONO"/>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/button"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
+        android:id="@+id/button_saveChanges"
+        android:layout_marginBottom="30dp">
+
         <TextView android:fontFamily="@font/roboto_light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ESTAS EN FRAGMENT PERFIL"/>
-
+            android:text="Guardar Cambios"
+            android:textSize="25sp"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"/>
     </RelativeLayout>
-</LinearLayout>
+</RelativeLayout>
