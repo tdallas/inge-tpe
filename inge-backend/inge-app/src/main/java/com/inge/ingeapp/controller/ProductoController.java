@@ -43,6 +43,12 @@ public class ProductoController implements CommandLineRunner {
         }
     }
 
+    @GetMapping(value = "/getProducto/{id}")
+    @ResponseBody
+    public ResponseEntity<?> getProductoById(@PathVariable Long id) {
+        return new ResponseEntity<>(productoService.getProductoById(id), HttpStatus.OK);
+    }
+
     @GetMapping(value = "/getAllProductos")
     @ResponseBody
     public ResponseEntity<?> getAllProductos() {

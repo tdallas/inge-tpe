@@ -1,5 +1,6 @@
 package com.inge.ingeapp.repository;
 
+import com.inge.ingeapp.controller.request.CalificarRequest;
 import com.inge.ingeapp.entity.Estado;
 import com.inge.ingeapp.entity.Pedido;
 
@@ -22,5 +23,14 @@ public class PedidoRepositoryCustomImpl extends BaseRepositoryImpl implements Pe
         Query query1 = entityManager.createQuery(query);
         query1.setParameter("idUser", idUser);
         return query1.getResultList();
+    }
+
+    @Override
+    public void calificar(CalificarRequest calificarRequest) {
+        String query = "UPDATE Pedido p SET p.calificacion = :calificacion WHERE p.id = :idPedido";
+        Query query2 = entityManager.createQuery(query);
+        query2.setParameter("calificacion", calificarRequest.getCalificacion());
+        query2.setParameter("idPedido", calificarRequest.getCalificacion());
+        query2.executeUpdate();
     }
 }

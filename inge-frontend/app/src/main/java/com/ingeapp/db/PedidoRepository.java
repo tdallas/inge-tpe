@@ -5,6 +5,7 @@ import android.arch.lifecycle.MutableLiveData;
 
 import com.ingeapp.model.entities.Pedido;
 import com.ingeapp.service.PedidoService;
+import com.ingeapp.service.payload.CalificarRequest;
 import com.ingeapp.service.payload.PedidoRequest;
 
 import java.util.ArrayList;
@@ -22,6 +23,8 @@ public class PedidoRepository {
     private final PedidoService pedidoService;
     private MutableLiveData<List<Pedido>> pedidos;
     private MutableLiveData<Boolean> crearPedido;
+    private MutableLiveData<Boolean> calificar;
+    private MutableLiveData<Pedido> pedido;
 
     public PedidoRepository(PedidoService pedidoService) {
         this.pedidoService = pedidoService;
@@ -73,19 +76,66 @@ public class PedidoRepository {
         return crearPedido;
     }
 
-    public LiveData<List<Pedido>> getAllPedidosByUserId(Long userId) {
+    public LiveData<List<Pedido>> getAllPedidosByUserId(final Long userId) {
         pedidos = new MutableLiveData<>();
-        pedidoService.getAllPedidosByUserId(userId).enqueue(new Callback<List<Pedido>>() {
+        Executors.newSingleThreadExecutor().execute(new Runnable() {
             @Override
-            public void onResponse(Call<List<Pedido>> call, Response<List<Pedido>> response) {
-                pedidos.postValue(response.body());
-            }
+            public void run() {
+                pedidoService.getAllPedidosByUserId(userId).enqueue(new Callback<List<Pedido>>() {
+                    @Override
+                    public void onResponse(Call<List<Pedido>> call, Response<List<Pedido>> response) {
+                        pedidos.postValue(response.body());
+                    }
 
-            @Override
-            public void onFailure(Call<List<Pedido>> call, Throwable t) {
+                    @Override
+                    public void onFailure(Call<List<Pedido>> call, Throwable t) {
 
+                    }
+                });
             }
         });
         return pedidos;
+    }
+
+    public LiveData<Pedido> getPedido(final long idPedido) {
+        pedido = new MutableLiveData<>();
+        Executors.newSingleThreadExecutor().execute(new Runnable() {
+            @Override
+            public void run() {
+                pedidoService.getPedido(idPedido).enqueue(new Callback<Pedido>() {
+                    @Override
+                    public void onResponse(Call<Pedido> call, Response<Pedido> response) {
+                        pedido.postValue(response.body());
+                    }
+
+                    @Override
+                    public void onFailure(Call<Pedido> call, Throwable t) {
+                        pedido.postValue(null);
+                    }
+                });
+            }
+        });
+        return pedido;
+    }
+
+    public LiveData<Boolean> calificar(final String calificacion, final long idPedido) {
+        calificar = new MutableLiveData<>();
+        Executors.newSingleThreadExecutor().execute(new Runnable() {
+            @Override
+            public void run() {
+                pedidoService.calificar(new CalificarRequest(calificacion, idPedido)).enqueue(new Callback<Boolean>() {
+                    @Override
+                    public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+                        calificar.postValue(true);
+                    }
+
+                    @Override
+                    public void onFailure(Call<Boolean> call, Throwable t) {
+                        calificar.postValue(false);
+                    }
+                });
+            }
+        });
+        return calificar;
     }
 }

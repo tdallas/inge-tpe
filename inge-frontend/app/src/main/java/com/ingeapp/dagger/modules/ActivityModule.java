@@ -1,6 +1,7 @@
 package com.ingeapp.dagger.modules;
 
 import com.ingeapp.view.activity.CrearPedidoActivity;
+import com.ingeapp.view.activity.DetallePedidoClienteActivity;
 import com.ingeapp.view.activity.HomeClienteActivity;
 import com.ingeapp.view.activity.HomeRestaurantActivity;
 import com.ingeapp.view.activity.LoginActivity;
@@ -42,4 +43,7 @@ public abstract class ActivityModule {
 
     @ContributesAndroidInjector(modules = FragmentModule.class)
     abstract UsuariosActivity contributeUsuariosActivity();
+
+    @ContributesAndroidInjector(modules = FragmentModule.class)
+    abstract DetallePedidoClienteActivity contributeDetallePedidoClienteActivity();
 }

@@ -1,5 +1,6 @@
 package com.inge.ingeapp.controller;
 
+import com.inge.ingeapp.controller.request.CalificarRequest;
 import com.inge.ingeapp.controller.request.PedidoRequest;
 import com.inge.ingeapp.entity.Pedido;
 import com.inge.ingeapp.exception.PedidoNotFoundException;
@@ -47,6 +48,18 @@ public class PedidoController {
     @ResponseBody
     public ResponseEntity<?> getAllPedidos(@PathVariable Long idUser) {
         return new ResponseEntity<>(pedidoService.findAllPedidosById(idUser), HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/calificar")
+    @ResponseBody
+    public ResponseEntity<?> calificar(@RequestBody CalificarRequest calificarRequest) {
+        return new ResponseEntity<>(pedidoService.calificar(calificarRequest), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/getPedido/{id}")
+    @ResponseBody
+    public ResponseEntity<?> getPedidoById(@PathVariable Long id) {
+        return new ResponseEntity<>(pedidoService.getPedidoById(id), HttpStatus.OK);
     }
 
     @PostMapping(value = "/pedido/estado")

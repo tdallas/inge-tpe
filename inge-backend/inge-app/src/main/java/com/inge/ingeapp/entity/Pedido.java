@@ -33,8 +33,7 @@ public class Pedido {
     @ManyToMany
     private List<Producto> productos = new ArrayList<>();
 
-    @Embedded
-    private Calificacion calificacion;
+    private String calificacion = "";
 
     private String direccionEntrega;
 

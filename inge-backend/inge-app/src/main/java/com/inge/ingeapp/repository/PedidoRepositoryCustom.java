@@ -1,5 +1,6 @@
 package com.inge.ingeapp.repository;
 
+import com.inge.ingeapp.controller.request.CalificarRequest;
 import com.inge.ingeapp.entity.Estado;
 import com.inge.ingeapp.entity.Pedido;
 
@@ -9,4 +10,6 @@ public interface PedidoRepositoryCustom {
     void updateEstadoPedido(Long idPedido, Estado estado);
 
     List<Pedido> findAllByUserId(Long idUser);
+
+    void calificar(CalificarRequest calificarRequest);
 }

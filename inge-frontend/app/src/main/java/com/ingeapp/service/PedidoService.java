@@ -1,6 +1,7 @@
 package com.ingeapp.service;
 
 import com.ingeapp.model.entities.Pedido;
+import com.ingeapp.service.payload.CalificarRequest;
 import com.ingeapp.service.payload.PedidoRequest;
 
 import java.util.List;
@@ -21,4 +22,10 @@ public interface PedidoService {
 
     @GET("/getAllPedidos/{idUser}")
     public Call<List<Pedido>> getAllPedidosByUserId(@Path("idUser") Long idUser);
+
+    @GET("/getPedido/{id}")
+    public Call<Pedido> getPedido(@Path("id") Long id);
+
+    @POST("/calificar")
+    public Call<Boolean> calificar(@Body CalificarRequest calificarRequest);
 }

@@ -1,5 +1,6 @@
 package com.inge.ingeapp.service;
 
+import com.inge.ingeapp.controller.request.CalificarRequest;
 import com.inge.ingeapp.entity.*;
 import com.inge.ingeapp.exception.PedidoNotFoundException;
 import com.inge.ingeapp.exception.UserNotFoundException;
@@ -58,6 +59,15 @@ public class PedidoService {
 
     public List<Pedido> findAllPedidosById(Long idUser) {
         return pedidoRepository.findAllByUserId(idUser);
+    }
+
+    public Pedido getPedidoById(Long id) {
+        return pedidoRepository.findById(id).get();
+    }
+
+    public boolean calificar(CalificarRequest calificarRequest) {
+        pedidoRepository.calificar(calificarRequest);
+        return true;
     }
 }
 

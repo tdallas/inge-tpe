@@ -17,11 +17,14 @@ import com.ingeapp.model.viewModel.IngeViewModel;
 import com.ingeapp.model.viewModel.PeddosRestaurantViewModel;
 import com.ingeapp.model.viewModel.PedidosClienteViewModel;
 import com.ingeapp.util.PedidosAdapter;
+import com.ingeapp.view.Navigator;
 import com.ingeapp.view.fragmentView.ClickListener;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 
@@ -34,6 +37,9 @@ public class PedidosClientesFragment extends IngeFragment implements ClickListen
 
     @BindView(R.id.recycler_pedidos)
     RecyclerView pedidos;
+
+    @Inject
+    Navigator navigator;
 
     @Override
     protected List<IngeViewModel> getViewModels() {
@@ -94,6 +100,6 @@ public class PedidosClientesFragment extends IngeFragment implements ClickListen
 
     @Override
     public void onClick(Long idItemClicked) {
-        //todo
+        navigator.showDetallePedidoClienteActiivty(this, idItemClicked);
     }
 }

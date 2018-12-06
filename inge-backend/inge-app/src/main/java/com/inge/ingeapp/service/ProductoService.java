@@ -55,4 +55,8 @@ public class ProductoService {
         }
         return optionalProductos.get();
     }
+
+    public Producto getProductoById(Long id) {
+        return productoRepository.findById(id).get();
+    }
 }

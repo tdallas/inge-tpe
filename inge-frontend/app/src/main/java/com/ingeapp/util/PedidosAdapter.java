@@ -18,6 +18,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class PedidosAdapter extends RecyclerView.Adapter<PedidosAdapter.ViewHolder> {
 
@@ -49,6 +50,7 @@ public class PedidosAdapter extends RecyclerView.Adapter<PedidosAdapter.ViewHold
         Pedido pedido = pedidos.get(i);
 
         viewHolder.pedido = pedido;
+        viewHolder.iscliente = isCliente;
 
         viewHolder.total.setText("$" + pedido.getPrecio());
         viewHolder.usuario.setText(pedido.getCliente().getEmail());
@@ -67,7 +69,7 @@ public class PedidosAdapter extends RecyclerView.Adapter<PedidosAdapter.ViewHold
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-
+        public boolean iscliente;
         public Pedido pedido;
         @BindView(R.id.imagen_pedido)
         ImageView imageView;
@@ -81,6 +83,11 @@ public class PedidosAdapter extends RecyclerView.Adapter<PedidosAdapter.ViewHold
         TextView estado;
 
         private ClickListener clickListener;
+
+        @OnClick(R.id.content_pedidos)
+        public void onPedidoClick() {
+            clickListener.onClick(pedido.getId());
+        }
 
         public ViewHolder(@NonNull View itemView, ClickListener clickListener) {
             super(itemView);

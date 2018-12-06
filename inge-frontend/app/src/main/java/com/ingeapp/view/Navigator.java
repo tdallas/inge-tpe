@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 
 import com.ingeapp.R;
 import com.ingeapp.view.activity.CrearPedidoActivity;
+import com.ingeapp.view.activity.DetallePedidoClienteActivity;
 import com.ingeapp.view.activity.HomeClienteActivity;
 import com.ingeapp.view.activity.HomeRestaurantActivity;
 import com.ingeapp.view.activity.IngeActivity;
@@ -15,6 +16,7 @@ import com.ingeapp.view.activity.PedidosClientesActivity;
 import com.ingeapp.view.activity.PerfilActivity;
 import com.ingeapp.view.activity.UsuariosActivity;
 import com.ingeapp.view.fragment.CrearPedidoFragment;
+import com.ingeapp.view.fragment.DetallePedidoClienteFragment;
 import com.ingeapp.view.fragment.HomeClienteFragment;
 import com.ingeapp.view.fragment.HomeRestaurantFragment;
 import com.ingeapp.view.activity.SignUpActivity;
@@ -161,5 +163,20 @@ public class Navigator {
     public void showHomeClienteActivity(PerfilFragment perfilFragment) {
         Intent intent = new Intent(perfilFragment.getContext(), HomeClienteActivity.class);
         perfilFragment.startActivity(intent);
+    }
+
+    public void showDetallePedidoClienteFragment(DetallePedidoClienteActivity detallePedidoClienteActivity, long idPedido) {
+        openFragment(detallePedidoClienteActivity, DetallePedidoClienteFragment.newInstance(idPedido), "DetallePedido", false);
+    }
+
+    public void showHomeClienteActivity(DetallePedidoClienteFragment detallePedidoClienteFragment) {
+        Intent intent = new Intent(detallePedidoClienteFragment.getContext(), HomeClienteActivity.class);
+        detallePedidoClienteFragment.startActivity(intent);
+    }
+
+    public void showDetallePedidoClienteActiivty(PedidosClientesFragment pedidosClientesFragment, Long idItemClicked) {
+        Intent intent = new Intent(pedidosClientesFragment.getContext(), DetallePedidoClienteActivity.class);
+        intent.putExtra("idPedido", idItemClicked);
+        pedidosClientesFragment.startActivity(intent);
     }
 }
