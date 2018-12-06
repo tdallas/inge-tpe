@@ -26,7 +26,7 @@ public class ProductoService {
     public void cargarProducto(ProductoRequest productoRequest) throws NewProductException {
         validarDatos(productoRequest);
         Producto producto = new Producto(productoRequest.getNombre(), productoRequest.getDetalles(),
-                productoRequest.getPrecio(), productoRequest.getTamanios());
+                productoRequest.getPrecio());
         productoRepository.save(producto);
     }
 

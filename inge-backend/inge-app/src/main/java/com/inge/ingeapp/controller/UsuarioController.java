@@ -4,6 +4,7 @@ import com.inge.ingeapp.controller.request.LoginRequest;
 import com.inge.ingeapp.controller.response.ClienteResponse;
 import com.inge.ingeapp.controller.response.UserResponse;
 import com.inge.ingeapp.entity.Cliente;
+import com.inge.ingeapp.entity.Usuario;
 import com.inge.ingeapp.exception.SignupUserException;
 import com.inge.ingeapp.controller.request.SignUpRequest;
 import com.inge.ingeapp.service.UsuarioService;
@@ -30,18 +31,18 @@ public class UsuarioController implements CommandLineRunner {
     @ResponseBody
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
         String rol = loginRequest.getEmail().equals("admin@admin.com") ? "RESTAURANTE" : "CLIENTE";
-        return usuarioService.findByEmailAndPass(loginRequest.getEmail(), loginRequest.getClave()) ?
-                new ResponseEntity<>(new UserResponse(true, rol), HttpStatus.OK) : new ResponseEntity<>(new UserResponse(false, rol), HttpStatus.BAD_REQUEST);
+        Usuario usuario =  usuarioService.findByEmailAndPass(loginRequest.getEmail(), loginRequest.getClave());
+        return usuario != null ? new ResponseEntity<>(new UserResponse(true, rol, usuario.getId(), ""), HttpStatus.OK) : new ResponseEntity<>(new UserResponse(false, rol, null, ""), HttpStatus.BAD_REQUEST);
     }
 
     @PostMapping(value = "/signup")
     @ResponseBody
     public ResponseEntity<?> signup(@RequestBody SignUpRequest signupRequest) {
         try {
-            usuarioService.signup(signupRequest);
-            return new ResponseEntity<>(new UserResponse(true, ""), HttpStatus.OK);
+            Cliente cliente = usuarioService.signup(signupRequest);
+            return new ResponseEntity<>(new UserResponse(true, "", cliente.getId(), cliente.getDireccion()), HttpStatus.OK);
         } catch (SignupUserException s) {
-            return new ResponseEntity<>(new UserResponse(false, ""), HttpStatus.OK);
+            return new ResponseEntity<>(new UserResponse(false, "", null, null), HttpStatus.OK);
         }
     }
 

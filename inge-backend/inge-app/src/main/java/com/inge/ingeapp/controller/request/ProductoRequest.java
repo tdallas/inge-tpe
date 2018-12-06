@@ -5,7 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Getter
 @AllArgsConstructor
@@ -15,5 +17,5 @@ public class ProductoRequest {
     private String detalles;
     private Double precio;
     private String tipoProducto;
-    private List<Tamanio> tamanios;
+    private HashMap<String, Boolean> tamanios;
 }

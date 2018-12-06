@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -69,11 +70,11 @@ public class ProductoController implements CommandLineRunner {
     public void run(String... args) throws Exception {
         if (productoRepository.findByNombre("Pizza").isPresent())
             return;
-        Producto pizzaProducto = new Producto("Pizza", "Pizza de fugazzeta", 123.50d, new ArrayList<>());
-        Producto pizza2Producto = new Producto("Pizza2", "Pizza de muzzarella", 133.50d, new ArrayList<>());
-        Producto pizza3Producto = new Producto("Pizza3", "Pizza de palmitos", 143.50d, new ArrayList<>());
-        Producto pizza4Producto = new Producto("Pizza4", "Pizza hawaianna", 153.50d, new ArrayList<>());
-        Producto pizza5Producto = new Producto("Pizza5", "Pizza calabresa", 163.50d, new ArrayList<>());
+        Producto pizzaProducto = new Producto("Pizza", "Pizza de fugazzeta", 123.50d);
+        Producto pizza2Producto = new Producto("Pizza2", "Pizza de muzzarella", 133.50d);
+        Producto pizza3Producto = new Producto("Pizza3", "Pizza de palmitos", 143.50d);
+        Producto pizza4Producto = new Producto("Pizza4", "Pizza hawaianna", 153.50d);
+        Producto pizza5Producto = new Producto("Pizza5", "Pizza calabresa", 163.50d);
         productoRepository.save(pizzaProducto);
         productoRepository.save(pizza2Producto);
         productoRepository.save(pizza3Producto);

@@ -18,12 +18,12 @@ import java.util.List;
 public class Cliente extends Usuario {
     @OneToMany(cascade= CascadeType.ALL, fetch=FetchType.LAZY)
     private List<Pedido> pedidosRealizados = new ArrayList<>();
-    @Embedded
-    private String direccion;
+    private String direccion = "";
 
     public Cliente(String nombre, String apellido,
-                   String email, String clave, Rol rol, String dni, String telefono) {
+                   String email, String clave, Rol rol, String dni, String telefono, String direccion) {
         super(nombre, apellido, email, clave, rol, dni, telefono);
+        this.direccion = direccion;
     }
 
 }

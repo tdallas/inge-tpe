@@ -35,7 +35,6 @@ public class PedidoService {
         pedido.setCliente(cliente);
         pedido.setRestaurante(restaurante);
         pedido.setProductos(productos);
-        //TODO buscar de alguna manera las coordenadas y setearlas aca (si es que hay tiempo)
         pedido.setDireccionEntrega(direccion);
         pedido.setEstado(Estado.PROCESANDO);
         pedidoRepository.save(pedido);

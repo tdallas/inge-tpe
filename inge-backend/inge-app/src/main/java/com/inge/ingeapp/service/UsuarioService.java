@@ -27,17 +27,17 @@ public class UsuarioService {
         this.rolRepository = rolRepository;
     }
 
-    public boolean findByEmailAndPass(String email, String pass){
+    public Usuario findByEmailAndPass(String email, String pass){
         Usuario usuario = usuarioRepository.findByEmailAndClave(email, pass);
-        return usuario != null && usuario.getClave().equals(pass);
+        return usuario;
     }
 
-    public void signup(SignUpRequest signupRequest) throws SignupUserException {
+    public Cliente signup(SignUpRequest signupRequest) throws SignupUserException {
         if (usuarioRepository.findByEmail(signupRequest.getEmail()).isPresent()) {
             throw new SignupUserException("El usuario ya fue registrado");
         } else {
             validarDatos(signupRequest);
-            clienteRepository.save(parsearDatos(signupRequest));
+            return clienteRepository.save(parsearDatos(signupRequest));
         }
     }
 
@@ -45,7 +45,7 @@ public class UsuarioService {
         Rol rol = rolRepository.findByNombre("CLIENTE");
         return new Cliente(signupRequest.getNombre(), signupRequest.getApellido(),
                 signupRequest.getEmail(), signupRequest.getClave(), rol,
-                signupRequest.getDni(), signupRequest.getTelefono());
+                signupRequest.getDni(), signupRequest.getTelefono(), signupRequest.getDireccion());
     }
 
     //TODO

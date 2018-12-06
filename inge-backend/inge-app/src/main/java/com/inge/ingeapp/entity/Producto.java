@@ -7,7 +7,9 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -28,14 +30,11 @@ public class Producto {
     private String detalles;
     private Double precio;
     //-1 significa que todavia no fue calificado por nadie
-    private Integer cantidadVendidos = 0;
-    @Embedded
-    private List<Tamanio> tamanios = new ArrayList<>();
+    private Integer cantidad = 0;
 
-    public Producto(String nombre, String detalles, Double precio, List<Tamanio> tamanios) {
+    public Producto(String nombre, String detalles, Double precio) {
         this.nombre = nombre;
         this.detalles = detalles;
         this.precio = precio;
-        this.tamanios = tamanios;
     }
 }
