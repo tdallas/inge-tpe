@@ -19,6 +19,7 @@
                 android:layout_height="wrap_content"
                 android:text="Ver pedidos"
                 android:textSize="25sp"
+                android:textColor="@color/white"
                 android:layout_centerInParent="true"/>
         </RelativeLayout>
 
@@ -38,6 +39,7 @@
                 android:layout_height="wrap_content"
                 android:text="Ver usuarios"
                 android:textSize="25sp"
+                android:textColor="@color/white"
                 android:layout_centerInParent="true"/>
         </RelativeLayout>
 
