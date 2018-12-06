@@ -35,6 +35,7 @@ public class SignUpRepository{
                     public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                         if (response.body() != null && response.body().getLogged()) {
                             isSigned.postValue(true);
+                            toSharedPreferences(response.body().getId(), response.body().getDireccion());
                         } else {
                             isSigned.postValue(false);
                         }
@@ -54,7 +55,7 @@ public class SignUpRepository{
         SharedPreferences.Editor editor = context.getSharedPreferences("Pref", Context.MODE_PRIVATE).edit();
         editor.putLong("idUser", idUser);
         editor.putString("dir", direccion);
-        editor.commit();
+        editor.apply();
     }
 
 

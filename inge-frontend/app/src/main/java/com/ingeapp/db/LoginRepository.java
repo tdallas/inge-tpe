@@ -35,13 +35,13 @@ public class LoginRepository {
                         if (response.body() != null) {
                             isLogged.postValue(response.body());
                         } else {
-                            isLogged.postValue(new UserResponse(false, ""));
+                            isLogged.postValue(new UserResponse(false, "", null, ""));
                         }
                     }
 
                     @Override
                     public void onFailure(Call<UserResponse> call, Throwable t) {
-                        isLogged.postValue(new UserResponse(false, ""));
+                        isLogged.postValue(new UserResponse(false, "", null, ""));
                     }
                 });
             }
