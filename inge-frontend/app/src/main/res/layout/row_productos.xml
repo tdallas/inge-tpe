@@ -142,6 +142,7 @@
         android:hint="0"
         android:textAlignment="center"
         android:fontFamily="@font/roboto_light"
-        android:inputType="text" />
+        android:inputType="number"
+        android:imeOptions="actionDone"/>
 
 </RelativeLayout>

@@ -9,8 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="25"
-        android:id="@+id/recylcer_productos"
-        android:background="@color/colorPrimary">
+        android:id="@+id/recylcer_productos">
 
     </android.support.v7.widget.RecyclerView>
 
@@ -20,26 +19,26 @@
         android:layout_weight="75"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp">
-        <TextView android:fontFamily="@font/roboto_light"
+        <TextView android:fontFamily="@font/roboto_bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:text="TOTAL: "
-            android:textSize="27sp"/>
+            android:textSize="24sp"/>
         <TextView android:fontFamily="@font/roboto_light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="30dp"
-            android:text="$ 123123"
+            android:text="$ 0"
             android:id="@+id/total_gastado"
-            android:textSize="27sp"/>
+            android:textSize="24sp"/>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:layout_marginTop="15dp"
             android:layout_below="@id/total_gastado"
-            android:background="@color/colorPrimary">
+            android:background="@drawable/button">
             <TextView android:fontFamily="@font/roboto_light"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

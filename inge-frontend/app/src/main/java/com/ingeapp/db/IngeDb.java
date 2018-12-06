@@ -8,7 +8,7 @@ import com.ingeapp.model.entities.*;
 import com.ingeapp.util.Converter;
 
 @Database(entities = {Usuario.class, Pedido.class, Producto.class,
-        Rol.class, Cliente.class}, version = 3)
+        Rol.class, Cliente.class}, version = 4)
 @TypeConverters({Converter.class})
 public abstract class IngeDb extends RoomDatabase {
 

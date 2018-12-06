@@ -5,6 +5,7 @@ import android.arch.persistence.room.PrimaryKey;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 
 @Entity
 public class Producto implements Serializable {
@@ -14,16 +15,14 @@ public class Producto implements Serializable {
     private String detalles;
     private Double precio;
     //-1 significa que todavia no fue calificado por nadie
-    private Integer cantidadVendidos = 0;
-    private List<Tamanio> tamanios;
+    private Integer cantidad = 0;
 
-    public Producto(Long id, String nombre, String detalles, Double precio, Integer cantidadVendidos, List<Tamanio> tamanios) {
+    public Producto(Long id, String nombre, String detalles, Double precio, Integer cantidad) {
         this.id = id;
         this.nombre = nombre;
         this.detalles = detalles;
         this.precio = precio;
-        this.cantidadVendidos = cantidadVendidos;
-        this.tamanios = tamanios;
+        this.cantidad = cantidad;
     }
 
     public Long getId() {
@@ -58,19 +57,11 @@ public class Producto implements Serializable {
         this.precio = precio;
     }
 
-    public Integer getCantidadVendidos() {
-        return cantidadVendidos;
+    public Integer getCantidad() {
+        return cantidad;
     }
 
-    public void setCantidadVendidos(Integer cantidadVendidos) {
-        this.cantidadVendidos = cantidadVendidos;
-    }
-
-    public List<Tamanio> getTamanios() {
-        return tamanios;
-    }
-
-    public void setTamanios(List<Tamanio> tamanios) {
-        this.tamanios = tamanios;
+    public void setCantidad(Integer cantidad) {
+        this.cantidad = cantidad;
     }
 }

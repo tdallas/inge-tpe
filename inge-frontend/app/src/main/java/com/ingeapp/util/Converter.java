@@ -15,6 +15,7 @@ import java.lang.reflect.Type;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 public class Converter {
     public static Gson gson = new GsonBuilder()
@@ -132,6 +133,21 @@ public class Converter {
         return null;
 
     }
+
+    @TypeConverter
+    public static Map<String, Boolean> stringToTamaniosMap(String data) {
+        if (data == null) {
+            return Collections.emptyMap();
+        }
+        Type listType = new TypeToken<Map<String, Boolean>>() {}.getType();
+        return gson.fromJson(data, listType);
+    }
+
+    @TypeConverter
+    public static String tamaniosMapToString(Map<String, Boolean> someObjects) {
+        return gson.toJson(someObjects);
+    }
+
 
     @TypeConverter
     public static String calificacionToString(Calificacion calificacion) {

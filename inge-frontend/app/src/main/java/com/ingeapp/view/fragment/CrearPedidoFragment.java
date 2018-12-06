@@ -5,6 +5,7 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
@@ -13,6 +14,7 @@ import com.ingeapp.model.entities.Producto;
 import com.ingeapp.model.viewModel.CrearPedidoViewModel;
 import com.ingeapp.model.viewModel.IngeViewModel;
 import com.ingeapp.util.ProductosAdapter;
+import com.ingeapp.view.fragmentView.Calculator;
 import com.ingeapp.view.fragmentView.ClickListener;
 
 import java.util.ArrayList;
@@ -21,7 +23,7 @@ import java.util.List;
 
 import butterknife.BindView;
 
-public class CrearPedidoFragment extends IngeFragment implements ClickListener {
+public class CrearPedidoFragment extends IngeFragment implements Calculator {
 
     private CrearPedidoViewModel crearPedidoViewModel;
 
@@ -43,6 +45,7 @@ public class CrearPedidoFragment extends IngeFragment implements ClickListener {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         adapter = new ProductosAdapter(this);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(adapter);
     }
 
@@ -63,7 +66,11 @@ public class CrearPedidoFragment extends IngeFragment implements ClickListener {
     }
 
     @Override
-    public void onClick(Long idItemClicked) {
-        //do something
+    public void calcularTotal() {
+        Double suma = 0D;
+        for (Producto p : adapter.getProductos()) {
+
+        }
+
     }
 }
