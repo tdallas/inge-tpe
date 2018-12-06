@@ -30,7 +30,7 @@ public class PedidoRepositoryCustomImpl extends BaseRepositoryImpl implements Pe
         String query = "UPDATE Pedido p SET p.calificacion = :calificacion WHERE p.id = :idPedido";
         Query query2 = entityManager.createQuery(query);
         query2.setParameter("calificacion", calificarRequest.getCalificacion());
-        query2.setParameter("idPedido", calificarRequest.getCalificacion());
+        query2.setParameter("idPedido", calificarRequest.getIdPedido());
         query2.executeUpdate();
     }
 }

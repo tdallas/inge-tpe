@@ -10,6 +10,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class CalificarRequest {
-    public String calificacion;
+    private String calificacion;
     private Long idPedido;
 }

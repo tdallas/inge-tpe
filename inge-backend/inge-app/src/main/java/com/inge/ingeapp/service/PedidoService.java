@@ -65,6 +65,7 @@ public class PedidoService {
         return pedidoRepository.findById(id).get();
     }
 
+    @Transactional
     public boolean calificar(CalificarRequest calificarRequest) {
         pedidoRepository.calificar(calificarRequest);
         return true;
