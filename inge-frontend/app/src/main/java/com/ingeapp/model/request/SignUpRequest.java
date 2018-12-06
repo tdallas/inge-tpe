@@ -2,6 +2,11 @@ package com.ingeapp.model.request;
 
 public class SignUpRequest {
 
+    public String getDireccion() {
+        return direccion;
+    }
+
+    private String direccion;
     private String email;
     private String clave;
     private String nombre;
@@ -9,12 +14,14 @@ public class SignUpRequest {
     private String dni;
     private String telefono;
 
-    public SignUpRequest(String email, String clave, String dni, String telefono, String nombre, String apellido) {
+    public SignUpRequest(String email, String clave, String dni, String telefono, String nombre, String apellido,
+                         String direccion) {
         this.email = email;
         this.clave = clave;
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
+        this.direccion = direccion;
         this.telefono = telefono;
     }
 

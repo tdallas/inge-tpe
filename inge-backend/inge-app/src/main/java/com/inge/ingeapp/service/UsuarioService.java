@@ -1,5 +1,6 @@
 package com.inge.ingeapp.service;
 
+import com.inge.ingeapp.controller.request.UpdateRequest;
 import com.inge.ingeapp.entity.*;
 import com.inge.ingeapp.exception.SignupUserException;
 import com.inge.ingeapp.controller.request.SignUpRequest;
@@ -9,6 +10,7 @@ import com.inge.ingeapp.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -58,5 +60,14 @@ public class UsuarioService {
 
     public List<Cliente> getAllClientes() {
         return clienteRepository.findAll();
+    }
+
+    @Transactional
+    public boolean updateInfo(UpdateRequest updateRequest) {
+        if (findByEmailAndPass(updateRequest.getMailActual(), updateRequest.getClaveActual()) == null) {
+            return false;
+        }
+        clienteRepository.updateUser(updateRequest);
+        return true;
     }
 }
