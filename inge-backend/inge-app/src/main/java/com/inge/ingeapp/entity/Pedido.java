@@ -43,13 +43,15 @@ public class Pedido {
     @ManyToOne
     private Restaurante restaurante;
 
+    private Double precio = getPrecioTotal();
+
     public Double getPrecioTotal() {
         if (productos.size() != 0) {
             Double precioFinal = 0d;
             for (Producto p : productos)
                 precioFinal += p.getPrecio();
         }
-        return null;
+        return 0D;
     }
 
 }

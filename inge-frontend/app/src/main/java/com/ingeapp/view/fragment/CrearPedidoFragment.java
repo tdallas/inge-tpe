@@ -46,6 +46,7 @@ public class CrearPedidoFragment extends IngeFragment implements Calculator {
     Navigator navigator;
 
     private ProductosAdapter adapter;
+    private double suma = 0D;
 
     @Override
     protected List<IngeViewModel> getViewModels() {
@@ -82,6 +83,9 @@ public class CrearPedidoFragment extends IngeFragment implements Calculator {
 
     @OnClick(R.id.confirmar_compra)
     public void onConfirmarCompra() {
+        if (suma == 0) {
+            showToastError("Agrega un producto o mas a tu pedido para poder comprar");
+        }
         SharedPreferences pref = getContext().getSharedPreferences("Pref", Context.MODE_PRIVATE);
         crearPedidoViewModel.crearPedido(new PedidoRequest(adapter.getProductos(),
                 pref.getLong("idUser", 0l), pref.getString("dir", "")))
@@ -100,7 +104,7 @@ public class CrearPedidoFragment extends IngeFragment implements Calculator {
 
     @Override
     public void calcularTotal() {
-        Double suma = 0D;
+        suma = 0D;
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
         for (Producto p : adapter.getProductos()) {
             suma += p.getPrecio() * p.getCantidad();
