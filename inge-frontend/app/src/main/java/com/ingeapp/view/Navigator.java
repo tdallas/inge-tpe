@@ -151,4 +151,9 @@ public class Navigator {
     public void showVerUsuariosFragment(UsuariosActivity usuariosActivity) {
         openFragment(usuariosActivity, new UsuariosFragment(), "Ver usuarios", false);
     }
+
+    public void showHomeClienteActivity(CrearPedidoFragment crearPedidoFragment) {
+        Intent intent = new Intent(crearPedidoFragment.getContext(), HomeClienteActivity.class);
+        crearPedidoFragment.startActivity(intent);
+    }
 }

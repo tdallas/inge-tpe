@@ -37,6 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="35dp"
             android:layout_marginTop="15dp"
+            android:id="@+id/confirmar_compra"
             android:layout_below="@id/total_gastado"
             android:background="@drawable/button">
             <TextView android:fontFamily="@font/roboto_light"

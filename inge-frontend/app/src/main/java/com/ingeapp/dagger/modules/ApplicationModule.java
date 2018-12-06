@@ -3,6 +3,7 @@ package com.ingeapp.dagger.modules;
 import android.app.Application;
 import android.arch.lifecycle.ViewModel;
 import android.arch.persistence.room.Room;
+import android.content.Context;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,5 +53,11 @@ public class ApplicationModule {
                 IngeDb.class, "Inge.db")
                 .build();
     }
+
+    @Provides
+    Context provideContext() {
+        return ingeApplication.getApplicationContext();
+    }
+
 
 }

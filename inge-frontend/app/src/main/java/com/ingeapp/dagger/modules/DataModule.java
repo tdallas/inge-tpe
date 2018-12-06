@@ -1,6 +1,7 @@
 package com.ingeapp.dagger.modules;
 
 import android.arch.persistence.room.Room;
+import android.content.Context;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -48,8 +49,8 @@ public class DataModule {
 
     @Singleton
     @Provides
-    public SignUpRepository providesSignUpRepository(SignUpService signUpService) {
-        return new SignUpRepository(signUpService);
+    public SignUpRepository providesSignUpRepository(SignUpService signUpService, Context context) {
+        return new SignUpRepository(signUpService, context);
     }
 
     @Singleton

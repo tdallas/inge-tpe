@@ -2,6 +2,8 @@ package com.ingeapp.db;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
+import android.content.Context;
+import android.content.SharedPreferences;
 
 import com.ingeapp.model.request.SignUpRequest;
 import com.ingeapp.service.SignUpService;
@@ -14,11 +16,13 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class SignUpRepository{
+    private final Context context;
     private SignUpService signUpService;
     private MutableLiveData<Boolean> isSigned;
 
-    public SignUpRepository(SignUpService signUpService) {
+    public SignUpRepository(SignUpService signUpService, Context context) {
         this.signUpService = signUpService;
+        this.context = context;
     }
 
     public LiveData<Boolean> signUp(final SignUpRequest signUpRequest) {
@@ -45,4 +49,13 @@ public class SignUpRepository{
         });
         return isSigned;
     }
+
+    private void toSharedPreferences(Long idUser, String direccion) {
+        SharedPreferences.Editor editor = context.getSharedPreferences("Pref", Context.MODE_PRIVATE).edit();
+        editor.putLong("idUser", idUser);
+        editor.putString("dir", direccion);
+        editor.commit();
+    }
+
+
 }
