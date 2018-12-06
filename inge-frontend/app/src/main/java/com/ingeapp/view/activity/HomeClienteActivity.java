@@ -32,7 +32,7 @@ public class HomeClienteActivity extends IngeActivity {
             showToastError("Presione nuevamente para salir de la app");
             close = true;
         } else {
-            finish();
+            finishAffinity();
         }
     }
 }
