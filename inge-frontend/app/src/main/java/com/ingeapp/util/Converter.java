@@ -6,6 +6,7 @@ import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.ingeapp.model.entities.Producto;
+import com.ingeapp.model.entities.Tamanio;
 import com.ingeapp.model.entities.Usuario;
 
 import java.lang.reflect.Type;
@@ -32,7 +33,7 @@ public class Converter {
     }
 
     @TypeConverter
-    public static List<Producto> StringToProductList(String data) {
+    public static List<Producto> stringToProductList(String data) {
         if (data == null) {
             return Collections.emptyList();
         }
@@ -41,7 +42,21 @@ public class Converter {
     }
 
     @TypeConverter
-    public static String ProducListToString(List<Producto> someObjects) {
+    public static String producListToString(List<Producto> someObjects) {
+        return gson.toJson(someObjects);
+    }
+
+    @TypeConverter
+    public static List<Tamanio> stringToTamanioList(String data) {
+        if (data == null) {
+            return Collections.emptyList();
+        }
+        Type listType = new TypeToken<List<Tamanio>>() {}.getType();
+        return gson.fromJson(data, listType);
+    }
+
+    @TypeConverter
+    public static String tamanioListToString(List<Tamanio> someObjects) {
         return gson.toJson(someObjects);
     }
 

@@ -5,6 +5,7 @@ import com.inge.ingeapp.entity.Producto;
 import com.inge.ingeapp.entity.TipoProducto;
 import com.inge.ingeapp.exception.NewProductException;
 import com.inge.ingeapp.exception.ProductException;
+import com.inge.ingeapp.repository.ProductoRepository;
 import com.inge.ingeapp.repository.TipoProductoRepository;
 import com.inge.ingeapp.service.ProductoService;
 import org.springframework.boot.CommandLineRunner;
@@ -12,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -19,10 +21,14 @@ public class ProductoController implements CommandLineRunner {
 
     private final TipoProductoRepository tipoProductoRepository;
     private final ProductoService productoService;
+    private final ProductoRepository productoRepository;
 
-    public ProductoController(TipoProductoRepository tipoProductoRepository, ProductoService productoService) {
+    public ProductoController(TipoProductoRepository tipoProductoRepository,
+                              ProductoService productoService,
+                              ProductoRepository productoRepository) {
         this.tipoProductoRepository = tipoProductoRepository;
         this.productoService = productoService;
+        this.productoRepository = productoRepository;
     }
 
     @PostMapping(value = "/nuevoProducto")
@@ -61,15 +67,18 @@ public class ProductoController implements CommandLineRunner {
     //ACA VOY A CARGAR EN LA BASE TODOS LOS PRODUCTOS
     @Override
     public void run(String... args) throws Exception {
-        if (tipoProductoRepository.findById(1L).isPresent())
+        if (productoRepository.findByNombre("Pizza").isPresent())
             return;
-        TipoProducto pizza = new TipoProducto(1L, "PIZZA");
-        TipoProducto gaseosa = new TipoProducto(2L, "GASEOSA");
-        TipoProducto cerveza = new TipoProducto(3L, "CERVEZA");
-        TipoProducto empanada = new TipoProducto(4L, "EMPANADA");
-        tipoProductoRepository.save(pizza);
-        tipoProductoRepository.save(gaseosa);
-        tipoProductoRepository.save(cerveza);
-        tipoProductoRepository.save(empanada);
+        Producto pizzaProducto = new Producto("Pizza", "Pizza de fugazzeta", 123.50d, new ArrayList<>());
+        Producto pizza2Producto = new Producto("Pizza2", "Pizza de muzzarella", 133.50d, new ArrayList<>());
+        Producto pizza3Producto = new Producto("Pizza3", "Pizza de palmitos", 143.50d, new ArrayList<>());
+        Producto pizza4Producto = new Producto("Pizza4", "Pizza hawaianna", 153.50d, new ArrayList<>());
+        Producto pizza5Producto = new Producto("Pizza5", "Pizza calabresa", 163.50d, new ArrayList<>());
+        productoRepository.save(pizzaProducto);
+        productoRepository.save(pizza2Producto);
+        productoRepository.save(pizza3Producto);
+        productoRepository.save(pizza4Producto);
+        productoRepository.save(pizza5Producto);
+
     }
 }
