@@ -10,13 +10,7 @@ import java.util.List;
 public class Producto implements Serializable {
     @PrimaryKey
     private Long id;
-    /**
-     * Pizza calabresa por ej
-     */
     private String nombre;
-    /**
-     * En detalles iría marca y tipo si fuese bebida o ingredientes si fuese pizza
-     */
     private String detalles;
     private Double precio;
     //-1 significa que todavia no fue calificado por nadie

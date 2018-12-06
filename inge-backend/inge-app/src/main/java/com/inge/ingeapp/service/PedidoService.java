@@ -29,7 +29,7 @@ public class PedidoService {
 
 
     public Pedido crearPedido(List<Producto> productos,
-                                      Long idCliente, Direccion direccion) throws UserNotFoundException {
+                                      Long idCliente, String direccion) throws UserNotFoundException {
         Cliente cliente = clienteRepository.findById(idCliente).orElseThrow(UserNotFoundException::new);
         Pedido pedido = new Pedido();
         pedido.setCliente(cliente);
@@ -37,7 +37,7 @@ public class PedidoService {
         pedido.setProductos(productos);
         //TODO buscar de alguna manera las coordenadas y setearlas aca (si es que hay tiempo)
         pedido.setDireccionEntrega(direccion);
-        pedido.setEstado(Estado.ENCOLA);
+        pedido.setEstado(Estado.PROCESANDO);
         pedidoRepository.save(pedido);
         return pedido;
     }
@@ -45,6 +45,10 @@ public class PedidoService {
     @Transactional
     public void cambiarEstadoPedido(Long idPedido, Estado estado) throws PedidoNotFoundException {
         pedidoRepository.updateEstadoPedido(idPedido, estado);
+    }
+
+    public List<Pedido> findAllPedidos() {
+        return pedidoRepository.findAll();
     }
 }
 

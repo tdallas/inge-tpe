@@ -13,6 +13,7 @@ import com.ingeapp.model.viewModel.CrearPedidoViewModel;
 import com.ingeapp.model.viewModel.HomeClienteViewModel;
 import com.ingeapp.model.viewModel.HomeRestaurantViewModel;
 import com.ingeapp.model.viewModel.LoginViewModel;
+import com.ingeapp.model.viewModel.PeddosRestaurantViewModel;
 import com.ingeapp.model.viewModel.PedidosClienteViewModel;
 import com.ingeapp.model.viewModel.PerfilViewModel;
 import com.ingeapp.model.viewModel.UsuariosViewModel;
@@ -84,6 +85,8 @@ public interface IngeComponents {
     void inject(UsuariosViewModel usuariosViewModel);
 
     void inject(UsuariosActivity usuariosActivity);
+
+    void inject(PeddosRestaurantViewModel peddosRestaurantViewModel);
 
     final class Initializer {
         public static IngeComponents init(ApplicationModule applicationModule,

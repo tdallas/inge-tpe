@@ -16,5 +16,5 @@ import java.util.List;
 public class PedidoRequest {
     private List<Producto> productos;
     private Long idCliente;
-    private Direccion direccion;
+    private String direccion;
 }

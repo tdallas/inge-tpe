@@ -5,9 +5,11 @@ import android.arch.persistence.room.TypeConverter;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.ingeapp.model.entities.Estado;
 import com.ingeapp.model.entities.Producto;
 import com.ingeapp.model.entities.Tamanio;
 import com.ingeapp.model.entities.Usuario;
+import com.ingeapp.model.entities.*;
 
 import java.lang.reflect.Type;
 import java.util.Collections;
@@ -75,6 +77,66 @@ public class Converter {
         return gson.toJson(usuario);
     }
 
+
+    @TypeConverter
+    public static Rol stringToRol(String data) {
+        if (data != null){
+            Type listType = new TypeToken<Rol>() {}.getType();
+            return gson.fromJson(data, listType);
+        }
+        return null;
+
+    }
+
+    @TypeConverter
+    public static String rolToString(Rol rol) {
+        return gson.toJson(rol);
+    }
+
+    @TypeConverter
+    public static Estado stringToEstado(String data) {
+        if (data != null){
+            Type listType = new TypeToken<Estado>() {}.getType();
+            return gson.fromJson(data, listType);
+        }
+        return null;
+
+    }
+
+    @TypeConverter
+    public static String EstadoToString(Estado estado) {
+        return gson.toJson(estado);
+    }
+
+    @TypeConverter
+    public static Tamanio stringToTamanio(String data) {
+        if (data != null){
+            Type listType = new TypeToken<Tamanio>() {}.getType();
+            return gson.fromJson(data, listType);
+        }
+        return null;
+
+    }
+
+    @TypeConverter
+    public static String tamanioToString(Tamanio tamanio) {
+        return gson.toJson(tamanio);
+    }
+
+    @TypeConverter
+    public static Calificacion stringToCalificacion(String data) {
+        if (data != null){
+            Type listType = new TypeToken<Calificacion>() {}.getType();
+            return gson.fromJson(data, listType);
+        }
+        return null;
+
+    }
+
+    @TypeConverter
+    public static String calificacionToString(Calificacion calificacion) {
+        return gson.toJson(calificacion);
+    }
 
 
 

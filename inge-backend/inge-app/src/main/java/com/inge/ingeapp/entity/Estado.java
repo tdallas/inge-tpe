@@ -6,5 +6,5 @@ import javax.persistence.Entity;
 
 @Embeddable
 public enum Estado {
-    ENTREGADO, ENCOLA, PROCESANDO, PREPARANDO, ENESPERA
+    PROCESANDO, ENTREGANDO, ENTREGADO
 }

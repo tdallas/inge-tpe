@@ -37,10 +37,7 @@ public class Pedido {
     @Embedded
     private Calificacion calificacion;
 
-    @Embedded
-    private Direccion direccionEntrega;
-
-    private String comentario;
+    private String direccionEntrega;
 
     @JsonIgnore
     @ManyToOne

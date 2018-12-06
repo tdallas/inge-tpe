@@ -7,9 +7,11 @@ import com.google.gson.GsonBuilder;
 import com.ingeapp.core.IngeApplication;
 import com.ingeapp.db.IngeDb;
 import com.ingeapp.db.LoginRepository;
+import com.ingeapp.db.PedidoRepository;
 import com.ingeapp.db.ProductoRepository;
 import com.ingeapp.db.SignUpRepository;
 import com.ingeapp.service.LoginService;
+import com.ingeapp.service.PedidoService;
 import com.ingeapp.service.ProductoService;
 import com.ingeapp.service.SignUpService;
 
@@ -54,6 +56,12 @@ public class DataModule {
     @Provides
     public ProductoRepository providesProductoRepository(ProductoService productoService) {
         return new ProductoRepository(productoService);
+    }
+
+    @Singleton
+    @Provides
+    public PedidoRepository providesPedidoRepository(PedidoService pedidoService) {
+        return new PedidoRepository(pedidoService);
     }
 
     @Provides
