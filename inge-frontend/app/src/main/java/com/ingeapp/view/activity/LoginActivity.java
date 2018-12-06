@@ -24,4 +24,8 @@ public class LoginActivity extends IngeActivity {
     protected void injectDependencies(IngeComponents ingeComponents) {
         ingeComponents.inject(this);
     }
+
+    public void onBackPressed() {
+        finish();
+    }
 }

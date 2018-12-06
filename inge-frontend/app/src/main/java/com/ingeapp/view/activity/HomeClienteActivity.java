@@ -13,6 +13,8 @@ public class HomeClienteActivity extends IngeActivity {
     @Inject
     Navigator navigator;
 
+    private boolean close = false;
+
     @Override
     protected void injectDependencies(IngeComponents ingeComponents) {
         ingeComponents.inject(this);
@@ -26,6 +28,11 @@ public class HomeClienteActivity extends IngeActivity {
     }
 
     public void onBackPressed() {
-        navigator.showLoginActivity(this);
+        if (!close) {
+            showToastError("Presione nuevamente para salir de la app");
+            close = true;
+        } else {
+            finish();
+        }
     }
 }
