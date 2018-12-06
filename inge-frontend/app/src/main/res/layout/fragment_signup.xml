@@ -13,7 +13,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
+            android:layout_marginTop="5dp"
             android:layout_marginEnd="30dp"
             android:layout_marginStart="30dp"
             android:layout_gravity="center"
@@ -66,32 +66,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="30dp"
-            android:layout_marginStart="30dp"
-            android:layout_gravity="center"
-            android:layout_marginBottom="0dp"
-            android:orientation="vertical">
-
-            <TextView android:fontFamily="@font/roboto_light"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Ingresa tu dni" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:id="@+id/dni"
-                android:inputType="text"
-                android:imeOptions="actionNext"
-                android:layout_marginStart="30dp"
-                android:hint="DNI"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginEnd="30dp"
             android:layout_marginStart="30dp"
@@ -112,6 +86,58 @@
                 android:imeOptions="actionNext"
                 android:id="@+id/telefono"
                 android:hint="TELEFONO"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginBottom="0dp"
+            android:orientation="vertical">
+
+            <TextView android:fontFamily="@font/roboto_light"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ingresa tu direccion" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:gravity="center"
+                android:inputType="text"
+                android:imeOptions="actionDone"
+                android:id="@+id/direccion"
+                android:hint="DIRECCION"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="0dp"
+            android:orientation="vertical">
+
+            <TextView android:fontFamily="@font/roboto_light"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ingresa tu dni" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:id="@+id/dni"
+                android:inputType="text"
+                android:imeOptions="actionNext"
+                android:layout_marginStart="30dp"
+                android:hint="DNI"/>
 
         </LinearLayout>
 
@@ -147,7 +173,7 @@
             android:layout_gravity="center"
             android:layout_marginEnd="30dp"
             android:layout_marginStart="30dp"
-            android:layout_marginBottom="50dp"
+            android:layout_marginBottom="40dp"
             android:orientation="vertical">
 
             <TextView android:fontFamily="@font/roboto_light"
@@ -178,7 +204,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginEnd="40dp"
         android:id="@+id/button_signup"
-        android:layout_marginBottom="30dp">
+        android:layout_marginBottom="10dp">
 
         <TextView android:fontFamily="@font/roboto_light"
             android:layout_width="wrap_content"
