@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.transaction.Transactional;
+import java.util.Date;
 import java.util.List;
 
 @Component
@@ -31,12 +32,17 @@ public class PedidoService {
     public Pedido crearPedido(List<Producto> productos,
                                       Long idCliente, String direccion) throws UserNotFoundException {
         Cliente cliente = clienteRepository.findById(idCliente).orElseThrow(UserNotFoundException::new);
+        Date now = new Date();
         Pedido pedido = new Pedido();
         pedido.setCliente(cliente);
         pedido.setRestaurante(restaurante);
         pedido.setProductos(productos);
         pedido.setDireccionEntrega(direccion);
-        pedido.setEstado(Estado.PROCESANDO);
+        pedido.setEstado("PROCESANDO");
+        pedido.setHoraRealizado(now);
+        pedido.setPrecio(pedido.getPrecioTotal());
+        now.setHours(now.getHours()+1);
+        pedido.setHoraEntrega(now);
         pedidoRepository.save(pedido);
         return pedido;
     }
@@ -48,6 +54,10 @@ public class PedidoService {
 
     public List<Pedido> findAllPedidos() {
         return pedidoRepository.findAll();
+    }
+
+    public List<Pedido> findAllPedidosById(Long idUser) {
+        return pedidoRepository.findAllByUserId(idUser);
     }
 }
 

@@ -9,6 +9,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface PedidoService {
 
@@ -18,4 +19,6 @@ public interface PedidoService {
     @POST("/pedido/crear")
     public Call<Pedido> crearPedido(@Body PedidoRequest pedidoRequest);
 
+    @GET("/getAllPedidos/{idUser}")
+    public Call<List<Pedido>> getAllPedidosByUserId(@Path("idUser") Long idUser);
 }

@@ -43,6 +43,12 @@ public class PedidoController {
         return new ResponseEntity<>(pedidoService.findAllPedidos(), HttpStatus.OK);
     }
 
+    @GetMapping(value = "/getAllPedidos/{idUser}")
+    @ResponseBody
+    public ResponseEntity<?> getAllPedidos(@PathVariable Long idUser) {
+        return new ResponseEntity<>(pedidoService.findAllPedidosById(idUser), HttpStatus.OK);
+    }
+
     @PostMapping(value = "/pedido/estado")
     @ResponseBody
     public ResponseEntity<?> cambiarEstadoPedido(@RequestBody EstadoPedidoRequest estadoPedidoRequest) {

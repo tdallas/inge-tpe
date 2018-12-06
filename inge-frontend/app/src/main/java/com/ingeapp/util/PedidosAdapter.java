@@ -17,11 +17,13 @@ import org.w3c.dom.Text;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class PedidosAdapter extends RecyclerView.Adapter<PedidosAdapter.ViewHolder> {
 
     private List<Pedido> pedidos;
     private ClickListener clickListener;
+    private boolean isCliente;
 
 
     public PedidosAdapter(ClickListener clickListener) {
@@ -45,20 +47,28 @@ public class PedidosAdapter extends RecyclerView.Adapter<PedidosAdapter.ViewHold
     public void onBindViewHolder(@NonNull PedidosAdapter.ViewHolder viewHolder, int i) {
         //aca se bindea toda la data piola vago, el i es la position dentro de la lista de productos
         Pedido pedido = pedidos.get(i);
-       //todo calcular precio viewHolder.total.setText();
-        viewHolder.estado.setText(pedido.getEstado().toString());
-        viewHolder.fecha.setText(pedido.getHoraEntrega().toString());
+
+        viewHolder.pedido = pedido;
+
+        viewHolder.total.setText("$" + pedido.getPrecio());
         viewHolder.usuario.setText(pedido.getCliente().getEmail());
+        viewHolder.fecha.setText(CommonUtils.getFechaValida(pedido.getHoraEntrega()));
+        viewHolder.estado.setText(pedido.getEstado());
 
     }
 
     @Override
     public int getItemCount() {
-        return pedidos.size();
+        return pedidos == null ? 0 : pedidos.size();
+    }
+
+    public void setIsCliente(boolean isCliente) {
+        this.isCliente = isCliente;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
+        public Pedido pedido;
         @BindView(R.id.imagen_pedido)
         ImageView imageView;
         @BindView(R.id.usuario)
@@ -75,6 +85,7 @@ public class PedidosAdapter extends RecyclerView.Adapter<PedidosAdapter.ViewHold
         public ViewHolder(@NonNull View itemView, ClickListener clickListener) {
             super(itemView);
             this.clickListener = clickListener;
+            ButterKnife.bind(this, itemView);
         }
     }
 }

@@ -14,15 +14,20 @@ public class Pedido implements Serializable {
     private Long id;
     private Date horaRealizado;
     private Date horaEntrega;
-    private Estado estado;
+    private String estado;
     private Cliente cliente;
     private List<Producto> productos = new ArrayList<>();
     private Calificacion calificacion;
     private String direccionEntrega;
+    private Double precio;
 
-    public Pedido(Long id, Date horaRealizado, Date horaEntrega, Estado estado,
+    public Double getPrecio() {
+        return precio;
+    }
+
+    public Pedido(Long id, Date horaRealizado, Date horaEntrega, String estado,
                   Cliente cliente, List<Producto> productos, Calificacion calificacion,
-                  String direccionEntrega) {
+                  String direccionEntrega, Double precio) {
         this.id = id;
         this.horaRealizado = horaRealizado;
         this.horaEntrega = horaEntrega;
@@ -30,6 +35,7 @@ public class Pedido implements Serializable {
         this.cliente = cliente;
         this.productos = productos;
         this.calificacion = calificacion;
+        this.precio = precio;
         this.direccionEntrega = direccionEntrega;
     }
 
@@ -57,11 +63,11 @@ public class Pedido implements Serializable {
         this.horaEntrega = horaEntrega;
     }
 
-    public Estado getEstado() {
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstado(Estado estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
 

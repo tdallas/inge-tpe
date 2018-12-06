@@ -25,8 +25,7 @@ public class Pedido {
 
     private Date horaEntrega;
 
-    @Embedded
-    private Estado estado;
+    private String estado;
 
     @ManyToOne
     private Cliente cliente;
@@ -50,6 +49,7 @@ public class Pedido {
             Double precioFinal = 0d;
             for (Producto p : productos)
                 precioFinal += p.getPrecio();
+            return precioFinal;
         }
         return 0D;
     }

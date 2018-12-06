@@ -3,9 +3,13 @@ package com.ingeapp.view.fragment;
 import android.arch.lifecycle.Observer;
 import android.arch.lifecycle.ViewModelProvider;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.ingeapp.R;
 import com.ingeapp.model.entities.Pedido;
@@ -27,7 +31,6 @@ public class PedidosClientesFragment extends IngeFragment implements ClickListen
     private PeddosRestaurantViewModel pedidosRestaurantViewModel;
 
     private PedidosAdapter pedidosAdapter = new PedidosAdapter(this);
-
 
     @BindView(R.id.recycler_pedidos)
     RecyclerView pedidos;
@@ -51,11 +54,26 @@ public class PedidosClientesFragment extends IngeFragment implements ClickListen
         super.onCreate(savedInstanceState);
     }
 
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        pedidos.setLayoutManager(new LinearLayoutManager(getContext()));
+        pedidos.setAdapter(pedidosAdapter);
+    }
+
     public void onResume() {
         super.onResume();
         boolean isCliente = getActivity().getIntent().getBooleanExtra("isCliente", false);
-        if (isCliente) {
+        pedidosAdapter.setIsCliente(isCliente);
+        SharedPreferences pref = getContext().getSharedPreferences("Pref", Context.MODE_PRIVATE);
 
+        if (isCliente) {
+            pedidosClienteViewModel.getAllPedidosByUserId(pref.getLong("idUser", 0L)).
+                    observe(this, new Observer<List<Pedido>>() {
+                @Override
+                public void onChanged(@Nullable List<Pedido> pedidos) {
+                    pedidosAdapter.setList(pedidos);
+                    pedidosAdapter.notifyDataSetChanged();
+                }
+            });
         } else {
             pedidosRestaurantViewModel.getAllPedidos().observe(this, new Observer<List<Pedido>>() {
                 @Override

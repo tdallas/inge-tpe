@@ -72,4 +72,20 @@ public class PedidoRepository {
         });
         return crearPedido;
     }
+
+    public LiveData<List<Pedido>> getAllPedidosByUserId(Long userId) {
+        pedidos = new MutableLiveData<>();
+        pedidoService.getAllPedidosByUserId(userId).enqueue(new Callback<List<Pedido>>() {
+            @Override
+            public void onResponse(Call<List<Pedido>> call, Response<List<Pedido>> response) {
+                pedidos.postValue(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<List<Pedido>> call, Throwable t) {
+
+            }
+        });
+        return pedidos;
+    }
 }
