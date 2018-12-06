@@ -7,12 +7,20 @@ import android.support.annotation.Nullable;
 import com.ingeapp.R;
 import com.ingeapp.model.viewModel.HomeRestaurantViewModel;
 import com.ingeapp.model.viewModel.IngeViewModel;
+import com.ingeapp.view.Navigator;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javax.inject.Inject;
+
+import butterknife.OnClick;
+
 public class HomeRestaurantFragment extends IngeFragment {
+
+    @Inject
+    Navigator navigator;
 
     private HomeRestaurantViewModel homeRestaurantViewModel;
 
@@ -25,6 +33,16 @@ public class HomeRestaurantFragment extends IngeFragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         homeRestaurantViewModel = ViewModelProviders.of(this).get(HomeRestaurantViewModel.class);
         super.onCreate(savedInstanceState);
+    }
+
+    @OnClick(R.id.verPedidos)
+    public void onVerPedidosClick() {
+        navigator.showPedidosClientesActivity(this);
+    }
+
+    @OnClick(R.id.verUsuarios)
+    public void onVerUsuariosClick() {
+        navigator.showVerUsuariosActivity(this);
     }
 
     @Override

@@ -7,6 +7,7 @@ import com.ingeapp.view.activity.LoginActivity;
 import com.ingeapp.view.activity.PedidosClientesActivity;
 import com.ingeapp.view.activity.PerfilActivity;
 import com.ingeapp.view.activity.SignUpActivity;
+import com.ingeapp.view.activity.UsuariosActivity;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -38,4 +39,7 @@ public abstract class ActivityModule {
 
     @ContributesAndroidInjector(modules = FragmentModule.class)
     abstract CrearPedidoActivity contributeCrearPedidoActivity();
+
+    @ContributesAndroidInjector(modules = FragmentModule.class)
+    abstract UsuariosActivity contributeUsuariosActivity();
 }

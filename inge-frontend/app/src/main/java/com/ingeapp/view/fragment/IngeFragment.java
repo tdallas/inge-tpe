@@ -63,7 +63,7 @@ public abstract class IngeFragment extends Fragment implements View {
 
     public void showToastError(String error) {
         if(getContext()!=null) {
-            Toast toast = Toast.makeText(getContext(), error, Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(getContext(), error, Toast.LENGTH_SHORT);
             toast.show();
         }
     }

@@ -7,6 +7,7 @@ import com.ingeapp.view.fragment.LoginFragment;
 import com.ingeapp.view.fragment.PedidosClientesFragment;
 import com.ingeapp.view.fragment.PerfilFragment;
 import com.ingeapp.view.fragment.SignUpFragment;
+import com.ingeapp.view.fragment.UsuariosFragment;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
@@ -40,5 +41,8 @@ public abstract class FragmentModule {
 
     @ContributesAndroidInjector
     abstract CrearPedidoFragment contributesCrearPedidoFragment();
+
+    @ContributesAndroidInjector
+    abstract UsuariosFragment contributesUsuariosFragment();
 
 }

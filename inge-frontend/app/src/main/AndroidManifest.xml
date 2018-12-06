@@ -41,6 +41,8 @@
         <activity android:name=".view.activity.PerfilActivity"/>
         <activity android:name=".view.activity.PedidosClientesActivity"/>
         <activity android:name=".view.activity.CrearPedidoActivity"/>
+        <activity android:name=".view.activity.UsuariosActivity"/>
+
 
 
 

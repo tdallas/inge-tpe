@@ -12,6 +12,7 @@ import com.ingeapp.view.activity.IngeActivity;
 import com.ingeapp.view.activity.LoginActivity;
 import com.ingeapp.view.activity.PedidosClientesActivity;
 import com.ingeapp.view.activity.PerfilActivity;
+import com.ingeapp.view.activity.UsuariosActivity;
 import com.ingeapp.view.fragment.CrearPedidoFragment;
 import com.ingeapp.view.fragment.HomeClienteFragment;
 import com.ingeapp.view.fragment.HomeRestaurantFragment;
@@ -20,6 +21,7 @@ import com.ingeapp.view.fragment.LoginFragment;
 import com.ingeapp.view.fragment.PedidosClientesFragment;
 import com.ingeapp.view.fragment.PerfilFragment;
 import com.ingeapp.view.fragment.SignUpFragment;
+import com.ingeapp.view.fragment.UsuariosFragment;
 
 /**
  * this class is use to navigate between activities and fragments
@@ -66,6 +68,7 @@ public class Navigator {
 
     public void showHomeRestaurantActivity(LoginFragment loginFragment) {
         Intent intent = new Intent(loginFragment.getContext(), HomeRestaurantActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         loginFragment.startActivity(intent);
     }
 
@@ -119,4 +122,33 @@ public class Navigator {
         return fragment;
     }
 
+    public void showCrearPedidoActivity(HomeClienteFragment from) {
+        Intent intent = new Intent(from.getContext(), CrearPedidoActivity.class);
+        from.startActivity(intent);
+    }
+
+    public void showMisPedidosActiivty(HomeClienteFragment from) {
+        Intent intent = new Intent(from.getContext(), PedidosClientesActivity.class);
+        intent.putExtra("isCliente", true);
+        from.startActivity(intent);
+    }
+
+    public void showMiPerfilActivity(HomeClienteFragment from) {
+        Intent intent = new Intent(from.getContext(), PerfilActivity.class);
+        from.startActivity(intent);
+    }
+
+    public void showPedidosClientesActivity(HomeRestaurantFragment from) {
+        Intent intent = new Intent(from.getContext(), PedidosClientesActivity.class);
+        from.startActivity(intent);
+    }
+
+    public void showVerUsuariosActivity(HomeRestaurantFragment from) {
+        Intent intent = new Intent(from.getContext(), UsuariosActivity.class);
+        from.startActivity(intent);
+    }
+
+    public void showVerUsuariosFragment(UsuariosActivity usuariosActivity) {
+        openFragment(usuariosActivity, new UsuariosFragment(), "Ver usuarios", false);
+    }
 }

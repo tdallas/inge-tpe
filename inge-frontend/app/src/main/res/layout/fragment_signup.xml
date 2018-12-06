@@ -161,7 +161,7 @@
                 android:layout_marginStart="30dp"
                 android:gravity="center"
                 android:inputType="text"
-                android:imeOptions="actionNext"
+                android:imeOptions="actionDone"
                 android:id="@+id/apellido"
                 android:hint="APELLIDO"/>
 
@@ -174,7 +174,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/button"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
         android:id="@+id/button_signup"
@@ -183,8 +183,8 @@
         <TextView android:fontFamily="@font/roboto_light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CREAR USUARIO"
-            android:textSize="30sp"
+            android:text="Crear usuario"
+            android:textSize="25sp"
             android:layout_centerInParent="true"
             android:textColor="@color/white"/>
     </RelativeLayout>

@@ -8,15 +8,21 @@ import com.ingeapp.R;
 import com.ingeapp.model.viewModel.HomeClienteViewModel;
 import com.ingeapp.model.viewModel.IngeViewModel;
 import com.ingeapp.model.viewModel.LoginViewModel;
+import com.ingeapp.view.Navigator;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 
 public class HomeClienteFragment extends IngeFragment {
+
+    @Inject
+    Navigator navigator;
 
     private HomeClienteViewModel homeClienteViewModel;
 
@@ -38,16 +44,16 @@ public class HomeClienteFragment extends IngeFragment {
 
     @OnClick(R.id.crear_pedido)
     public void onCrearPedidoClick() {
-        showToastError("onCrearPedidoClick");
+        navigator.showCrearPedidoActivity(this);
     }
 
     @OnClick(R.id.mis_pedidos)
     public void onMisPedidosClick() {
-        showToastError("onMisPedidosClick");
+        navigator.showMisPedidosActiivty(this);
     }
 
     @OnClick(R.id.mi_perfil)
     public void onMiPerfilClick() {
-        showToastError("onPerfilClick");
+        navigator.showMiPerfilActivity(this);
     }
 }
