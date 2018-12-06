@@ -5,13 +5,20 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.ingeapp.R;
 import com.ingeapp.model.entities.Producto;
 import com.ingeapp.view.fragmentView.ClickListener;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import butterknife.BindView;
 
 public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.ViewHolder> {
 
@@ -46,6 +53,21 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.View
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+
+        @BindView(R.id.preview)
+        ImageView imageView;
+        @BindView(R.id.nombre_producto)
+        TextView nombreProducto;
+        @BindView(R.id.descripcion_producto)
+        TextView descripcionProducto;
+        @BindView(R.id.precio)
+        TextView precio;
+        @BindView(R.id.chico_checkbox)
+        CheckBox chicoCheckbox;
+        @BindView(R.id.mediano_checkbox)
+        CheckBox medianoCheckbox;
+        @BindView(R.id.grande_checkbox)
+        CheckBox grandeCheckbox;
 
         private ClickListener clickListener;
 
