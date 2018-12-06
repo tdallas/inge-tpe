@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentTransaction;
 import com.ingeapp.R;
 import com.ingeapp.view.activity.CrearPedidoActivity;
 import com.ingeapp.view.activity.DetallePedidoClienteActivity;
+import com.ingeapp.view.activity.DetallePedidoRestauranteActivity;
 import com.ingeapp.view.activity.HomeClienteActivity;
 import com.ingeapp.view.activity.HomeRestaurantActivity;
 import com.ingeapp.view.activity.IngeActivity;
@@ -17,6 +18,7 @@ import com.ingeapp.view.activity.PerfilActivity;
 import com.ingeapp.view.activity.UsuariosActivity;
 import com.ingeapp.view.fragment.CrearPedidoFragment;
 import com.ingeapp.view.fragment.DetallePedidoClienteFragment;
+import com.ingeapp.view.fragment.DetallePedidoRestauranteFragment;
 import com.ingeapp.view.fragment.HomeClienteFragment;
 import com.ingeapp.view.fragment.HomeRestaurantFragment;
 import com.ingeapp.view.activity.SignUpActivity;
@@ -176,6 +178,16 @@ public class Navigator {
 
     public void showDetallePedidoClienteActiivty(PedidosClientesFragment pedidosClientesFragment, Long idItemClicked) {
         Intent intent = new Intent(pedidosClientesFragment.getContext(), DetallePedidoClienteActivity.class);
+        intent.putExtra("idPedido", idItemClicked);
+        pedidosClientesFragment.startActivity(intent);
+    }
+
+    public void showDetallePedidoRestauranteFragment(DetallePedidoRestauranteActivity detallePedidoRestauranteActivity, long idPedido) {
+        openFragment(detallePedidoRestauranteActivity, DetallePedidoRestauranteFragment.newInstance(idPedido), "DetallePedido", false);
+    }
+
+    public void showDetallePedidoRestauranteActivity(PedidosClientesFragment pedidosClientesFragment, Long idItemClicked) {
+        Intent intent = new Intent(pedidosClientesFragment.getContext(), DetallePedidoRestauranteActivity.class);
         intent.putExtra("idPedido", idItemClicked);
         pedidosClientesFragment.startActivity(intent);
     }

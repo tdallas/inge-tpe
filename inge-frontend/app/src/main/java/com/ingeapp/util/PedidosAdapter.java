@@ -68,7 +68,7 @@ public class PedidosAdapter extends RecyclerView.Adapter<PedidosAdapter.ViewHold
         this.isCliente = isCliente;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         public boolean iscliente;
         public Pedido pedido;
         @BindView(R.id.imagen_pedido)
@@ -83,6 +83,10 @@ public class PedidosAdapter extends RecyclerView.Adapter<PedidosAdapter.ViewHold
         TextView estado;
 
         private ClickListener clickListener;
+
+        public ViewHolder(View v) {
+            super(v);
+        }
 
         @OnClick(R.id.content_pedidos)
         public void onPedidoClick() {

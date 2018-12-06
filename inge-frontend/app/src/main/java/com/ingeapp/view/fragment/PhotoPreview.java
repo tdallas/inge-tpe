@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.ingeapp.R;
 
@@ -33,9 +34,6 @@ public class PhotoPreview extends DialogFragment {
 
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorPrimaryDarker)));
-
-        ImageView photoImage = (ImageView) v.findViewById(R.id.preview);
-        //photoimage.setImage,,,,asd
 
         return v;
     }

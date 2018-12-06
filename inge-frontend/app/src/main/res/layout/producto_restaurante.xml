@@ -16,7 +16,7 @@
         android:layout_marginStart="10dp"
         android:fontFamily="@font/roboto_bold"
         android:text="NOMBRE DEL PRODUCTO"
-        android:textSize="20sp" />
+        android:textSize="17sp" />
 
     <TextView
         android:id="@+id/descripcion_producto"
@@ -27,7 +27,7 @@
         android:layout_marginTop="5dp"
         android:fontFamily="@font/roboto_light"
         android:text="DESCRIPCION DEL PRODUCTO"
-        android:textSize="18sp"/>
+        android:textSize="14sp"/>
 
     <TextView
         android:id="@+id/cantidad_texto"
@@ -36,9 +36,9 @@
         android:layout_below="@+id/descripcion_producto"
         android:layout_marginStart="10dp"
         android:layout_marginTop="5dp"
-        android:fontFamily="@font/roboto_light"
+        android:fontFamily="@font/roboto_bold"
         android:text="Cantidad:"
-        android:textSize="18sp" />
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/cantidad"
@@ -50,6 +50,6 @@
         android:layout_toEndOf="@+id/cantidad_texto"
         android:fontFamily="@font/roboto_light"
         android:text="CANTIDAD"
-        android:textSize="18sp" />
+        android:textSize="14sp" />
 
 </RelativeLayout>

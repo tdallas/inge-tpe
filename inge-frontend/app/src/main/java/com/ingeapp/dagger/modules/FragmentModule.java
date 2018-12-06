@@ -2,6 +2,7 @@ package com.ingeapp.dagger.modules;
 
 import com.ingeapp.view.fragment.CrearPedidoFragment;
 import com.ingeapp.view.fragment.DetallePedidoClienteFragment;
+import com.ingeapp.view.fragment.DetallePedidoRestauranteFragment;
 import com.ingeapp.view.fragment.HomeClienteFragment;
 import com.ingeapp.view.fragment.HomeRestaurantFragment;
 import com.ingeapp.view.fragment.LoginFragment;
@@ -48,5 +49,8 @@ public abstract class FragmentModule {
 
     @ContributesAndroidInjector
     abstract DetallePedidoClienteFragment contributesDetallePedidoClienteFragment();
+
+    @ContributesAndroidInjector
+    abstract DetallePedidoRestauranteFragment contributesDetallePedidoRestauranteFragment();
 
 }

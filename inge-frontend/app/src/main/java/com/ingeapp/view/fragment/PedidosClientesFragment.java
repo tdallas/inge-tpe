@@ -40,6 +40,7 @@ public class PedidosClientesFragment extends IngeFragment implements ClickListen
 
     @Inject
     Navigator navigator;
+    private boolean isCliente;
 
     @Override
     protected List<IngeViewModel> getViewModels() {
@@ -67,7 +68,7 @@ public class PedidosClientesFragment extends IngeFragment implements ClickListen
 
     public void onResume() {
         super.onResume();
-        boolean isCliente = getActivity().getIntent().getBooleanExtra("isCliente", false);
+        isCliente = getActivity().getIntent().getBooleanExtra("isCliente", false);
         pedidosAdapter.setIsCliente(isCliente);
         SharedPreferences pref = getContext().getSharedPreferences("Pref", Context.MODE_PRIVATE);
 
@@ -100,6 +101,10 @@ public class PedidosClientesFragment extends IngeFragment implements ClickListen
 
     @Override
     public void onClick(Long idItemClicked) {
-        navigator.showDetallePedidoClienteActiivty(this, idItemClicked);
+        if (isCliente) {
+            navigator.showDetallePedidoClienteActiivty(this, idItemClicked);
+        } else {
+            navigator.showDetallePedidoRestauranteActivity(this, idItemClicked);
+        }
     }
 }
