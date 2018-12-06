@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/layout_detalles"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/detalles_pedido_texto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Detalles del pedido:"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/estado_texto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/detalles_pedido_texto"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/roboto_light"
+        android:text="Estado:"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/current_state_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/detalles_pedido_texto"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/estado_texto"
+        android:fontFamily="@font/roboto_light"
+        android:text="STATE"
+        android:textSize="20sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_detalles"
+        android:layout_marginTop="50dp">
+
+        <TextView
+            android:id="@+id/calificaciones_texto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Califica tu pedido:"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/mala_texto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/calificaciones_texto"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto_light"
+            android:text="Mala"
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:id="@+id/mala_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/calificaciones_texto"
+            android:layout_alignBottom="@+id/mala_texto"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/mala_texto" />
+
+        <TextView
+            android:id="@+id/regular_texto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/mala_texto"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto_light"
+            android:text="Regular"
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:id="@+id/regular_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mala_checkbox"
+            android:layout_alignBottom="@+id/regular_texto"
+            android:layout_marginStart="49dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/regular_texto" />
+
+        <TextView
+            android:id="@+id/normal_texto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/regular_texto"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto_light"
+            android:text="Normal"
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:id="@+id/normal_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/regular_checkbox"
+            android:layout_alignBottom="@+id/normal_texto"
+            android:layout_marginStart="51dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/normal_texto" />
+
+        <TextView
+            android:id="@+id/buena_texto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/normal_texto"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto_light"
+            android:text="Buena"
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:id="@+id/buena_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/normal_checkbox"
+            android:layout_alignBottom="@+id/buena_texto"
+            android:layout_marginStart="59dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/buena_texto" />
+
+        <TextView
+            android:id="@+id/muybuena_texto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/buena_texto"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto_light"
+            android:text="Muy Buena"
+            android:textSize="18sp" />
+
+        <CheckBox
+            android:id="@+id/muybuena_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/buena_checkbox"
+            android:layout_alignBottom="@+id/muybuena_texto"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/muybuena_texto" />
+
+        <RelativeLayout
+            android:layout_below="@id/muybuena_texto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginTop="50dp"
+            android:id="@+id/button_signup">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="0dp"
+                android:fontFamily="@font/roboto_light"
+                android:text="Calificar Pedido"
+                android:textColor="@color/white"
+                android:textSize="25sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
