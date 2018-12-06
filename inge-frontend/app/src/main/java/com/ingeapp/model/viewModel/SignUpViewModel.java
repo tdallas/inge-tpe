@@ -18,7 +18,8 @@ public class SignUpViewModel extends IngeViewModel {
         component.inject(this);
     }
 
-    public LiveData<Boolean> signUp(String email, String clave, String dni, String telefono, String nombre, String apellido) {
-        return signUpRepository.signUp(new SignUpRequest(email, clave, dni, telefono, nombre, apellido));
+    public LiveData<Boolean> signUp(String email, String clave, String dni,
+                                    String telefono, String nombre, String apellido, String direccion) {
+        return signUpRepository.signUp(new SignUpRequest(email, clave, dni, telefono, nombre, apellido, direccion));
     }
 }

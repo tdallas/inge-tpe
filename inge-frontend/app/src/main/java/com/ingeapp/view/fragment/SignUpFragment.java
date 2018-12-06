@@ -46,6 +46,9 @@ public class SignUpFragment extends IngeFragment {
     @BindView(R.id.apellido)
     EditText apellidoInput;
 
+    @BindView(R.id.direccion)
+    EditText direccion;
+
     @BindView(R.id.button_signup)
     RelativeLayout signUpButton;
 
@@ -72,7 +75,7 @@ public class SignUpFragment extends IngeFragment {
         signUpViewModel.signUp(emailInput.getText().toString(),
                 claveInput.getText().toString(), dniInput.getText().toString(),
                 telefonoInput.getText().toString(), nombreInput.getText().toString(),
-                apellidoInput.getText().toString()).observe(this, new Observer<Boolean>() {
+                apellidoInput.getText().toString(), direccion.getText().toString()).observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(@Nullable Boolean aBoolean) {
                 if (aBoolean != null && aBoolean) {

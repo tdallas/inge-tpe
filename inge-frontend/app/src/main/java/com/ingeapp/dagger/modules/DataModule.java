@@ -9,10 +9,12 @@ import com.ingeapp.core.IngeApplication;
 import com.ingeapp.db.IngeDb;
 import com.ingeapp.db.LoginRepository;
 import com.ingeapp.db.PedidoRepository;
+import com.ingeapp.db.PerfilRepository;
 import com.ingeapp.db.ProductoRepository;
 import com.ingeapp.db.SignUpRepository;
 import com.ingeapp.service.LoginService;
 import com.ingeapp.service.PedidoService;
+import com.ingeapp.service.PerfilService;
 import com.ingeapp.service.ProductoService;
 import com.ingeapp.service.SignUpService;
 
@@ -63,6 +65,12 @@ public class DataModule {
     @Provides
     public PedidoRepository providesPedidoRepository(PedidoService pedidoService) {
         return new PedidoRepository(pedidoService);
+    }
+
+    @Singleton
+    @Provides
+    public PerfilRepository providesPerfilRepository(PerfilService perfilService) {
+        return new PerfilRepository(perfilService);
     }
 
     @Provides

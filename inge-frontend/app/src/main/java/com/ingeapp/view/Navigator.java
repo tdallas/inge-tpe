@@ -1,5 +1,6 @@
 package com.ingeapp.view;
 
+import android.arch.lifecycle.Observer;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -155,5 +156,10 @@ public class Navigator {
     public void showHomeClienteActivity(CrearPedidoFragment crearPedidoFragment) {
         Intent intent = new Intent(crearPedidoFragment.getContext(), HomeClienteActivity.class);
         crearPedidoFragment.startActivity(intent);
+    }
+
+    public void showHomeClienteActivity(PerfilFragment perfilFragment) {
+        Intent intent = new Intent(perfilFragment.getContext(), HomeClienteActivity.class);
+        perfilFragment.startActivity(intent);
     }
 }
