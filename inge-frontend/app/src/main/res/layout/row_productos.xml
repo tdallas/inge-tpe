@@ -1,46 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="150dp"
     android:layout_marginStart="10dp"
     android:layout_marginEnd="10dp"
     android:layout_marginTop="10dp"
     android:background="@color/colorPrimary_trans">
+
     <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="5dp"
+        android:id="@+id/preview"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/nombre_producto"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
         android:layout_marginStart="5dp"
-        android:id="@+id/preview"/>
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="10dp" />
 
-    <TextView android:fontFamily="@font/roboto_light"
+    <TextView
+        android:id="@+id/nombre_producto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="DESCRIPCION DEL PRODUCTO"
-        android:layout_centerVertical="true"
-        android:layout_toEndOf="@id/preview"
-        android:layout_marginStart="10dp"
-        android:id="@+id/descripcion_producto"/>
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="NOMBRE DEL PRODUCTO"
+        android:textSize="20sp" />
 
-    <TextView android:fontFamily="@font/roboto_light"
+    <TextView
+        android:id="@+id/descripcion_producto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/descripcion_producto"
+        android:layout_below="@+id/nombre_producto"
         android:layout_marginStart="10dp"
-        android:layout_centerVertical="true"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@+id/preview"
+        android:fontFamily="@font/roboto_light"
+        android:text="DESCRIPCION DEL PRODUCTO" />
+
+    <TextView
         android:id="@+id/precio"
-        android:text="$ 50"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="$ 50"
+        android:textSize="20sp" />
+
+    <RelativeLayout
+        android:layout_width="110dp"
+        android:layout_height="80dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="145dp"
+        android:layout_marginBottom="8dp">
+
+        <TextView
+            android:id="@+id/chico_texto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/mediano_texto"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/roboto_light"
+            android:text="Chico" />
+
+        <CheckBox
+            android:id="@+id/chico_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/activado"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="11dp" />
+
+        <TextView
+            android:id="@+id/mediano_texto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/grande_texto"
+            android:layout_centerVertical="true"
+            android:fontFamily="@font/roboto_light"
+            android:text="Mediano" />
+
+        <CheckBox
+            android:id="@+id/mediano_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/activado"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="11dp" />
+
+        <TextView
+            android:id="@+id/grande_texto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="6dp"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/roboto_light"
+            android:text="Grande" />
+
+        <CheckBox
+            android:id="@+id/grande_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/activado"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="55dp"
+            android:layout_marginEnd="11dp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/cantidad_texto"
+        android:layout_width="wrap_content"
+        android:layout_height="27dp"
+        android:layout_alignBottom="@+id/preview"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:layout_toStartOf="@+id/inputCantidad"
+        android:fontFamily="@font/roboto_light"
+        android:text="Cantidad:"
+        android:textSize="18sp" />
 
     <EditText
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/precio"
+        android:id="@+id/inputCantidad"
+        android:layout_width="40dp"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@+id/preview"
+        android:layout_alignParentEnd="true"
         android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:gravity="center"
-        android:inputType="number"
-        android:imeOptions="actionDone"
-        android:text="0"
-        android:id="@+id/inputCantidad" />
+        android:layout_marginEnd="5dp"
+        android:hint="1"
+        android:textAlignment="center"
+        android:fontFamily="@font/roboto_light"
+        android:inputType="text" />
 
 </RelativeLayout>
