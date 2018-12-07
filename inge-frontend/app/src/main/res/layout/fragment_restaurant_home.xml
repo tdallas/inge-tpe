@@ -14,11 +14,19 @@
             android:id="@+id/verPedidos"
             android:layout_marginEnd="20dp"
             android:focusable="true">
+            <ImageView
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:id="@+id/icon_pedidos"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/choices"
+                android:layout_centerHorizontal="true"/>
             <TextView android:fontFamily="@font/roboto_light"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Ver pedidos"
                 android:textSize="25sp"
+                android:layout_below="@id/icon_pedidos"
                 android:textColor="@color/white"
                 android:layout_centerInParent="true"/>
         </RelativeLayout>
@@ -34,11 +42,19 @@
             android:clickable="true"
             android:background="@drawable/main_button"
             android:focusable="true">
+            <ImageView
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:id="@+id/icon_usuarios"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/avatar"
+                android:layout_centerHorizontal="true"/>
             <TextView android:fontFamily="@font/roboto_light"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Ver usuarios"
                 android:textSize="25sp"
+                android:layout_below="@id/icon_usuarios"
                 android:textColor="@color/white"
                 android:layout_centerInParent="true"/>
         </RelativeLayout>
