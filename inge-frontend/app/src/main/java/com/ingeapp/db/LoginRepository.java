@@ -2,6 +2,8 @@ package com.ingeapp.db;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
+import android.content.Context;
+import android.content.SharedPreferences;
 
 import com.ingeapp.model.request.LoginRequest;
 import com.ingeapp.service.LoginService;
@@ -19,9 +21,11 @@ import retrofit2.Response;
 public class LoginRepository {
     private LoginService loginService;
     private MutableLiveData<UserResponse> isLogged = new MutableLiveData<>();
+    private Context context;
 
-    public LoginRepository(LoginService loginService) {
+    public LoginRepository(LoginService loginService, Context context) {
         this.loginService = loginService;
+        this.context = context;
     }
 
     public LiveData<UserResponse> login(final LoginRequest loginRequest) {
@@ -34,6 +38,10 @@ public class LoginRepository {
                     public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
                         if (response.body() != null) {
                             isLogged.postValue(response.body());
+                            SharedPreferences pref = context.getSharedPreferences("Pref", Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = pref.edit();
+                            editor.putBoolean("isCliente", response.body().getRol().equals("CLIENTE"));
+                            editor.commit();
                         } else {
                             isLogged.postValue(new UserResponse(false, "", null, ""));
                         }

@@ -26,6 +26,6 @@ public class DetallePedidoClienteActivity extends IngeActivity {
 
     @Override
     public void onBackPressed() {
-        navigator.showPedidosClientesActivity(this);
+        navigator.showPedidosClientesActivity(this, getIntent().getBooleanExtra("isCliente", false));
     }
 }

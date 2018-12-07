@@ -45,8 +45,8 @@ public class DataModule {
 */
     @Singleton
     @Provides
-    public LoginRepository providesLoginRepository(LoginService loginService) {
-        return new LoginRepository(loginService);
+    public LoginRepository providesLoginRepository(LoginService loginService, Context context) {
+        return new LoginRepository(loginService, context);
     }
 
     @Singleton

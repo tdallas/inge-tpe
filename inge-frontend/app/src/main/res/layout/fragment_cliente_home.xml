@@ -23,8 +23,8 @@
             android:focusable="true">
 
             <ImageView
-                android:layout_width="34dp"
-                android:layout_height="34dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:id="@+id/icon_pedido"
                 android:layout_centerHorizontal="true"
                 android:src="@drawable/pizza"
@@ -51,8 +51,8 @@
             android:layout_weight="1"
             android:focusable="true">
             <ImageView
-                android:layout_width="34dp"
-                android:layout_height="34dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:layout_marginTop="45dp"
                 android:layout_centerHorizontal="true"
                 android:id="@+id/icon_pedidos"
@@ -81,12 +81,18 @@
         android:background="@drawable/main_button"
         android:focusable="true">
         <ImageView
-            android:layout_width="34dp"
-            android:layout_height="34dp" />
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:src="@drawable/avatar"
+            android:id="@+id/icon_perfil"/>
         <TextView android:fontFamily="@font/roboto_light"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Mi perfil"
+            android:layout_marginTop="5dp"
+            android:layout_below="@id/icon_perfil"
             android:textColor="@color/black"
             android:textSize="25sp"
             android:layout_centerInParent="true"/>
