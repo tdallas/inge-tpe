@@ -22,10 +22,9 @@
     <application
         android:name=".core.IngeApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/icono"
         android:label="@string/app_name"
         android:largeHeap="true"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:screenOrientation="portrait"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
@@ -40,7 +39,8 @@
         <activity android:name=".view.activity.HomeRestaurantActivity"/>
         <activity android:name=".view.activity.PerfilActivity"/>
         <activity android:name=".view.activity.PedidosClientesActivity"/>
-        <activity android:name=".view.activity.CrearPedidoActivity"/>
+        <activity android:name=".view.activity.CrearPedidoActivity"
+            android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".view.activity.UsuariosActivity"/>
         <activity android:name=".view.activity.DetallePedidoClienteActivity"/>
         <activity android:name=".view.activity.DetallePedidoRestauranteActivity"/>
