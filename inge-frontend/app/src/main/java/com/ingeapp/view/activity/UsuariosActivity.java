@@ -23,4 +23,9 @@ public class UsuariosActivity extends IngeActivity {
         super.onCreate(savedInstanceState);
         navigator.showVerUsuariosFragment(this);
     }
+
+    @Override
+    public void onBackPressed() {
+        navigator.showHomeRestaurantActivity(this);
+    }
 }

@@ -24,4 +24,9 @@ public class PedidosClientesActivity extends IngeActivity {
     protected void injectDependencies(IngeComponents portalComponents) {
         portalComponents.inject(this);
     }
+
+    @Override
+    public void onBackPressed() {
+        navigator.showHomeClienteActivity(this);
+    }
 }

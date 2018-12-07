@@ -24,4 +24,9 @@ public class SignUpActivity extends IngeActivity {
     protected void injectDependencies(IngeComponents ingeComponents) {
         ingeComponents.inject(this);
     }
+
+    @Override
+    public void onBackPressed() {
+        navigator.showLoginActivity(this);
+    }
 }

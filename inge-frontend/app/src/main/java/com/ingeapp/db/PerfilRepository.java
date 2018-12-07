@@ -3,9 +3,11 @@ package com.ingeapp.db;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 
+import com.ingeapp.model.entities.Cliente;
 import com.ingeapp.service.PerfilService;
 import com.ingeapp.service.payload.UpdateRequest;
 
+import java.util.List;
 import java.util.concurrent.Executors;
 
 import javax.inject.Singleton;
@@ -18,6 +20,7 @@ import retrofit2.Response;
 public class PerfilRepository {
     private final PerfilService perfilService;
     private MutableLiveData<Boolean> update = new MutableLiveData<>();
+    private MutableLiveData<List<Cliente>> clientes = new MutableLiveData<>();
 
     public PerfilRepository(PerfilService perfilService) {
         this.perfilService = perfilService;
@@ -46,5 +49,26 @@ public class PerfilRepository {
             }
         });
         return update;
+    }
+
+    public LiveData<List<Cliente>> getCliente() {
+        clientes = new MutableLiveData<>();
+        Executors.newSingleThreadExecutor().execute(new Runnable() {
+            @Override
+            public void run() {
+                perfilService.getUsuarios().enqueue(new Callback<List<Cliente>>() {
+                    @Override
+                    public void onResponse(Call<List<Cliente>> call, Response<List<Cliente>> response) {
+                        clientes.postValue(response.body());
+                    }
+
+                    @Override
+                    public void onFailure(Call<List<Cliente>> call, Throwable t) {
+
+                    }
+                });
+            }
+        });
+        return clientes;
     }
 }

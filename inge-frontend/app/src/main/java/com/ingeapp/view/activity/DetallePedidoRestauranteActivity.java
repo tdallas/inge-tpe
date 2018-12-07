@@ -23,4 +23,9 @@ public class DetallePedidoRestauranteActivity extends IngeActivity {
         super.onCreate(savedInstanceState);
         navigator.showDetallePedidoRestauranteFragment(this, getIntent().getLongExtra("idPedido", 0L));
     }
+
+    @Override
+    public void onBackPressed() {
+        navigator.showPedidosClientesActivity(this);
+    }
 }

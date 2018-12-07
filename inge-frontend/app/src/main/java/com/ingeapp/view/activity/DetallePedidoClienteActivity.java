@@ -23,4 +23,9 @@ public class DetallePedidoClienteActivity extends IngeActivity {
         super.onCreate(savedInstanceState);
         navigator.showDetallePedidoClienteFragment(this, getIntent().getLongExtra("idPedido", 0L));
     }
+
+    @Override
+    public void onBackPressed() {
+        navigator.showPedidosClientesActivity(this);
+    }
 }

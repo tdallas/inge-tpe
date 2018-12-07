@@ -27,5 +27,8 @@ public class PerfilActivity extends IngeActivity {
         ingeComponents.inject(this);
     }
 
-
+    @Override
+    public void onBackPressed() {
+        navigator.showHomeClienteActivity(this);
+    }
 }

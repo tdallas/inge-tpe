@@ -196,4 +196,41 @@ public class Navigator {
         Intent intent = new Intent(detallePedidoRestauranteFragment.getContext(), PedidosClientesActivity.class);
         detallePedidoRestauranteFragment.startActivity(intent);
     }
+
+    public void showHomeClienteActivity(CrearPedidoActivity crearPedidoActivity) {
+        Intent intent = new Intent(crearPedidoActivity.getApplicationContext(), HomeClienteActivity.class);
+        crearPedidoActivity.startActivity(intent);
+    }
+
+    public void showPedidosClientesActivity(DetallePedidoClienteActivity from) {
+        Intent intent = new Intent(from.getApplicationContext(), PedidosClientesActivity.class);
+        from.startActivity(intent);
+    }
+
+    public void showPedidosClientesActivity(DetallePedidoRestauranteActivity from) {
+        Intent intent = new Intent(from.getApplicationContext(), PedidosClientesActivity.class);
+        from.startActivity(intent);
+    }
+
+    public void showHomeClienteActivity(PedidosClientesActivity from) {
+        Intent intent = new Intent(from.getApplicationContext(), HomeClienteActivity.class);
+        from.startActivity(intent);
+    }
+
+    public void showHomeClienteActivity(PerfilActivity from) {
+        Intent intent = new Intent(from.getApplicationContext(), HomeClienteActivity.class);
+        from.startActivity(intent);
+    }
+
+    public void showLoginActivity(SignUpActivity from) {
+        Intent intent = new Intent(from.getApplicationContext(), LoginActivity.class);
+        from.startActivity(intent);
+
+    }
+
+    public void showHomeRestaurantActivity(UsuariosActivity from) {
+        Intent intent = new Intent(from.getApplicationContext(), HomeRestaurantActivity.class);
+        from.startActivity(intent);
+
+    }
 }

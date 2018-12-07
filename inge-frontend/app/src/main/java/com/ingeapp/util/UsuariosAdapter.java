@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ingeapp.R;
+import com.ingeapp.model.entities.Cliente;
 import com.ingeapp.model.entities.Usuario;
 import com.ingeapp.view.fragmentView.ClickListener;
 
@@ -18,17 +19,16 @@ import org.w3c.dom.Text;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class UsuariosAdapter extends RecyclerView.Adapter<UsuariosAdapter.ViewHolder> {
 
-    private List<Usuario> usuarios;
-    private ClickListener clickListener;
+    private List<Cliente> usuarios;
 
-    public UsuariosAdapter(ClickListener clickListener) {
-        this.clickListener = clickListener;
+    public UsuariosAdapter() {
     }
 
-    public void setList(List<Usuario> usuarios) {
+    public void setList(List<Cliente> usuarios) {
         this.usuarios = usuarios;
     }
 
@@ -37,7 +37,7 @@ public class UsuariosAdapter extends RecyclerView.Adapter<UsuariosAdapter.ViewHo
     public UsuariosAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View v = LayoutInflater.from(viewGroup.getContext()).
                 inflate(R.layout.row_usuarios, viewGroup, false);
-        return new UsuariosAdapter.ViewHolder(v, clickListener);
+        return new UsuariosAdapter.ViewHolder(v);
 
     }
 
@@ -63,11 +63,10 @@ public class UsuariosAdapter extends RecyclerView.Adapter<UsuariosAdapter.ViewHo
         CheckBox activado;
         @BindView(R.id.imagen_usuario)
         ImageView imagen;
-        private ClickListener clickListener;
 
-        public ViewHolder(@NonNull View itemView, ClickListener clickListener) {
+        public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            this.clickListener = clickListener;
+            ButterKnife.bind(this, itemView);
         }
     }
 }

@@ -23,4 +23,9 @@ public class CrearPedidoActivity extends IngeActivity {
         super.onCreate(savedInstanceState);
         navigator.showCrearPedidoFragment(this);
     }
+
+    @Override
+    public void onBackPressed() {
+        navigator.showHomeClienteActivity(this);
+    }
 }
