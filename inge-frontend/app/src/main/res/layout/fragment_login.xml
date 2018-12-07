@@ -4,35 +4,45 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/linear_inputs_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:id="@+id/linear_inputs_login"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
         android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginBottom="40dp"
+            android:src="@drawable/login" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="30dp"
-            android:layout_marginStart="30dp"
             android:layout_gravity="center"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
             android:layout_marginBottom="50dp"
             android:orientation="vertical">
 
-            <TextView android:fontFamily="@font/roboto_light"
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_light"
                 android:text="Ingresa tu usuario" />
 
             <EditText
+                android:id="@+id/usuario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:id="@+id/usuario"
-                android:inputType="text"
-                android:imeOptions="actionNext"
                 android:layout_marginStart="30dp"
-                android:hint="USUARIO"/>
+                android:gravity="center"
+                android:hint="USUARIO"
+                android:imeOptions="actionNext"
+                android:inputType="text" />
 
         </LinearLayout>
 
@@ -40,25 +50,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginEnd="30dp"
             android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
             android:layout_marginBottom="50dp"
             android:orientation="vertical">
 
-            <TextView android:fontFamily="@font/roboto_light"
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_light"
                 android:text="Ingresa tu clave" />
 
             <EditText
+                android:id="@+id/clave"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:gravity="center"
-                android:inputType="textPassword"
+                android:hint="CLAVE"
                 android:imeOptions="actionDone"
-                android:id="@+id/clave"
-                android:hint="CLAVE"/>
+                android:inputType="textPassword" />
 
         </LinearLayout>
 

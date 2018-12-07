@@ -78,16 +78,16 @@ public class Navigator {
     }
 
     public void showLoginFragment(LoginActivity loginActivity) {
-        openFragment(loginActivity, new LoginFragment(), "LoginFragment", false);
+        openFragment(loginActivity, new LoginFragment(), "Eat Trip", false);
     }
 
     public void showSignUpFragment(SignUpActivity signUpActivity) {
-        openFragment(signUpActivity, new SignUpFragment(), "SignUpFragment", false);
+        openFragment(signUpActivity, new SignUpFragment(), "Eat Trip", false);
     }
 
     public void showHomeClienteFragment(HomeClienteActivity homeClienteActivity) {
         openFragment(homeClienteActivity, new HomeClienteFragment(),
-                "HomeClienteFragment", false);
+                "Eat Trip - Home Cliente", false);
     }
 
 
@@ -98,21 +98,21 @@ public class Navigator {
 
     public void showHomeRestaurantFragment(HomeRestaurantActivity homeRestaurantActivity) {
         openFragment(homeRestaurantActivity, new HomeRestaurantFragment(),
-                "HomeRestaurantFragment", false);
+                "Eat Trip - Home Restaurante", false);
     }
 
     public void showPedidosClienteFragment(PedidosClientesActivity pedidosClientesActivity) {
         openFragment(pedidosClientesActivity, new PedidosClientesFragment(),
-                "PedidosClientes", false);
+                "Eat Trip - Pedidos", false);
     }
 
     public void showPerfilFragment(PerfilActivity perfilActivity) {
-        openFragment(perfilActivity, new PerfilFragment(), "Perfil", false);
+        openFragment(perfilActivity, new PerfilFragment(), "Eat Trip - Perfil", false);
     }
 
 
     public void showCrearPedidoFragment(CrearPedidoActivity crearPedidoActivity) {
-        openFragment(crearPedidoActivity,new CrearPedidoFragment(), "Crea tu pedido", false);
+        openFragment(crearPedidoActivity,new CrearPedidoFragment(), "Eat Trip - Crea tu pedido", false);
     }
 
 
@@ -154,7 +154,7 @@ public class Navigator {
     }
 
     public void showVerUsuariosFragment(UsuariosActivity usuariosActivity) {
-        openFragment(usuariosActivity, new UsuariosFragment(), "Ver usuarios", false);
+        openFragment(usuariosActivity, new UsuariosFragment(), "Eat Trip - Ver usuarios", false);
     }
 
     public void showHomeClienteActivity(CrearPedidoFragment crearPedidoFragment) {
@@ -168,7 +168,7 @@ public class Navigator {
     }
 
     public void showDetallePedidoClienteFragment(DetallePedidoClienteActivity detallePedidoClienteActivity, long idPedido) {
-        openFragment(detallePedidoClienteActivity, DetallePedidoClienteFragment.newInstance(idPedido), "DetallePedido", false);
+        openFragment(detallePedidoClienteActivity, DetallePedidoClienteFragment.newInstance(idPedido), "Eat Trip - Detalle Pedido", false);
     }
 
     public void showHomeClienteActivity(DetallePedidoClienteFragment detallePedidoClienteFragment) {
@@ -183,7 +183,7 @@ public class Navigator {
     }
 
     public void showDetallePedidoRestauranteFragment(DetallePedidoRestauranteActivity detallePedidoRestauranteActivity, long idPedido) {
-        openFragment(detallePedidoRestauranteActivity, DetallePedidoRestauranteFragment.newInstance(idPedido), "DetallePedido", false);
+        openFragment(detallePedidoRestauranteActivity, DetallePedidoRestauranteFragment.newInstance(idPedido), "Eat Trip - Detalle Pedido", false);
     }
 
     public void showDetallePedidoRestauranteActivity(PedidosClientesFragment pedidosClientesFragment, Long idItemClicked) {
