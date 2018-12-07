@@ -5,7 +5,9 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.view.View;
 import android.widget.CheckBox;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ingeapp.R;
@@ -48,6 +50,8 @@ public class DetallePedidoClienteFragment extends IngeFragment {
     CheckBox normal;
     @BindView(R.id.regular_checkbox)
     CheckBox regular;
+    @BindView(R.id.relative_checkboxs)
+    RelativeLayout checkboxs;
 
     @OnCheckedChanged(R.id.mala_checkbox)
     public void onMalaCheck() {
@@ -149,6 +153,9 @@ public class DetallePedidoClienteFragment extends IngeFragment {
                 } else {
                     precio.setText("$" + pedido.getPrecio());
                     estado.setText(pedido.getEstado());
+                    if (!pedido.getCalificacion().equals("")) {
+                        checkboxs.setVisibility(View.GONE);
+                    }
                 }
             }
         });
