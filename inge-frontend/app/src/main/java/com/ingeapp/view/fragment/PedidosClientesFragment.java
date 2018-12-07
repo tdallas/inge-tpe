@@ -68,9 +68,11 @@ public class PedidosClientesFragment extends IngeFragment implements ClickListen
 
     public void onResume() {
         super.onResume();
-        isCliente = getActivity().getIntent().getBooleanExtra("isCliente", false);
-        pedidosAdapter.setIsCliente(isCliente);
         SharedPreferences pref = getContext().getSharedPreferences("Pref", Context.MODE_PRIVATE);
+
+        isCliente = pref.getBoolean("isCliente", false);
+
+        pedidosAdapter.setIsCliente(isCliente);
 
         if (isCliente) {
             pedidosClienteViewModel.getAllPedidosByUserId(pref.getLong("idUser", 0L)).

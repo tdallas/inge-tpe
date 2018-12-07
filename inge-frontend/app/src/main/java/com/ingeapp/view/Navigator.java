@@ -202,8 +202,9 @@ public class Navigator {
         crearPedidoActivity.startActivity(intent);
     }
 
-    public void showPedidosClientesActivity(DetallePedidoClienteActivity from) {
+    public void showPedidosClientesActivity(DetallePedidoClienteActivity from, boolean isCliente) {
         Intent intent = new Intent(from.getApplicationContext(), PedidosClientesActivity.class);
+        intent.putExtra("isCliente", isCliente);
         from.startActivity(intent);
     }
 

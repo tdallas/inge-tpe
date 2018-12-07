@@ -1,5 +1,7 @@
 package com.ingeapp.view.activity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.ingeapp.R;
@@ -27,7 +29,8 @@ public class PedidosClientesActivity extends IngeActivity {
 
     @Override
     public void onBackPressed() {
-        if (getIntent().getBooleanExtra("isCliente", false)) {
+        SharedPreferences pref = getApplicationContext().getSharedPreferences("Pref", Context.MODE_PRIVATE);
+        if (pref.getBoolean("isCliente", false)) {
             navigator.showHomeClienteActivity(this);
         } else {
             navigator.showHomeRestaurantActivity(this);
