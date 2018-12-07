@@ -233,4 +233,9 @@ public class Navigator {
         from.startActivity(intent);
 
     }
+
+    public void showHomeRestaurantActivity(PedidosClientesActivity from) {
+        Intent intent = new Intent(from.getApplicationContext(), HomeRestaurantActivity.class);
+        from.startActivity(intent);
+    }
 }

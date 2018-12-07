@@ -27,6 +27,10 @@ public class PedidosClientesActivity extends IngeActivity {
 
     @Override
     public void onBackPressed() {
-        navigator.showHomeClienteActivity(this);
+        if (getIntent().getBooleanExtra("isCliente", false)) {
+            navigator.showHomeClienteActivity(this);
+        } else {
+            navigator.showHomeRestaurantActivity(this);
+        }
     }
 }
