@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 android:text="Pedido Realizado -"
                 android:fontFamily="@font/roboto_bold"
-                android:textSize="20sp"/>
+                android:textSize="17sp"/>
 
             <TextView
                 android:id="@+id/user"

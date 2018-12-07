@@ -191,4 +191,9 @@ public class Navigator {
         intent.putExtra("idPedido", idItemClicked);
         pedidosClientesFragment.startActivity(intent);
     }
+
+    public void showPedidosClientesActivity(DetallePedidoRestauranteFragment detallePedidoRestauranteFragment) {
+        Intent intent = new Intent(detallePedidoRestauranteFragment.getContext(), PedidosClientesActivity.class);
+        detallePedidoRestauranteFragment.startActivity(intent);
+    }
 }

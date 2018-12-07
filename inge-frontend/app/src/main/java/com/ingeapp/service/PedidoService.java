@@ -28,4 +28,7 @@ public interface PedidoService {
 
     @POST("/calificar")
     public Call<Boolean> calificar(@Body CalificarRequest calificarRequest);
+
+    @POST("/pedido/estado")
+    public Call<Boolean> cambiarEstado(@Body long idPedido);
 }

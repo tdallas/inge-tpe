@@ -36,7 +36,7 @@ public class Converter {
     }
 
     @TypeConverter
-    public static List<Producto> stringToProductList(String data) {
+    public static List<Compra> stringToProductList(String data) {
         if (data == null) {
             return Collections.emptyList();
         }
@@ -45,7 +45,7 @@ public class Converter {
     }
 
     @TypeConverter
-    public static String producListToString(List<Producto> someObjects) {
+    public static String producListToString(List<Compra> someObjects) {
         return gson.toJson(someObjects);
     }
 

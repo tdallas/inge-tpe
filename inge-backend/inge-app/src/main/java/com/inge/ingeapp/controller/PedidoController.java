@@ -64,16 +64,13 @@ public class PedidoController {
 
     @PostMapping(value = "/pedido/estado")
     @ResponseBody
-    public ResponseEntity<?> cambiarEstadoPedido(@RequestBody EstadoPedidoRequest estadoPedidoRequest) {
-        if (estadoPedidoRequest == null) {
-            return ResponseEntity.badRequest().build();
-        } else {
-            try {
-                pedidoService.cambiarEstadoPedido(estadoPedidoRequest.getIdPedido(), estadoPedidoRequest.getEstado());
-                return new ResponseEntity<>("Se cambio el estado del pedido correctamente", HttpStatus.OK);
-            } catch (PedidoNotFoundException e) {
-                return ResponseEntity.badRequest().body(e.getMessage());
-            }
+    public ResponseEntity<?> cambiarEstadoPedido(@RequestBody Long idPedido) {
+
+        try {
+            pedidoService.cambiarEstadoPedido(idPedido);
+            return new ResponseEntity<>(true, HttpStatus.OK);
+        } catch (PedidoNotFoundException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
 

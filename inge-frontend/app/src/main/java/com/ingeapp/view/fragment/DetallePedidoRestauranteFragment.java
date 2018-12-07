@@ -12,6 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ingeapp.R;
+import com.ingeapp.model.entities.Compra;
 import com.ingeapp.model.entities.Pedido;
 import com.ingeapp.model.entities.Producto;
 import com.ingeapp.model.viewModel.DetallePedidoRestauranteViewModel;
@@ -28,6 +29,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 public class DetallePedidoRestauranteFragment extends IngeFragment {
 
@@ -57,6 +59,21 @@ public class DetallePedidoRestauranteFragment extends IngeFragment {
 
     private long idPedido;
 
+    @OnClick(R.id.button_cambiar_estado)
+    public void onCambiarEstadoClick() {
+        detallePedidoRestauranteViewModel.cambiarEstado(idPedido).observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(@Nullable Boolean aBoolean) {
+                if (aBoolean) {
+                     showToastError("Estado cambiado con exito!");
+                     navigator.showPedidosClientesActivity(DetallePedidoRestauranteFragment.this);
+                } else {
+                    showToastError("Ocurrio un error de conexion");
+                }
+            }
+        });
+    }
+
     public static Fragment newInstance(long idPedido) {
         DetallePedidoRestauranteFragment fragment = new DetallePedidoRestauranteFragment();
         fragment.setIdPedido(idPedido);
@@ -84,10 +101,9 @@ public class DetallePedidoRestauranteFragment extends IngeFragment {
             @Override
             public void onChanged(@Nullable Pedido pedido) {
                 if (pedido != null) {
-                    List<Producto> productos = new ArrayList<>();
-                    for (Producto p : pedido.getProductos()) {
-                        if (p.getCantidad() != 0)
-                            productos.add(p);
+                    List<Compra> productos = new ArrayList<>();
+                    for (Compra c : pedido.getProductos()) {
+                        productos.add(c);
                     }
                     detalleProductoAdapter.setList(productos);
                     detalleProductoAdapter.notifyDataSetChanged();

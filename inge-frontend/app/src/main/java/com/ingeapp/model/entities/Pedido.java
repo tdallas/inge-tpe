@@ -16,7 +16,7 @@ public class Pedido implements Serializable {
     private Date horaEntrega;
     private String estado;
     private Cliente cliente;
-    private List<Producto> productos = new ArrayList<>();
+    private List<Compra> productos = new ArrayList<>();
     private Calificacion calificacion;
     private String direccionEntrega;
     private Double precio;
@@ -26,7 +26,7 @@ public class Pedido implements Serializable {
     }
 
     public Pedido(Long id, Date horaRealizado, Date horaEntrega, String estado,
-                  Cliente cliente, List<Producto> productos, Calificacion calificacion,
+                  Cliente cliente, List<Compra> productos, Calificacion calificacion,
                   String direccionEntrega, Double precio) {
         this.id = id;
         this.horaRealizado = horaRealizado;
@@ -79,11 +79,11 @@ public class Pedido implements Serializable {
         this.cliente = cliente;
     }
 
-    public List<Producto> getProductos() {
+    public List<Compra> getProductos() {
         return productos;
     }
 
-    public void setProductos(List<Producto> productos) {
+    public void setProductos(List<Compra> productos) {
         this.productos = productos;
     }
 

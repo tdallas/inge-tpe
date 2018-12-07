@@ -23,7 +23,6 @@ public class DetallePedidoRestauranteViewModel extends IngeViewModel {
     }
 
     public LiveData<Boolean> cambiarEstado(long idPedido) {
-
-        return null;
+        return pedidoRepository.cambiarEstado(idPedido);
     }
 }

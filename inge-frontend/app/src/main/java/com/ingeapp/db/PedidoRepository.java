@@ -24,7 +24,9 @@ public class PedidoRepository {
     private MutableLiveData<List<Pedido>> pedidos;
     private MutableLiveData<Boolean> crearPedido;
     private MutableLiveData<Boolean> calificar;
+    private MutableLiveData<Boolean> estado;
     private MutableLiveData<Pedido> pedido;
+
 
     public PedidoRepository(PedidoService pedidoService) {
         this.pedidoService = pedidoService;
@@ -137,5 +139,30 @@ public class PedidoRepository {
             }
         });
         return calificar;
+    }
+
+    public LiveData<Boolean> cambiarEstado(final long idPedido) {
+        estado = new MutableLiveData<>();
+        Executors.newSingleThreadExecutor().execute(new Runnable() {
+            @Override
+            public void run() {
+                pedidoService.cambiarEstado(idPedido).enqueue(new Callback<Boolean>() {
+                    @Override
+                    public void onResponse(Call<Boolean> call, Response<Boolean> response) {
+                        if (response.body() != null && response.body()) {
+                            estado.postValue(true);
+                        } else {
+                            estado.postValue(false);
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<Boolean> call, Throwable t) {
+
+                    }
+                });
+            }
+        });
+        return estado;
     }
 }

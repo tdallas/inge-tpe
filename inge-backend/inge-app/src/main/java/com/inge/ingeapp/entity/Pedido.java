@@ -30,8 +30,8 @@ public class Pedido {
     @ManyToOne
     private Cliente cliente;
 
-    @ManyToMany
-    private List<Producto> productos = new ArrayList<>();
+    @OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+    private List<Compra> productos = new ArrayList<>();
 
     private String calificacion = "";
 
@@ -46,8 +46,8 @@ public class Pedido {
     public Double getPrecioTotal() {
         if (productos.size() != 0) {
             Double precioFinal = 0d;
-            for (Producto p : productos)
-                precioFinal += p.getPrecio() * p.getCantidad();
+            for (Compra c : productos)
+                precioFinal += c.getProducto().getPrecio() * c.getCantidad();
             return precioFinal;
         }
         return 0D;

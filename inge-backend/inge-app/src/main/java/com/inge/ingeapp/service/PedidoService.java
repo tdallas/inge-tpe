@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -37,7 +38,8 @@ public class PedidoService {
         Pedido pedido = new Pedido();
         pedido.setCliente(cliente);
         pedido.setRestaurante(restaurante);
-        pedido.setProductos(productos);
+        List<Compra> compras = getCompras(productos);
+        pedido.setProductos(compras);
         pedido.setDireccionEntrega(direccion);
         pedido.setEstado("PROCESANDO");
         pedido.setHoraRealizado(now);
@@ -48,8 +50,26 @@ public class PedidoService {
         return pedido;
     }
 
+    private List<Compra> getCompras(List<Producto> productos) {
+        List<Compra> compras = new ArrayList<>();
+        for (Producto p : productos) {
+            if (p.getCantidad() > 0)
+                compras.add(new Compra(p, p.getCantidad()));
+        }
+        return compras;
+    }
+
     @Transactional
-    public void cambiarEstadoPedido(Long idPedido, Estado estado) throws PedidoNotFoundException {
+    public void cambiarEstadoPedido(Long idPedido) throws PedidoNotFoundException {
+        Pedido pedido = pedidoRepository.findById(idPedido).get();
+        String estado = "";
+        if (pedido.getEstado().equals("PROCESANDO")) {
+            estado = "ENTREGANDO";
+        } else if (pedido.getEstado().equals("ENTREGANDO")) {
+            estado = "ENTREGADO";
+        } else {
+            return;
+        }
         pedidoRepository.updateEstadoPedido(idPedido, estado);
     }
 

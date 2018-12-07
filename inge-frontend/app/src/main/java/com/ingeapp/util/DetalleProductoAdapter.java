@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.ingeapp.R;
+import com.ingeapp.model.entities.Compra;
 import com.ingeapp.model.entities.Producto;
 
 import java.util.List;
@@ -17,9 +18,9 @@ import butterknife.ButterKnife;
 
 public class DetalleProductoAdapter extends RecyclerView.Adapter<DetalleProductoAdapter.ViewHolder> {
 
-    List<Producto> productos;
+    List<Compra> productos;
 
-    public void setList(List<Producto> productos) {
+    public void setList(List<Compra> productos) {
         this.productos = productos;
     }
 
@@ -33,10 +34,10 @@ public class DetalleProductoAdapter extends RecyclerView.Adapter<DetalleProducto
 
     @Override
     public void onBindViewHolder(@NonNull DetalleProductoAdapter.ViewHolder viewHolder, int i) {
-        Producto producto = productos.get(i);
-        viewHolder.nombreProducto.setText(producto.getNombre().toUpperCase());
-        viewHolder.descripcionProducto.setText(producto.getDetalles());
-        viewHolder.cantidadProducto.setText(producto.getCantidad().toString());
+        Compra compra = productos.get(i);
+        viewHolder.nombreProducto.setText(compra.getProducto().getNombre().toUpperCase());
+        viewHolder.descripcionProducto.setText(compra.getProducto().getDetalles());
+        viewHolder.cantidadProducto.setText(compra.getCantidad().toString());
     }
 
     @Override

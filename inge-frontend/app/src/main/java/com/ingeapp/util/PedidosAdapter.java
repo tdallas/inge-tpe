@@ -52,10 +52,8 @@ public class PedidosAdapter extends RecyclerView.Adapter<PedidosAdapter.ViewHold
         viewHolder.pedido = pedido;
         viewHolder.iscliente = isCliente;
 
-        viewHolder.total.setText("$" + pedido.getPrecio());
         viewHolder.usuario.setText(pedido.getCliente().getEmail());
         viewHolder.fecha.setText(CommonUtils.getFechaValida(pedido.getHoraEntrega()));
-        viewHolder.estado.setText(pedido.getEstado());
 
     }
 
@@ -71,16 +69,10 @@ public class PedidosAdapter extends RecyclerView.Adapter<PedidosAdapter.ViewHold
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public boolean iscliente;
         public Pedido pedido;
-        @BindView(R.id.imagen_pedido)
-        ImageView imageView;
-        @BindView(R.id.usuario)
+        @BindView(R.id.user)
         TextView usuario;
-        @BindView(R.id.fecha)
+        @BindView(R.id.hora)
         TextView fecha;
-        @BindView(R.id.total)
-        TextView total;
-        @BindView(R.id.estado)
-        TextView estado;
 
         private ClickListener clickListener;
 

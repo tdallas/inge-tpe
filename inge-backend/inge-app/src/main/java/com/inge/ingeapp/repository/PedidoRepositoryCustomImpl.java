@@ -9,7 +9,7 @@ import java.util.List;
 
 public class PedidoRepositoryCustomImpl extends BaseRepositoryImpl implements PedidoRepositoryCustom {
     @Override
-    public void updateEstadoPedido(Long idPedido, Estado estado) {
+    public void updateEstadoPedido(Long idPedido, String estado) {
         String query = "UPDATE Pedido p SET p.estado = :estado WHERE p.id = :idPedido";
         Query query2 = entityManager.createQuery(query);
         query2.setParameter("estado", estado);

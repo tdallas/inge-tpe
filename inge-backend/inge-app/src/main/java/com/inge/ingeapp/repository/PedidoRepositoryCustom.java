@@ -7,7 +7,7 @@ import com.inge.ingeapp.entity.Pedido;
 import java.util.List;
 
 public interface PedidoRepositoryCustom {
-    void updateEstadoPedido(Long idPedido, Estado estado);
+    void updateEstadoPedido(Long idPedido, String estado);
 
     List<Pedido> findAllByUserId(Long idUser);
 
