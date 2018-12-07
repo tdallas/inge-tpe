@@ -29,7 +29,7 @@ public class Usuario {
     private String telefono;
     @ManyToOne
     private Rol rol;
-    private boolean verificado = false;
+    private boolean verificado = true;
 
     public Usuario(String nombre, String apellido, String email, String clave, Rol rol,
                    String dni, String telefono) {

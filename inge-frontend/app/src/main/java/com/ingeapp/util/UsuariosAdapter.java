@@ -44,6 +44,11 @@ public class UsuariosAdapter extends RecyclerView.Adapter<UsuariosAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull UsuariosAdapter.ViewHolder viewHolder, int i) {
         //aca se bindea toda la data piola vago, el i es la position dentro de la lista de productos
+        Cliente cliente = usuarios.get(i);
+        viewHolder.apellido.setText(cliente.getApellido());
+        viewHolder.nombre.setText(cliente.getNombre());
+        viewHolder.email.setText(cliente.getEmail());
+        viewHolder.activado.setChecked(cliente.isVerificado());
     }
 
     @Override
@@ -59,7 +64,7 @@ public class UsuariosAdapter extends RecyclerView.Adapter<UsuariosAdapter.ViewHo
         TextView nombre;
         @BindView(R.id.apellido_usuario)
         TextView apellido;
-        @BindView(R.id.activado)
+        @BindView(R.id.checkbox)
         CheckBox activado;
         @BindView(R.id.imagen_usuario)
         ImageView imagen;
