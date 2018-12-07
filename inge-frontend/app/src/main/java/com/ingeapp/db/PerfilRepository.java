@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 
 import com.ingeapp.model.entities.Cliente;
 import com.ingeapp.service.PerfilService;
+import com.ingeapp.service.payload.ClienteResponse;
 import com.ingeapp.service.payload.UpdateRequest;
 
 import java.util.List;
@@ -23,7 +24,7 @@ public class PerfilRepository {
     private final PerfilService perfilService;
     private final Context context;
     private MutableLiveData<Boolean> update = new MutableLiveData<>();
-    private MutableLiveData<List<Cliente>> clientes = new MutableLiveData<>();
+    private MutableLiveData<List<ClienteResponse>> clientes = new MutableLiveData<>();
 
     public PerfilRepository(PerfilService perfilService, Context context) {
         this.perfilService = perfilService;
@@ -58,19 +59,19 @@ public class PerfilRepository {
         return update;
     }
 
-    public LiveData<List<Cliente>> getCliente() {
+    public LiveData<List<ClienteResponse>> getCliente() {
         clientes = new MutableLiveData<>();
         Executors.newSingleThreadExecutor().execute(new Runnable() {
             @Override
             public void run() {
-                perfilService.getUsuarios().enqueue(new Callback<List<Cliente>>() {
+                perfilService.getUsuarios().enqueue(new Callback<List<ClienteResponse>>() {
                     @Override
-                    public void onResponse(Call<List<Cliente>> call, Response<List<Cliente>> response) {
+                    public void onResponse(Call<List<ClienteResponse>> call, Response<List<ClienteResponse>> response) {
                         clientes.postValue(response.body());
                     }
 
                     @Override
-                    public void onFailure(Call<List<Cliente>> call, Throwable t) {
+                    public void onFailure(Call<List<ClienteResponse>> call, Throwable t) {
 
                     }
                 });

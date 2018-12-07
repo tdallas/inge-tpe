@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.ingeapp.R;
 import com.ingeapp.model.entities.Cliente;
 import com.ingeapp.model.entities.Usuario;
+import com.ingeapp.service.payload.ClienteResponse;
 import com.ingeapp.view.fragmentView.ClickListener;
 
 import org.w3c.dom.Text;
@@ -23,12 +24,12 @@ import butterknife.ButterKnife;
 
 public class UsuariosAdapter extends RecyclerView.Adapter<UsuariosAdapter.ViewHolder> {
 
-    private List<Cliente> usuarios;
+    private List<ClienteResponse> usuarios;
 
     public UsuariosAdapter() {
     }
 
-    public void setList(List<Cliente> usuarios) {
+    public void setList(List<ClienteResponse> usuarios) {
         this.usuarios = usuarios;
     }
 
@@ -44,9 +45,8 @@ public class UsuariosAdapter extends RecyclerView.Adapter<UsuariosAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull UsuariosAdapter.ViewHolder viewHolder, int i) {
         //aca se bindea toda la data piola vago, el i es la position dentro de la lista de productos
-        Cliente cliente = usuarios.get(i);
-        viewHolder.apellido.setText(cliente.getApellido());
-        viewHolder.nombre.setText(cliente.getNombre());
+        ClienteResponse cliente = usuarios.get(i);
+        viewHolder.apellido.setText(cliente.getNombreYApellido());
         viewHolder.email.setText(cliente.getEmail());
         viewHolder.activado.setChecked(cliente.isVerificado());
     }
@@ -60,14 +60,10 @@ public class UsuariosAdapter extends RecyclerView.Adapter<UsuariosAdapter.ViewHo
 
         @BindView(R.id.email_usuario)
         TextView email;
-        @BindView(R.id.nombre_usuario)
-        TextView nombre;
         @BindView(R.id.apellido_usuario)
         TextView apellido;
         @BindView(R.id.checkbox)
         CheckBox activado;
-        @BindView(R.id.imagen_usuario)
-        ImageView imagen;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);

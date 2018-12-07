@@ -63,7 +63,7 @@ public class UsuarioController implements CommandLineRunner {
     private List<ClienteResponse> parsearClientes(List<Cliente> clientes) {
         List<ClienteResponse> clientesResponse = new ArrayList<>();
         for (Cliente c : clientes) {
-            clientesResponse.add(new ClienteResponse(c.getEmail(), c.getNombre()+c.getApellido(),
+            clientesResponse.add(new ClienteResponse(c.getEmail(), c.getNombre()+ " " +c.getApellido(),
                     c.getDNI(), c.isVerificado()));
         }
         return clientesResponse;

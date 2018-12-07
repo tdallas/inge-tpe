@@ -12,6 +12,7 @@ import com.ingeapp.R;
 import com.ingeapp.model.entities.Cliente;
 import com.ingeapp.model.viewModel.IngeViewModel;
 import com.ingeapp.model.viewModel.UsuariosViewModel;
+import com.ingeapp.service.payload.ClienteResponse;
 import com.ingeapp.util.UsuariosAdapter;
 
 import java.util.ArrayList;
@@ -46,9 +47,9 @@ public class UsuariosFragment extends IngeFragment {
 
     public void onResume() {
         super.onResume();
-        usuariosViewModel.getUsuarios().observe(this, new Observer<List<Cliente>>() {
+        usuariosViewModel.getUsuarios().observe(this, new Observer<List<ClienteResponse>>() {
             @Override
-            public void onChanged(@Nullable List<Cliente> clientes) {
+            public void onChanged(@Nullable List<ClienteResponse> clientes) {
                 usuariosAdapter.setList(clientes);
                 usuariosAdapter.notifyDataSetChanged();
             }

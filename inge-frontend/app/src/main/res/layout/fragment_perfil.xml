@@ -199,6 +199,6 @@
             android:text="Guardar Cambios"
             android:textSize="25sp"
             android:layout_centerInParent="true"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
     </RelativeLayout>
 </RelativeLayout>

@@ -5,6 +5,7 @@ import android.arch.lifecycle.LiveData;
 import com.ingeapp.dagger.components.IngeComponents;
 import com.ingeapp.db.PerfilRepository;
 import com.ingeapp.model.entities.Cliente;
+import com.ingeapp.service.payload.ClienteResponse;
 
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class UsuariosViewModel extends IngeViewModel {
         component.inject(this);
     }
 
-    public LiveData<List<Cliente>> getUsuarios() {
+    public LiveData<List<ClienteResponse>> getUsuarios() {
         return perfilRepository.getCliente();
     }
 }

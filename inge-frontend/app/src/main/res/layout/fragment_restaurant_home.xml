@@ -27,7 +27,7 @@
                 android:text="Ver pedidos"
                 android:textSize="25sp"
                 android:layout_below="@id/icon_pedidos"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:layout_centerInParent="true"/>
         </RelativeLayout>
 
@@ -55,7 +55,7 @@
                 android:text="Ver usuarios"
                 android:textSize="25sp"
                 android:layout_below="@id/icon_usuarios"
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:layout_centerInParent="true"/>
         </RelativeLayout>
 

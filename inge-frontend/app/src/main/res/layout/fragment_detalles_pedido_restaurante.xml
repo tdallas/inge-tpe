@@ -239,7 +239,7 @@
                     android:text="Adelantar Estado de Pedido"
                     android:textSize="20sp"
                     android:layout_centerInParent="true"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/black"/>
             </RelativeLayout>
         </LinearLayout>
 

@@ -76,11 +76,23 @@ public class ProductoController implements CommandLineRunner {
     public void run(String... args) throws Exception {
         if (productoRepository.findByNombre("Pizza").isPresent())
             return;
-        Producto pizzaProducto = new Producto("Pizza", "Pizza de fugazzeta", 123.50d);
-        Producto pizza2Producto = new Producto("Pizza2", "Pizza de muzzarella", 133.50d);
-        Producto pizza3Producto = new Producto("Pizza3", "Pizza de palmitos", 143.50d);
-        Producto pizza4Producto = new Producto("Pizza4", "Pizza hawaianna", 153.50d);
-        Producto pizza5Producto = new Producto("Pizza5", "Pizza calabresa", 163.50d);
+        Producto pizzaProducto = new Producto("Pizza", "Pizza de muzzarella", 123.50d);
+        Producto pizza2Producto = new Producto("Pizza", "Pizza doble muzzarella", 153.50d);
+        Producto pizza3Producto = new Producto("Pizza", "Pizza de palmitos", 183.50d);
+        Producto pizza4Producto = new Producto("Pizza", "Pizza hawaianna", 200.50d);
+        Producto pizza5Producto = new Producto("Pizza", "Pizza calabresa", 250.50d);
+        Producto empanada = new Producto("Empanada", "Empanada de carne", 15d);
+        Producto empanada2 = new Producto("Empanada", "Empanada de pollo", 15d);
+        Producto empanada3 = new Producto("Empanada", "Empanada de jamon y queso", 10d);
+        Producto bebida = new Producto("Bebida", "Coca cola", 70d);
+        Producto cerveza = new Producto("Bebida", "Cerveza quilmes", 60d);
+        Producto bebida2 = new Producto("Bebida", "Fernet + coca", 100d);
+        productoRepository.save(empanada);
+        productoRepository.save(empanada2);
+        productoRepository.save(empanada3);
+        productoRepository.save(bebida);
+        productoRepository.save(bebida2);
+        productoRepository.save(cerveza);
         productoRepository.save(pizzaProducto);
         productoRepository.save(pizza2Producto);
         productoRepository.save(pizza3Producto);
