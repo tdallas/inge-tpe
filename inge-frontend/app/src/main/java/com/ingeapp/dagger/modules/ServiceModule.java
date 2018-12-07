@@ -22,7 +22,7 @@ public class ServiceModule {
     public Retrofit provideRetrofit(Gson gson) {
         OkHttpClient client = new OkHttpClient.Builder().build();
         return new Retrofit.Builder()
-                .baseUrl("http://181.28.198.15:8080")
+                .baseUrl("http://192.168.1.111:8080")
                 //.baseUrl("http://192.168.0.135:8080")
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .client(client)
