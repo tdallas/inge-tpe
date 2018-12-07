@@ -16,5 +16,5 @@ Instrucciones de instalacion:
 5) Clonarse el repo
 6) Importar el proyecto backend, carpeta 'inge-app' en intellij, y hacer que lo importe usando MAVEN.
 6) Clean y compilar el backend
-7) 'Darle play' al backend, ver que no haya explotado por algo y haya quedado levantado
+7) 'Darle play' al backend
 8) Instalar el .apk en el celular
