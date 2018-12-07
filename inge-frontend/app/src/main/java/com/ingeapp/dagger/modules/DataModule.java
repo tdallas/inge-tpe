@@ -69,8 +69,8 @@ public class DataModule {
 
     @Singleton
     @Provides
-    public PerfilRepository providesPerfilRepository(PerfilService perfilService) {
-        return new PerfilRepository(perfilService);
+    public PerfilRepository providesPerfilRepository(PerfilService perfilService, Context context) {
+        return new PerfilRepository(perfilService, context);
     }
 
     @Provides

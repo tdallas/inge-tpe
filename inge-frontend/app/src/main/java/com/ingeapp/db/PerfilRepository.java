@@ -2,6 +2,8 @@ package com.ingeapp.db;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
+import android.content.Context;
+import android.content.SharedPreferences;
 
 import com.ingeapp.model.entities.Cliente;
 import com.ingeapp.service.PerfilService;
@@ -19,11 +21,13 @@ import retrofit2.Response;
 @Singleton
 public class PerfilRepository {
     private final PerfilService perfilService;
+    private final Context context;
     private MutableLiveData<Boolean> update = new MutableLiveData<>();
     private MutableLiveData<List<Cliente>> clientes = new MutableLiveData<>();
 
-    public PerfilRepository(PerfilService perfilService) {
+    public PerfilRepository(PerfilService perfilService, Context context) {
         this.perfilService = perfilService;
+        this.context = context;
     }
 
     public LiveData<Boolean> updateInfo(final UpdateRequest updateRequest) {
@@ -39,6 +43,9 @@ public class PerfilRepository {
                         } else {
                             update.postValue(false);
                         }
+                        SharedPreferences.Editor editor = context.getSharedPreferences("Pref", Context.MODE_PRIVATE).edit();
+                        editor.putString("dir", updateRequest.getDirecction());
+                        editor.apply();
                     }
 
                     @Override

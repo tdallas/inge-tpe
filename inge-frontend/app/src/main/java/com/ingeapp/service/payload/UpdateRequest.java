@@ -19,4 +19,32 @@ public class UpdateRequest {
         this.mailActual = mailActual;
         this.claveActual = claveActual;
     }
+
+    public String getMailActual() {
+        return mailActual;
+    }
+
+    public String getClaveActual() {
+        return claveActual;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public String getClave() {
+        return clave;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public Long getIdUser() {
+        return idUser;
+    }
+
+    public String getDirecction() {
+        return direcction;
+    }
 }
